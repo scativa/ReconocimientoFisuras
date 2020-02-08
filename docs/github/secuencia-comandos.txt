@@ -4,7 +4,7 @@
 /*
 
 
-/* Al comenzar me pongo al día
+/* Al comenzar me pongo al dÃ­a
 $ git branch
 $ git checkout master
 $ git pull origin master
@@ -42,16 +42,21 @@ $ git pull origin master
 $ git branch organizando-doc
 $ git checkout organizando-doc
 
-/* Copio, muevo y borro archivos y carpetas según lo quiera organizar
+/* Copio, muevo y borro archivos y carpetas segÃºn lo quiera organizar
 
 /* Cuando termino agrego todo al branch y hago el commit
 $ git add --all /* agrega las modificaciones al index
 $ git commit -m "organizando documentacion de martin" /* No me queda claro que es exactamente lo que hace el commit, ya que no lo sube a GitHub.
 $ git push origin organizando-doc /* sube al github el branch
 
-/* Vuelvo a actualizar el master para estar seguro (no sé por qué usa "rebase" y no "pull origin")...
+/* Vuelvo a actualizar el master para estar seguro (no sÃ© por quÃ© usa "rebase" y no "pull origin")...
 $ git rebase master
-$ git push origin organizando-doc --force /* y lo fuerzo a subir (no lo había hecho en el comando anterior??)
+$ git push origin organizando-doc --force /* y lo fuerzo a subir (no lo habÃ­a hecho en el comando anterior??)
 
-/* Después desde la página hago el pull request y el merge. En este caso sin esperar la respuesta al pull ya que no hay conflictos
+/* DespuÃ©s desde la pÃ¡gina hago el pull request y el merge. En este caso sin esperar la respuesta al pull ya que no hay conflictos
 
+/* Para borrar y actualizar branches remotos
+git branch -a
+git remote update origin --prune
+git remote prune origin
+git branch -d add-trainingimages-seba
