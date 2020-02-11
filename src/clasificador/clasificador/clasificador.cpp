@@ -9,14 +9,17 @@
 using namespace cv;
 using namespace std;
 
-// Define el umbral a partir de cuando un pixel de la imagen original y de la marcada son distintos. 
+// Define el umbral a partir de cuando un pixel de la imagen original y de la marcada son distintos. Esto se debe al formato comprimido de jpeg
 #define TH 50
 
 // Define el tamaños de los cuadros en que subdivide la imagen
-#define CUADSIZE 50
+#define CUADSIZE 200
 
-// Define la cantidad mínima de píxeles que un cuadro tiene que intersecar la máscara para que sea considerado como positivo (con falla). Esto debería ser una proporción de CUADSIZE
-#define TH_MASK_PIXELS 100
+// Define la cantidad mínima de píxeles que un cuadro tiene que intersecar la máscara para que sea considerado como positivo (con falla) en función de CUADSIZE
+#define TH_MASK_PIXELS (CUADSIZE * 0.0125)
+
+// Define la cantidad de sub pasos en los que avanza los cuadros. En un número mayor a uno los cuadros se superponen
+#define CUADSUBSTEP 3
 
 int main()
 {
@@ -57,8 +60,8 @@ int main()
 	// Generación de los cuadros positivos (marcados con fallas) y los negativos. Clasificación
 	//
 	int count = 0;
-	for (int i = 0; i < image_original.cols - CUADSIZE; i += CUADSIZE) {
-		for (int j = 0; j < image_original.rows - CUADSIZE;  j += CUADSIZE) {
+	for (int i = 0; i < image_original.cols - CUADSIZE; i += int(CUADSIZE / CUADSUBSTEP)) {
+		for (int j = 0; j < image_original.rows - CUADSIZE;  j += int(CUADSIZE / CUADSUBSTEP)) {
 
 
 			// Se toman las submatrices a partir del rectángulo R de tamaño CUADSIZE * CUADSIZE 
