@@ -4,6 +4,8 @@ Secuencia de comandos standar para actualizar la copia local de git hub, generar
 ### Extracto de:
 https://gist.github.com/blackfalcon/8428401
 
+Este sitio se construyó usando [GitHub Pages](https://gist.github.com/blackfalcon/8428401).
+
 #### Al comenzar me pongo al día
 ```
 $ git branch
