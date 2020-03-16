@@ -1,10 +1,7 @@
 # Secuencia de comandos GITHUB
 Secuencia de comandos standar para actualizar la copia local de git hub, generar un branch y subirlo
 
-### Extracto de:
-https://gist.github.com/blackfalcon/8428401
-
-Este sitio se construyó usando [GitHub Pages](https://gist.github.com/blackfalcon/8428401).
+Este documento se construyó usando [Git-workflow or feature branching](https://gist.github.com/blackfalcon/8428401).
 
 #### Al comenzar me pongo al día
 ```
