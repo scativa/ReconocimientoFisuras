@@ -4,7 +4,7 @@ Librerías utilizadas, configuración e instalación
 
 ## PyTorch
 ### Install
-Download: [PyTorch](https://pytorch.org/)
+Download: [PyTorch](https://pytorch.org/get-started/locally/)
 
 PyTorch Build: ```Stable (1.4)```
 
@@ -14,8 +14,7 @@ Packge: ```LibTorch```
 
 Language: ```C++/Java```
 
-CUDA: ```10.1```
-
+CUDA: ```None```
 
 
 ## OpenCV
