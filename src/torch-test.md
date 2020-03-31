@@ -24,7 +24,9 @@ Copiar en la carpeta donde se encuetra el proyecto librerías dinámicas de pyto
 
 Para este projecto específico sólo precisa: ```c10.dll``` ```torch.dll``` ```libiomp5md.dll```
 
-La copia de las DLL se puede evitar agregando el la variable de entorno de windows PATH el camino a la librería (ej. C:\Repositories\libtorch\lib) como se muestra en la ![imagen de ejemplo](./docs/opencv_pytorch_win_path.jpg). 
+La copia de las DLL se puede evitar agregando el la variable de entorno de windows PATH el camino a la librería (ej. C:\Repositories\libtorch\lib) como se muestra en la siguiente imagen:
+![Propiedades del sistema](../docs/opencv_pytorch_win_path.jpg). 
+
 Opencv utiliza este modalidad [+ ver más detalles](../docs/Environment.md). 
 Tiene la ventaja de no andar moviendo para compartir el proyecto, ni duplicando DLL en cada proyecto. Evita ocupar espacio y hacer pesada la solución y simplifica una actualización de DLL.
 
