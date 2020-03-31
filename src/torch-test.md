@@ -21,7 +21,9 @@ Template: ```Console App```
 
 Copiar en la carpeta donde se encuetra el proyecto librerías dinámicas de pytorch en la carpeta del proyecto:
 ```xcopy C:\Repositories\libtorch\.dll %PATHTOPROJECT%\torch-test\torch-test\```
+
 Para este projecto específico sólo precisa: ```c10.dll``` ```torch.dll``` ```libiomp5md.dll```
+
 La copia de las DLL se puede evitar agregando el la variable de entorno de windows PATH el camino a la librería (ej. C:\Repositories\libtorch\lib). Opencv utiliza este modalidad. Tiene la ventaja de no andar moviendo para compartir el proyecto, ni duplicando DLL en cada proyecto. Evita ocupar espacio y hacer pesada la solución y simplifica una actualización de DLL.
 
 *Importante: No es necesario copiar los *.lib*
