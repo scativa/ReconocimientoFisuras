@@ -29,3 +29,9 @@ Instalar Visual Studio con el pack de phyton incluido (hay que marcalo)
 
 Seguir los pasos con la antenicon puesta a la configuracion dentro del unproyecto nuevo dentro de visual, para que
 encuentre las librerias y linkee corractamente.
+
+## Configuración de sistema
+Cómo configurar la variable de entorno de Windows para incluir las DLL en la variable PATH:
+![Propiedades del sistema](../docs/opencv_pytorch_win_path.jpg)
+__Nota: Luego de realizar esta modificación el Visual Studio debe ser abierto nuevamente para que lo tome__
+
