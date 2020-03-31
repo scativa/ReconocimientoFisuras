@@ -4,7 +4,7 @@ Contine un proyecto que utiliza pytorch con Visual Studio 2019 y Windows 10. Per
 ## Testing
 
 ### Configuración
-Windows 10 Home x64 versión 1903
+Windows 10 **Home x64 versión 1903**
 Visual Studio Community 2019 16.5.1
 
 PyTorch 
@@ -18,6 +18,11 @@ CUDA: ```None```
 
 ### Nuevo proyecto
 Template: ```Console App```
+
+Copiar en la carpeta donde se encuetra el proyecto librerías dinámicas de pytorch en la carpeta del proyecto:
+```xcopy C:\Repositories\libtorch\.dll %PATHTOPROJECT%\torch-test\torch-test\```
+
+*Importante: No es necesario copiar los *.lib*
 
 ### Configuración
 Configuration manager: 
@@ -38,19 +43,23 @@ __Library Directories:__
 __Input->__  
 __Additional Denpendcies:__       
 * ```c10.lib```
+* ```torch.lib```
+
+*Nota: Para este ejemplo __no__ es necesario ni copiar ni agregar a las dependencias el resto de las librería, pero puede ser necesario para otros*
 * ```caffe2_module_test_dynamic.lib```
 * ```clog.lib```
 * ```cpuinfo.lib```
 * ```libprotobuf.lib```
 * ```libprotobuf-lite.lib```
 * ```libprotoc.lib```
-* ```torch.lib```
 
 
+### Notas:
+1. Se considera que la librería de pytorch está ubicada en ```C:\Repositories\libtorch```
 
 
+## Resultado
 
-Resultado
 ```
  0.3577  0.6588 -0.4557  0.2118 -0.0977  0.4034
  0.3433  0.9373  0.0186  0.1569  0.3913 -0.1046
