@@ -78,3 +78,4 @@ git branch -d add-trainingimages-seba
 ## Referencias adicionales
 1. [How to list branches in Git?](https://www.jquery-az.com/list-branches-git/)
 2. [Git Branching - Remote Branches](https://git-scm.com/book/id/v2/Git-Branching-Remote-Branches)
+3. [Git Basics - Mendapatkan Repository Git](https://git-scm.com/book/id/v2/Git-Basics-Mendapatkan-Repository-Git)
