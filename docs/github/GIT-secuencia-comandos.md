@@ -36,11 +36,12 @@ $ git push origin my-feature-branch --force   /* force update the remote
 ### Ejemplo secuencias hechas (Seba) para mover unos documentos
 Casi lo mismo que lo anterior pero probado
 
-1. Empiezo por bajar lo que hay en el master de servidor*
+1. Empiezo por bajar lo que hay en el master de servidor y actualizo (el listado?) de branches remotos
 ```
 $ git branch
 $ git checkout master
 $ git pull origin master
+$ git remote update --prune
 ```
 
 2. Genero un nuevo branch para trabajar y me paso a al nuevo branch
@@ -73,3 +74,8 @@ git remote update origin --prune
 git remote prune origin
 git branch -d add-trainingimages-seba
 ```
+
+## Referencias adicionales
+1. [How to list branches in Git?](https://www.jquery-az.com/list-branches-git/)
+2. [Git Branching - Remote Branches](https://git-scm.com/book/id/v2/Git-Branching-Remote-Branches)
+3. [Git Basics - Mendapatkan Repository Git](https://git-scm.com/book/id/v2/Git-Basics-Mendapatkan-Repository-Git)
