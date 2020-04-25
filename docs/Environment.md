@@ -6,6 +6,7 @@ Librerías utilizadas, configuración e instalación
 ### Install
 Download: [PyTorch](https://pytorch.org/get-started/locally/)
 
+#### Windows
 PyTorch Build: ```Stable (1.4)```
 
 Your SO: ```Windows```
@@ -15,6 +16,19 @@ Packge: ```LibTorch```
 Language: ```C++/Java```
 
 CUDA: ```None```
+
+#### Linux
+PyTorch Build: ```Stable (1.5)```
+
+Your SO: ```Linux```
+
+Packge: ```Pip```
+
+Language: ```C++/Java```
+
+CUDA: ```None```
+
+Run this Command: ```pip install torch==1.5.0+cpu torchvision==0.6.0+cpu -f https://download.pytorch.org/whl/torch_stable.html```
 
 
 ## OpenCV
