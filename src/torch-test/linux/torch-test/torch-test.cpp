@@ -9,7 +9,8 @@
 #include <vector>
 #include <random>
 
-#include <torch/torch.h>
+// #include </home/seba/Repositories/libtorch/include/torch/torch.h>
+#include "/home/seba/Repositories/libtorch/include/torch/csrc/api/include/torch/torch.h"
 
 using namespace std;
 
