@@ -41,4 +41,5 @@ El resultado debería ser una salida similar a la siguiente:
 ## Entorno
 La versión de pytorch descargada se corresponde a una que ejecuta en CPU. Cambiar el nombre del archivo, tanto a descargar como al descomprimir según la versión deseada.
 Según: https://pytorch.org/get-started/locally/. 
+Configuración utilizada: [Documentación de entorno](/docs/Environment.md)
 
