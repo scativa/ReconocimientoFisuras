@@ -43,3 +43,5 @@ La versión de pytorch descargada se corresponde a una que ejecuta en CPU. Cambi
 Según: https://pytorch.org/get-started/locally/. 
 Configuración utilizada: [Documentación de entorno](/docs/Environment.md)
 
+## Estructura de directorios
+![Estructura del directorio en Google Colab](/docs/GoogleColab.png)
