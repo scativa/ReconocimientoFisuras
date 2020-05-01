@@ -1,11 +1,11 @@
 #include "pch.h"
 #include "Net.h"
 #include "Cement.h"
+#include "cmdlineopt.h"
 
 
 using namespace cv;
 using namespace std;
-
 
 template <typename DataLoader>
 float test_batch(Net MODEL,  DataLoader& DATA_LOADER, size_t SIZE) {
@@ -43,11 +43,14 @@ void train_batch(size_t EPOCH, Net MODEL, DataLoader& DATA_LOADER, torch::optim:
     std::printf("\r\n");
 };
 
-
 torch::Device device = (torch::cuda::is_available() ? torch::kCUDA : torch::kCPU);
 
-int main()
-{    
+int main(int argc, char* argv[]) {
+
+
+    cout << "Corriendo ..."; exit(0);
+
+    CmdLineOpt opt(argc, argv);
 
     //------------------------------------------------------------------------------------------------
     Net net; // auto net = std::make_shared<NetImpl>();
@@ -55,22 +58,39 @@ int main()
     // definicion como Net simplemente. explicado en profundidad MUY POCO claro en,
     // https://pytorch.org/tutorials/advanced/cpp_frontend.html
     net->to(device); // lo paso a GPU si existe.
+
+    if (opt.Verbose()) {
+        std::cout << "Device: ";
+        if (device == torch::kCUDA) cout << "CUDA"; else cout << "CPU";
+        cout << endl;
+    }
+
     //------------------------------------------------------------------------------------------------
     // Si existe un entrenamiento previo arranca desde ahi, sino empieza desde cero/
-    try {
-        torch::load(net, "model.pt");
-    }
-    catch (...) {}
+    if (opt.NewModel()) 
+        try {
+            torch::load(net, opt.ModelFN());
+            if (opt.Verbose())
+                cout << "Archivo '" << opt.ModelFN() << "'!" << endl;
+        }
+        catch (...) { if (opt.Verbose()) cout << "Archivo '" << opt.ModelFN() << "' no encontrado. Creando '" << opt.ModelFN() << "' de cero." << endl; }
+    else
+        if (opt.Verbose()) cout << "Creando '" << opt.ModelFN() << "' de cero." << endl;
+
     //------------------------------------------------------------------------------------------------
     // 5y9wdsg2zt-1.zip: Crea dos subcarpetas Negative y Positive, se decomprimio en esta direccion.
     // https://data.mendeley.com/datasets/5y9wdsg2zt/1
-    string DATA_DIR = "C:\\Repositories\\CementCrack\\5y9wdsg2zt-1";
+    string DATA_DIR = "C:/Repositories/CementCrack/5y9wdsg2zt-1";
     //string DATA_DIR = "C:\\Repositories\\CementCrack\\SDNET2018";
+    // https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6247444/
     //------------------------------------------------------------------------------------------------
     // Variables con las cuales voy a entrenar la RED
     //------------------------------------------------------------------------------------------------
+ 
+    torch::data::datasets::Create_tensor_files_from_images(DATA_DIR, opt.DatasetPrefix(), opt.PercentToTrain(), opt.OverwriteDataset());
+
     auto m_data_set_train =
-        torch::data::datasets::Cement(DATA_DIR, torch::data::datasets::Cement::Mode::Train)/*TRAIN*/
+        torch::data::datasets::Cement(DATA_DIR, opt.DatasetPrefix(), torch::data::datasets::Cement::Mode::Train)/*TRAIN*/
         /* creo q la opcion que le sigue es para que vaya sacando secuencialmente el par <IMG,LABEL>
         y no seleccione al azar, xq ya lo mezcle cuando cree objeto <Cement>.*/
         .map(torch::data::transforms::Stack<>());
@@ -84,13 +104,18 @@ int main()
     // Variables para testear la RED, la RED nunca las aprende, aca es donde tiene que generalizar.
     //------------------------------------------------------------------------------------------------
     auto m_data_set_test =
-        torch::data::datasets::Cement(DATA_DIR, torch::data::datasets::Cement::Mode::Test)/*TEST*/
+        torch::data::datasets::Cement(DATA_DIR, opt.DatasetPrefix(), torch::data::datasets::Cement::Mode::Test)/*TEST*/
         .map(torch::data::transforms::Stack<>());
-
+    
     auto m_data_loader_test =
         torch::data::make_data_loader(
             m_data_set_test,
             torch::data::DataLoaderOptions().batch_size(m_batch_size).workers(4));
+
+    std::cout << "m_data_set_train size: " << m_data_set_train.size().value() << endl;
+    std::cout << "m_data_set_test size: " << m_data_set_test.size().value() << endl;
+
+
     //------------------------------------------------------------------------------------------------
     // Aca elijo que algoritmo de aprendizaje que quiero, hay bocha, se pueden probar..
     // https://pytorch.org/cppdocs/api/namespace_torch__optim.html
@@ -100,32 +125,35 @@ int main()
     torch::optim::Adam optimizer(net->parameters(), torch::optim::AdamOptions(2e-4).beta1(0.5));
     //--------------------------------------------------------------------------------------------
 
-    size_t N_EPOCH_TO_TRAIN = 10;
+    size_t N_EPOCH_TO_TRAIN = opt.EpochCount();
     float m_best_accuracy = 0.0f;
 
     for (int epoch = 0; epoch < N_EPOCH_TO_TRAIN; epoch++) {
+        cout << endl << "Epoch: " << epoch << "/" << N_EPOCH_TO_TRAIN << ":" << endl;
         // Testea las imagenes de entrenamiento
         size_t m_train = m_data_set_train.size().value();
-        cout << "Try " << m_train / 1000 << "k: ";
+        cout << "Try " << float(m_train / 1000) << "k train data: ";
         test_batch(net, *m_data_loader_train, m_train);
 
         //Ahora testeo con imagenes con la cuales no entrena y nunca vio, si la red aprendio la graba a disco.
         size_t m_test = m_data_set_test.size().value();
-        cout << "Try " << m_test / 1000 << "k: ";
+        cout << "Try " << float(m_test / 1000) << "k test data: ";
         float m_accuracy = test_batch(net, *m_data_loader_test, m_test);
 
         if (m_accuracy > m_best_accuracy) {
             m_best_accuracy = m_accuracy;
-            cout << "Guardando!!.. a model.pt" << endl;
-            torch::save(net, "model.pt");
+            cout << "Guardando '" << opt.ModelFN() << "'... ";
+            torch::save(net, opt.ModelFN());
+            cout << "Listo!" << endl;
         }
 
         //Haciendo una pasada por todas las imagenes para entrenar.
+        cout << "Entrenando:" << endl;
         train_batch(epoch, net, *m_data_loader_train, optimizer, m_train);
     };
 
 
-    system("pause");
+    //system("pause");
     return 0;
 };
 

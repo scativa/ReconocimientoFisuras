@@ -1,13 +1,15 @@
 #pragma once
 #include "pch.h"
-#include "C:\Proyectos\Fisuras\CVNet_Cement\Net.h"
+#include "..\CVNet_Cement\Net.h"
 #include <windows.h>
 
 using namespace std;
 using namespace cv;
 
-//string Folder_with_JPGs = "C:\\Repositories\\CementCrack\\5y9wdsg2zt-1\\Positive";
-string Folder_with_JPGs = "C:\\Repositories\\CementCrack\\SDNET2018\\POSITIVE";
+const std::string modelfn = "model_5y9_75(30k)_ep10.pt";
+
+string Folder_with_JPGs = "C:\\Repositories\\CementCrack\\5y9wdsg2zt-1\\Positive";
+//string Folder_with_JPGs = "C:\\Repositories\\CementCrack\\SDNET2018\\POSITIVE";
  // tamano en pixel que toma la RED a la entrada 64x64 pixels
 #define CUADSIZE 64
 
@@ -109,7 +111,7 @@ int main()
     //------------------------------------------------------------------------------------------------
     // Si existe un entrenamiento previo arranca desde ahi, sino empieza desde cero/
     try {
-        torch::load(net, "C:\\Proyectos\\Fisuras\\CVNet_Cement\\model.pt");
+        torch::load(net, "..\\CVNet_Cement\\model.pt");
         Test_in_every_jpg_in_the_directory(Folder_with_JPGs, net);
     }
     catch (...) {}

@@ -1,0 +1,11 @@
+# ignore all .exe files in the doc/ directory
+/**/*.exe
+/**/*.*obj
+/**/*.*log
+/**/*.log
+/**/Release/*
+/**/Debug/*
+/**/*.pt
+/.vs
+
+

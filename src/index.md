@@ -1,10 +1,12 @@
 # Fuentes de los proyectos #
 
-*/opencv-test:* Proyecto de prueba de funcionamiento de OpenCV sobre VS19
+*/test:* Proyectos de pruebas varias, generalmente "hello world" (opencv, torc, procompiled header, etc...)
 
 */clasificador:* Proyecto que a partir de una imágene y su copia marcada la subdvide en positivos y negativos (con o sin fallas)
 
-*/Fisuras*: Proyecto ya dedicado a la clasificación de fisuras.
+*/Fisuras*: Proyecto ya dedicado a la clasificación de fisuras. Actualmente es la vesión modificada por Seba (branch *datasets_generation* al 1-may-2020
+
+*/Fisuras (version inicial de martín).rar*: Versión inicial de *Fisuras* generado por martín. 
 
 */MNIST:*: Ensayo de NN con las bases de MNIST
 

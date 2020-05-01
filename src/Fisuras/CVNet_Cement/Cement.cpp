@@ -1,11 +1,33 @@
+#include "pch.h"
 #include "Cement.h"
 #include <windows.h>
+
+
+#define _VERBOSE_MODE_
+//#define _OVERWRITE_IMAGES_TENSOR_ 1
+
+/*
+#if defined(_WIN16) | defined(_WIN32) | defined(_WIN64)
+#define SEPERATOR "\\"
+#else
+#define SEPERATOR "/"
+#endif
+*/
+
+#define DSEP "/"
+
+#define IMG_FNAME(ROOT_FOLDER,PREFIX_FN,MODE) ROOT_FOLDER + DSEP + PREFIX_FN + str_mode[(int) MODE] + "IMAGES.tensor"
+#define TRG_FNAME(ROOT_FOLDER,PREFIX_FN,MODE) ROOT_FOLDER + DSEP + PREFIX_FN + str_mode[(int) MODE] + "TARGET.tensor"
 
 namespace torch {
     namespace data {
         namespace datasets {
-            enum type { POSITIVE, NEGATIVE };
-            const float Percentage_of_pictures_used_to_train = 0.75f;
+            enum type { POSITIVE=0, NEGATIVE=1 };
+            enum mode { TRAIN=0, TEST=1};
+            std::string str_type[] = { "Positive", "Negative" };
+            std::string str_mode[] = { "TRAIN_", "TEST_" };
+
+            // float Percentage_of_pictures_used_to_train = 0.015f;
             uint32_t Image_rows_to_resize_picture = 64;
             uint32_t Image_column_to_resize_picture = 64;
             uint32_t Number_of_pictures_that_use_to_train;
@@ -45,7 +67,8 @@ namespace torch {
             };
 
             std::pair<Tensor, Tensor> PreProccesingData(const std::string& ROOT_FOLDER, const type& TYPE) {
-                string m_path = (TYPE == type::POSITIVE) ? "\\Positive\\" : "\\Negative\\";
+                string m_path = DSEP + string(str_type[(int)TYPE]) + DSEP;
+
                 auto m_files_vec = Get_file_list_from_directory(ROOT_FOLDER + m_path);
                 if (m_files_vec.size() == 0) exit(-1);
 
@@ -74,13 +97,13 @@ namespace torch {
                 }
                 return std::pair<Tensor, Tensor>(m_images, m_target);
             };
-
-            Cement::Cement(const std::string& ROOT_FOLDER, const Mode& MODE) {
-                string m_type = (MODE == Mode::Train) ? "TRAIN_" : "TEST_";
-
+                        
+            void Create_tensor_files_from_images(const std::string& ROOT_FOLDER, const std::string& PREFIX_FN, float Percentage_of_pictures_used_to_train, bool overwrite) {
                 std::ifstream file;
-                file.open((ROOT_FOLDER + "\\" + m_type + "IMAGES.tensor").c_str(), std::ios::binary);
-                if (!file) {
+                
+                file.open((IMG_FNAME(ROOT_FOLDER, PREFIX_FN, mode::TRAIN)).c_str(), std::ios::binary);
+                
+                if ((!file) || overwrite) {
                     std::cout << "Creando Base de Imagenes y Tensores..." << std::endl;
 
                     auto m_tensor_negative = PreProccesingData(ROOT_FOLDER, type::NEGATIVE);
@@ -92,33 +115,46 @@ namespace torch {
                     std::pair<Tensor, Tensor> m_tensor_suffle = ShuffleTensors(m_tensor_imagen, m_tensor_target);
 
                     Number_of_pictures_that_use_to_train = (uint32_t)(m_tensor_imagen.size(0) * Percentage_of_pictures_used_to_train);
-                    Number_of_pictures_that_use_to_test  = (uint32_t)(m_tensor_imagen.size(0) - Number_of_pictures_that_use_to_train);
+                    Number_of_pictures_that_use_to_test = (uint32_t)(m_tensor_imagen.size(0) - Number_of_pictures_that_use_to_train);
 
                     std::vector<at::Tensor> m_vec_imagen = m_tensor_suffle.first.split(Number_of_pictures_that_use_to_train);
                     std::vector<at::Tensor> m_vec_target = m_tensor_suffle.second.split(Number_of_pictures_that_use_to_train);
+                    /// Si Number_of_pictures_that_use_to_train < Number_of_pictures_that_use_to_test el tensor de test igual
+                    /// al de entrenamiento, descartando el resto de las imágenes
+                    /// https://pytorch.org/docs/stable/torch.html#torch.split
 
-                    torch::save(m_vec_imagen[0].to(torch::kFloat32).div_(255), ROOT_FOLDER + "\\TRAIN_IMAGES.tensor");
-                    torch::save(m_vec_target[0].to(torch::kInt64), ROOT_FOLDER + "\\TRAIN_TARGET.tensor");
-                    torch::save(m_vec_imagen[1].to(torch::kFloat32).div_(255), ROOT_FOLDER + "\\TEST_IMAGES.tensor");
-                    torch::save(m_vec_target[1].to(torch::kInt64), ROOT_FOLDER + "\\TEST_TARGET.tensor");
+                    torch::save(m_vec_imagen[0].to(torch::kFloat32).div_(255),
+                        IMG_FNAME(ROOT_FOLDER, PREFIX_FN, mode::TRAIN));
+                    torch::save(m_vec_target[0].to(torch::kInt64), 
+                        TRG_FNAME(ROOT_FOLDER, PREFIX_FN, mode::TRAIN));
+                    torch::save(m_vec_imagen[1].to(torch::kFloat32).div_(255), 
+                        IMG_FNAME(ROOT_FOLDER, PREFIX_FN, mode::TEST));
+                    torch::save(m_vec_target[1].to(torch::kInt64), 
+                        TRG_FNAME(ROOT_FOLDER, PREFIX_FN, mode::TEST));
+
+                    // torch::save(m_tensor_suffle.first.to(torch::kFloat32).div_(255), ROOT_FOLDER + "\\TEST_IMAGES_ALL.tensor");
+                    // torch::save(m_tensor_suffle.second.to(torch::kInt64), ROOT_FOLDER + "\\TEST_TARGET_ALL.tensor");
 
                     file.close();
-                }
 
-                switch (MODE) {
-                case Mode::Train:
-                    std::cout << "Cargando Imagenes para entrenamiento." << std::endl;                 
-                    torch::load(images_, ROOT_FOLDER + "\\TRAIN_IMAGES.tensor");
-                    torch::load(targets_, ROOT_FOLDER + "\\TRAIN_TARGET.tensor");
-                    std::cout << "Listo!." << std::endl;
-                    break;
-                case Mode::Test:
-                    std::cout << "Cargando Imagenes para testeo." << std::endl;
-                    torch::load(images_, ROOT_FOLDER + "\\TEST_IMAGES.tensor");
-                    torch::load(targets_, ROOT_FOLDER + "\\TEST_TARGET.tensor");
-                    std::cout << "Listo!." << std::endl;
-                    break;
-                };
+                    std::cout << "Train: " << Number_of_pictures_that_use_to_train << "/" << m_tensor_imagen.size(0) << std::endl;
+                    std::cout << "Test:  " << Number_of_pictures_that_use_to_test << "/" << m_tensor_imagen.size(0) << std::endl;
+                }
+#ifdef _VERBOSE_MODE_
+                else std::cout << "Base de Imagenes y Tensores ya creadas previamente." << std::endl;
+#endif
+             };
+            
+            Cement::Cement(const std::string& ROOT_FOLDER, const std::string& PREFIX_FN, const Mode& MODE) {
+                string images_fn = IMG_FNAME(ROOT_FOLDER, PREFIX_FN, MODE);
+                string targets_fn = TRG_FNAME(ROOT_FOLDER, PREFIX_FN, MODE);
+
+                std::cout << "Cargando " << images_fn << " ...";
+                torch::load(images_, images_fn);
+                std::cout << "Listo!" << std::endl;
+                std::cout << "Cargando " << targets_fn << " ...";
+                torch::load(targets_, targets_fn);
+                std::cout << "Listo!" << std::endl;
 
                 images_.to(device);
                 targets_.to(device);
