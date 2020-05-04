@@ -1,3 +1,0 @@
-/home/seba/github/ReconocimientoFisuras/src/torch-test/linux/torch-test/build/CMakeFiles/rebuild_cache.dir
-/home/seba/github/ReconocimientoFisuras/src/torch-test/linux/torch-test/build/CMakeFiles/edit_cache.dir
-/home/seba/github/ReconocimientoFisuras/src/torch-test/linux/torch-test/build/CMakeFiles/torch-test.dir
