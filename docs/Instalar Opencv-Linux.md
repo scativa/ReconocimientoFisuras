@@ -17,19 +17,19 @@ Error: *E: No se ha podido localizar el paquete libjasper-dev#.* Reintento con:
 
 ```sudo apt-get install python-dev python-numpy libtbb2 libtbb-dev libjpeg-dev libpng-dev libtiff-dev libdc1394-22-dev```
 
-```cd ~/<my_working_directory>``` (~/github/)
+```cd ~/<my_working_directory>``` (*~/github/*)
 
 ```git clone https://github.com/opencv/opencv.git```
 
 ```git clone https://github.com/opencv/opencv_contrib.git```
 
-Se copia todo el directorio ~/github/opencv a ~/opencv quedando este último como directorio de trabajo
+Se copia todo el directorio *~/github/opencv* a *~/opencv* quedando este último como directorio de trabajo
 
 
 ```mkdir build```
+
 ```cd build```
-``` ```
-``` ```
+
 ```cmake -D CMAKE_BUILD_TYPE=Release -D CMAKE_INSTALL_PREFIX=/usr/local -DBUILD_DOCS=TRUE -D BUIL_EXAMPLES=TRUE ..```
  
 
