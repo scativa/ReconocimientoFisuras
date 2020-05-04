@@ -1,16 +1,28 @@
 # Instalación OpenCV en Linux (MINT)
+
 [OpenCV docs - Installation in Linux](https://docs.opencv.org/master/d7/d9f/tutorial_linux_install.html)
+
 
 ## Pasos realizados
 
+
 ```sudo apt-get install build-essential```
+
 ```sudo apt-get install cmake git libgtk2.0-dev pkg-config libavcodec-dev libavformat-dev libswscale-dev```
+
 ```sudo apt-get install python-dev python-numpy libtbb2 libtbb-dev libjpeg-dev libpng-dev libtiff-dev libjasper-dev libdc1394-22-dev```
+
 Error: *E: No se ha podido localizar el paquete libjasper-dev#.* Reintento con: 
+
+
 ```sudo apt-get install python-dev python-numpy libtbb2 libtbb-dev libjpeg-dev libpng-dev libtiff-dev libdc1394-22-dev```
+
 ```cd ~/<my_working_directory>``` (~/github/)
+
 ```git clone https://github.com/opencv/opencv.git```
+
 ```git clone https://github.com/opencv/opencv_contrib.git```
+
 ``` ```
 ``` ```
 ``` ```
@@ -19,9 +31,8 @@ Error: *E: No se ha podido localizar el paquete libjasper-dev#.* Reintento con:
  
 
 ## Log
-seba@Asura:~$ sudo apt-get install build-essential
-[sudo] password for seba:
-Leyendo lista de paquetes... Hecho
+
+seba@Asura:*~$ sudo apt-get install build-essential*
 Creando árbol de dependencias
 Leyendo la información de estado... Hecho
 build-essential ya está en su versión más reciente (12.4ubuntu1).
@@ -571,8 +582,11 @@ Procesando disparadores para libc-bin (2.27-3ubuntu1) ...
 Procesando disparadores para man-db (2.8.3-2ubuntu0.1) ...
 Procesando disparadores para gnome-menus (3.13.3-11ubuntu1.1) ...
 Procesando disparadores para mime-support (3.60ubuntu1) ...
-seba@Asura:~$ cd github/
-seba@Asura:~/github$ git clone https://github.com/opencv/opencv.git
+
+seba@Asura:*~$ cd github/*
+
+seba@Asura:*~/github$ git clone https://github.com/opencv/opencv.git*
+
 Cloning into 'opencv'...
 remote: Enumerating objects: 12, done.
 remote: Counting objects: 100% (12/12), done.
@@ -581,7 +595,9 @@ remote: Total 273049 (delta 2), reused 5 (delta 2), pack-reused 273037
 Receiving objects: 100% (273049/273049), 468.95 MiB | 2.21 MiB/s, done.
 Resolving deltas: 100% (190721/190721), done.
 Checking out files: 100% (6178/6178), done.
-seba@Asura:~/github$ git clone https://github.com/opencv/opencv_contrib.git
+
+seba@Asura:*~/github$ git clone https://github.com/opencv/opencv_contrib.git*
+
 Cloning into 'opencv_contrib'...
 remote: Enumerating objects: 32176, done.
 remote: Total 32176 (delta 0), reused 0 (delta 0), pack-reused 32176
