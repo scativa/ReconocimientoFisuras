@@ -13,7 +13,7 @@ message("--- CMAKE_CXX_FLAGS ---")
 message("${CMAKE_CXX_FLAGS}")
 message("--- CMAKE_CXX_FLAGS ---")
 
-add_executable(example-app example-app.cpp)
+add_executable(example-app example-app.cpp archadj.cpp)
 target_link_libraries(example-app "${TORCH_LIBRARIES}")
 set_property(TARGET example-app PROPERTY CXX_STANDARD 14)
 

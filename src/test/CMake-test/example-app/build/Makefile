@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/seba/github/ReconocimientoFisuras/src/test/torch-test/linux/example-app
+CMAKE_SOURCE_DIR = /home/seba/github/ReconocimientoFisuras/src/test/CMake-test/example-app
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/seba/github/ReconocimientoFisuras/src/test/torch-test/linux/example-app/build
+CMAKE_BINARY_DIR = /home/seba/github/ReconocimientoFisuras/src/test/CMake-test/example-app/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/seba/github/ReconocimientoFisuras/src/test/torch-test/linux/example-app/build/CMakeFiles /home/seba/github/ReconocimientoFisuras/src/test/torch-test/linux/example-app/build/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/seba/github/ReconocimientoFisuras/src/test/CMake-test/example-app/build/CMakeFiles /home/seba/github/ReconocimientoFisuras/src/test/CMake-test/example-app/build/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/seba/github/ReconocimientoFisuras/src/test/torch-test/linux/example-app/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/seba/github/ReconocimientoFisuras/src/test/CMake-test/example-app/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -123,6 +123,33 @@ example-app/fast:
 	$(MAKE) -f CMakeFiles/example-app.dir/build.make CMakeFiles/example-app.dir/build
 .PHONY : example-app/fast
 
+archadj.o: archadj.cpp.o
+
+.PHONY : archadj.o
+
+# target to build an object file
+archadj.cpp.o:
+	$(MAKE) -f CMakeFiles/example-app.dir/build.make CMakeFiles/example-app.dir/archadj.cpp.o
+.PHONY : archadj.cpp.o
+
+archadj.i: archadj.cpp.i
+
+.PHONY : archadj.i
+
+# target to preprocess a source file
+archadj.cpp.i:
+	$(MAKE) -f CMakeFiles/example-app.dir/build.make CMakeFiles/example-app.dir/archadj.cpp.i
+.PHONY : archadj.cpp.i
+
+archadj.s: archadj.cpp.s
+
+.PHONY : archadj.s
+
+# target to generate assembly for a file
+archadj.cpp.s:
+	$(MAKE) -f CMakeFiles/example-app.dir/build.make CMakeFiles/example-app.dir/archadj.cpp.s
+.PHONY : archadj.cpp.s
+
 example-app.o: example-app.cpp.o
 
 .PHONY : example-app.o
@@ -159,6 +186,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... example-app"
+	@echo "... archadj.o"
+	@echo "... archadj.i"
+	@echo "... archadj.s"
 	@echo "... example-app.o"
 	@echo "... example-app.i"
 	@echo "... example-app.s"

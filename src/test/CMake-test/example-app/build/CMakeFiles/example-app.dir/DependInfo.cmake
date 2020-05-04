@@ -4,7 +4,8 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/seba/github/ReconocimientoFisuras/src/test/torch-test/linux/example-app/example-app.cpp" "/home/seba/github/ReconocimientoFisuras/src/test/torch-test/linux/example-app/build/CMakeFiles/example-app.dir/example-app.cpp.o"
+  "/home/seba/github/ReconocimientoFisuras/src/test/CMake-test/example-app/archadj.cpp" "/home/seba/github/ReconocimientoFisuras/src/test/CMake-test/example-app/build/CMakeFiles/example-app.dir/archadj.cpp.o"
+  "/home/seba/github/ReconocimientoFisuras/src/test/CMake-test/example-app/example-app.cpp" "/home/seba/github/ReconocimientoFisuras/src/test/CMake-test/example-app/build/CMakeFiles/example-app.dir/example-app.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
@@ -15,8 +16,8 @@ set(CMAKE_TARGET_DEFINITIONS_CXX
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
-  "/home/seba/Repositories/libtorch/include"
-  "/home/seba/Repositories/libtorch/include/torch/csrc/api/include"
+  "/home/seba/libtorch/include"
+  "/home/seba/libtorch/include/torch/csrc/api/include"
   )
 
 # Targets to which this target links.
