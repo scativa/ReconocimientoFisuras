@@ -39,12 +39,12 @@ Descarga de github en *my_working_directory*=*/content/drive/My\ Drive/Colab/dow
 ```
 
 ```
-%cd /content/drive/My Drive/Colab/download/opencv/build
 %cd /content
-!mv /content/drive/My\ Drive/Colab/download/opencv /content
+!cp /content/drive/My\ Drive/Colab/download/opencv /content
 ```
 
 ```
+%mkdir /content/opencv/build
 %cd /content/opencv/build
 !cmake -D CMAKE_BUILD_TYPE=Release -D CMAKE_INSTALL_PREFIX=/usr/local -DBUILD_DOCS=TRUE -D BUIL_EXAMPLES=TRUE ..
 !make -j7
