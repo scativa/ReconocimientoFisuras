@@ -1,5 +1,4 @@
-
-
+# OpenCV Install for Google Colab
 
 ## Paso a paso
 No todos los pasos son necesarios. Descargas y copias dependen del estado de la Notebook Google Colab
@@ -18,8 +17,7 @@ drive.mount('/content/drive')
 %mkdir Colab
 ```
 
-### Download OpenCV src
-Descarga de github en *my_working_directory*=*/content/drive/My\ Drive/Colab/download*
+### Install linux tools
 
 ```
 !apt-get install build-essential
@@ -31,6 +29,8 @@ Se quitó *libjasper-dev* por error en el comando original:
 apt-get install python-dev python-numpy libtbb2 libtbb-dev libjpeg-dev libpng-dev libtiff-dev **libjasper-dev** libdc1394-22-dev
 ```
 
+### Download OpenCV src
+Descarga de github en *my_working_directory*=*/content/drive/My\ Drive/Colab/download*
 ```
 %mkdir /content/drive/My\ Drive/Colab/download
 %cd /content/drive/My\ Drive/Colab/download
@@ -68,20 +68,25 @@ make: *** [all] Error 2
 
 
 ### Testing
+```
 %cp -r /content/drive/My\ Drive/Colab/example_cmake /content/example_cmake
 %cd /content/example_cmake/build/
 !cmake -D OpenCV_DIR=/content/opencv/build ..
 !cmake --build . --config Release
-
+```
+```
 %cd /content/example_cmake/build/
 ! ./opencv_example
+```
 
+```
 /content/example_cmake/build
 Built with OpenCV 4.3.0-dev
 [ WARN:0] global /content/opencv/modules/videoio/src/cap_v4l.cpp (893) open VIDEOIO(V4L2:/dev/video0): can't open camera by index
 No capture
 
 (Sample:26469): Gtk-WARNING **: 14:29:22.909: cannot open display: 
+```
 
 
 
