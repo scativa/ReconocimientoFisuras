@@ -34,7 +34,7 @@ Descarga de github en *my_working_directory*=*/content/drive/My\ Drive/Colab/dow
 ```
 %mkdir /content/drive/My\ Drive/Colab/download
 %cd /content/drive/My\ Drive/Colab/download
-!git clone https://github.com/opencv/opencv.git
+# !git clone https://github.com/opencv/opencv.git
 !git clone https://github.com/opencv/opencv_contrib.git
 ```
 
