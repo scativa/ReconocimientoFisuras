@@ -27,16 +27,18 @@ Y debe aparecer un ventana mostrando lo proyectado por la cámara de la computad
 
 ## GOOGLE COLAB
 ### Subir a Google Drive
-Se debe subir la carpeta completa (```./torch-test/``` o ```./example-app/```) en la carpeta ```/Colab``` de *Google Drive*. Se muestra el ejemplo de ```./example-app```
+Se debe subir la carpeta completa (```./opencv-test/``` o ```./example_cmake/```) en la carpeta ```/Colab``` de *Google Drive*. Se muestra el ejemplo de ```./example_cmake```
 
 Se debe copiar la carpeta del proyecto dentro del *Google Colab* desde el *Google Drive*. Esto se debe por problemas al referenciar carpetas con espacios como "*My Drive*", aunque se debería volver a comprobar esto.
 
 ### Compile, link y execute
+```
 %cp -r /content/drive/My\ Drive/Colab/example_cmake /content/example_cmake
 %cd /content/example_cmake/build/
 !cmake -D OpenCV_DIR=/content/opencv/build ..
 !cmake --build . --config Release
-! ./opencv_example
+! ./example_cmake
+```
 
 
 ### Testing
