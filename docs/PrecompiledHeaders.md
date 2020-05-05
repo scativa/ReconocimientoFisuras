@@ -1,19 +1,5 @@
 # PrecompiledHeaders
 
-<<<<<<< HEAD
-=======
-## The Cherno
-(Precompiled Headers in C++)[https://www.youtube.com/watch?v=eSI4wctZUto&list=PLlrATfBNZ98dudnM48yfGUldqGD0S4FFb&index=72]
-
-## https://docs.microsoft.com/
-Precompiled Header Files
-https://docs.microsoft.com/en-us/cpp/build/creating-precompiled-header-files?view=vs-2019
-
-/Yc (Create Precompiled Header File)
-https://docs.microsoft.com/en-us/cpp/build/reference/yc-create-precompiled-header-file?view=vs-2019
-
-
->>>>>>> 95b2b87adcf1f75d628265d5ec680471f44899b5
 ## Paso a paso
 ### Project
 Debe incluir dos archivos: ```pch.cpp``` y ```pch.h```
@@ -56,17 +42,17 @@ Precompiled Headers"->
 -> Precompiled Header = Use (/Y**u**)
 -> Precompiled Header File = pch.h
 ```
-<<<<<<< HEAD
-
 ## Referecnias
 
-### The Cherno
+## The Cherno
 [Precompiled Headers in C+](https://www.youtube.com/watch?v=eSI4wctZUto&list=PLlrATfBNZ98dudnM48yfGUldqGD0S4FFb&index=72)
 
 ### https://docs.microsoft.com/
 [Precompiled Header Files](https://docs.microsoft.com/en-us/cpp/build/creating-precompiled-header-files?view=vs-2019)
-
 [/Yc (Create Precompiled Header File](https://docs.microsoft.com/en-us/cpp/build/reference/yc-create-precompiled-header-file?view=vs-2019)
 
-=======
->>>>>>> 95b2b87adcf1f75d628265d5ec680471f44899b5
+
+
+
+
+

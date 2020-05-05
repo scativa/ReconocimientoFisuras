@@ -1,8 +1,0 @@
-cmake -DCMAKE_PREFIX_PATH=/home/seba/libtorch ..
-cmake --build . --config Release
-./example-app
-
-
-Debug flags: -Wdev, --debug-output and --trace
-
-https://cmake.org/cmake/help/v3.0/command/message.html
