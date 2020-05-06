@@ -9,6 +9,24 @@ int main() {
 	imshow("Display Window", image);
 }
 ```
+## LINUX
+
+### Compile and build
+```
+mkdir build
+cd build
+cmake -D OpenCV_DIR=/home/seba/opencv/build ..
+cmake --build . --config Release
+```
+
+### Test
+```
+./opencv-test 
+```
+En la cosola:
+```
+```
+Debe aparecer un ventana mostrando dos círculos no concéntricos, uno blanco y otro verde claro.
 
 
 ## GOOGLE COLAB
@@ -25,28 +43,10 @@ Se debe copiar la carpeta del proyecto dentro del *Google Colab* desde el *Googl
 !cmake --build . --config Release
 ! ./opencv-test
 ```
-
+### Testing
+En la cosola:
 ```
-CMake Error at CMakeLists.txt:4 (find_package):
-  By not providing "FindOpenCVGen.cmake" in CMAKE_MODULE_PATH this project
-  has asked CMake to find a package configuration file provided by
-  "OpenCVGen", but CMake did not find one.
-
-  Could not find a package configuration file provided by "OpenCVGen" with
-  any of the following names:
-
-    OpenCVGenConfig.cmake
-    opencvgen-config.cmake
-
-  Add the installation prefix of "OpenCVGen" to CMAKE_PREFIX_PATH or set
-  "OpenCVGen_DIR" to a directory containing one of the above files.  If
-  "OpenCVGen" provides a separate development package or SDK, be sure it has
-  been installed.
-
--- Configuring incomplete, errors occurred!
-See also "/content/opencv-test/build/CMakeFiles/CMakeOutput.log".
-make: *** No targets specified and no makefile found.  Stop.
-/bin/bash: ./opencv-test: No such file or directory
+(Display Window:14907): Gtk-WARNING **: 13:38:44.857: cannot open display:
 ```
 ## Referencias
 
