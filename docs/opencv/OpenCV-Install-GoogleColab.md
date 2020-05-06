@@ -67,6 +67,7 @@ make: *** [all] Error 2
 
 
 ## Testing
+[Proyectos para testing de OpenCV sobre Google Colab](/src/test/opencv-test/Linux-Colab/README.md)
 ```
 %cp -r /content/drive/My\ Drive/Colab/example_cmake /content/example_cmake
 %cd /content/example_cmake/build/
