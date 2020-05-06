@@ -27,24 +27,24 @@ Y debe aparecer un ventana mostrando lo proyectado por la cámara de la computad
 
 ## GOOGLE COLAB
 ### Subir a Google Drive
-Se debe subir la carpeta completa (```./opencv-test/``` o ```./example_cmake/```) en la carpeta ```/Colab``` de *Google Drive*. Se muestra el ejemplo de ```./example_cmake```
+Se debe subir la carpeta completa (```./opencv-test/``` o ```./opencv_example/```) en la carpeta ```/Colab``` de *Google Drive*. Se muestra el ejemplo de ```./opencv_example```
 
 Se debe copiar la carpeta del proyecto dentro del *Google Colab* desde el *Google Drive*. Esto se debe por problemas al referenciar carpetas con espacios como "*My Drive*", aunque se debería volver a comprobar esto.
 
 ### Compile, link y execute
 ```
-%cp -r /content/drive/My\ Drive/Colab/example_cmake /content/example_cmake
-%cd /content/example_cmake/build/
+%cp -r /content/drive/My\ Drive/Colab/opencv_example /content/opencv_example
+%cd /content/opencv_example/build/
 !cmake -D OpenCV_DIR=/content/opencv/build ..
 !cmake --build . --config Release
-! ./example_cmake
+! ./opencv_example
 ```
 
 
 ### Testing
 En la cosola:
 ```
-/content/example_cmake/build
+/content/opencv_example/build
 Built with OpenCV 4.3.0-dev
 [ WARN:0] global /content/opencv/modules/videoio/src/cap_v4l.cpp (893) open VIDEOIO(V4L2:/dev/video0): can't open camera by index
 No capture

@@ -13,7 +13,7 @@ int main() {
 
 ## GOOGLE COLAB
 ### Subir a Google Drive
-Se debe subir la carpeta completa ```./opencv-test/``` en la carpeta ```/Colab``` de *Google Drive*. Se muestra el ejemplo de ```./example_cmake```
+Se debe subir la carpeta completa ```./opencv-test/``` en la carpeta ```/Colab``` de *Google Drive*. Se muestra el ejemplo de ```./opencv-test```
 
 Se debe copiar la carpeta del proyecto dentro del *Google Colab* desde el *Google Drive*. Esto se debe por problemas al referenciar carpetas con espacios como "*My Drive*", aunque se debería volver a comprobar esto.
 
