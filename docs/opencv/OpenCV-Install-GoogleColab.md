@@ -65,30 +65,8 @@ Makefile:162: recipe for target 'all' failed
 make: *** [all] Error 2
 ```
 
-
 ## Testing
 [Proyectos para testing de OpenCV sobre Google Colab](/src/test/opencv-test/Linux-Colab/README.md)
-```
-%cp -r /content/drive/My\ Drive/Colab/example_cmake /content/example_cmake
-%cd /content/example_cmake/build/
-!cmake -D OpenCV_DIR=/content/opencv/build ..
-!cmake --build . --config Release
-```
-```
-%cd /content/example_cmake/build/
-! ./opencv_example
-```
-
-```
-/content/example_cmake/build
-Built with OpenCV 4.3.0-dev
-[ WARN:0] global /content/opencv/modules/videoio/src/cap_v4l.cpp (893) open VIDEOIO(V4L2:/dev/video0): can't open camera by index
-No capture
-
-(Sample:26469): Gtk-WARNING **: 14:29:22.909: cannot open display: 
-```
-
-
 
 
 ## Notas
