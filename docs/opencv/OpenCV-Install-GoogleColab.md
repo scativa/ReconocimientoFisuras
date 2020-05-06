@@ -34,10 +34,10 @@ Descarga de github en *my_working_directory*=*/content/drive/My\ Drive/Colab/dow
 ```
 %mkdir /content/drive/My\ Drive/Colab/download
 %cd /content/drive/My\ Drive/Colab/download
-# !git clone https://github.com/opencv/opencv.git
-!git clone https://github.com/opencv/opencv_contrib.git
+!git clone https://github.com/opencv/opencv.git
+# !git clone https://github.com/opencv/opencv_contrib.git
 ```
-El paquete *https://github.com/opencv/opencv.git* no está siendo usado. Fallas en la descarga y no se precisa.
+El paquete *https://github.com/opencv/opencv_contrib.git* no está siendo usado. Fallas en la descarga y no se precisa.
 
 ```
 %cd /content
