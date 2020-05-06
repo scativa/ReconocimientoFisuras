@@ -27,18 +27,19 @@ apt-get install python-dev python-numpy libtbb2 libtbb-dev libjpeg-dev libpng-de
 ## OpenCV 
 
 ### Descarga de fuentes
-Descarga de github en *my_working_directory*=*/content/drive/My\ Drive/Colab/download*
+1 Descarga de github en *my_working_directory*=*/content/drive/My\ Drive/Colab/download*
 ```
 %mkdir /content/drive/My\ Drive/Colab/download
 %cd /content/drive/My\ Drive/Colab/download
 !git clone https://github.com/opencv/opencv.git
 # !git clone https://github.com/opencv/opencv_contrib.git
 ```
-El paquete *https://github.com/opencv/opencv_contrib.git* no está siendo usado. Fallas en la descarga y no se precisa.
+*(El paquete https://github.com/opencv/opencv_contrib.git no está siendo usado. Fallas en la descarga y no se precisa.)
 
+2 Se copia dentro del Google Colab. (Ver nota al pie sobre **Building**)
 ```
 %cd /content
-!cp /content/drive/My\ Drive/Colab/download/opencv /content
+!cp -r /content/drive/My\ Drive/Colab/download/opencv /content
 ```
 
 ### Build opencv lib
@@ -49,7 +50,7 @@ El paquete *https://github.com/opencv/opencv_contrib.git* no está siendo usado.
 !make -j7
 ```
 
-Si las fuentes de OpenCV se encuentra en una carpeta de Drive surge el siguiente error, por lo que hay se tuvo que mover antes de linkear y compilar a una carpeta local de Google Colab (i.e. */content/opencv*). Esto se debe a incompatibilidad de Google Drive con *hardlinks*.
+
 
 ```
 [ 28%] Linking CXX shared library ../../lib/libopencv_core.so
@@ -90,6 +91,8 @@ No capture
 
 
 ## Notas
+**Building**. Si las fuentes de OpenCV se encuentra en una carpeta de Drive surge el siguiente error, por lo que hay se tuvo que mover antes de linkear y compilar a una carpeta local de Google Colab (i.e. */content/opencv*). Esto se debe a incompatibilidad de Google Drive con *hardlinks*.
+
 **Atención** con el uso de '!' y '%'.
 > The issue is that each of the !-prefixed commands runs in its own subshell -- so the ```!cd``` starts a new shell, switches directories, and then kills that shell. The ```!ls``` then starts anew in the current directory. Doing ```!cd``` ```SwitchFrequencyAnalysis && ls``` would have worked, but using python's ```os.chdir``` is the cleaner approach here.
 
