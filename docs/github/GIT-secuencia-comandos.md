@@ -1,4 +1,6 @@
 # Secuencia de comandos GITHUB
+**DESACTUALIZADO** comprobar antes de usar.
+
 Secuencia de comandos standar para actualizar la copia local de git hub, generar un branch y subirlo
 
 Este documento se construyó usando [Git-workflow or feature branching](https://gist.github.com/blackfalcon/8428401).
