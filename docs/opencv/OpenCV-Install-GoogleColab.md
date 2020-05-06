@@ -5,20 +5,15 @@ No todos los pasos son necesarios. Descargas y copias dependen del estado de la 
 
 ## Entorno 
 
-### Conectar con google drive
+### Conectar con Google Drive
 ```
 from google.colab import drive
 drive.mount('/content/drive')
-```
-
-### Crear entorno Drive
-```
-%cd /content/drive/My\ Drive
-%mkdir Colab
+# Directorio del Drive destinado a almacenar fuentes y herramientas a usar en Colab
+%cd /content/drive/My\ Drive/Colab
 ```
 
 ### Install linux tools
-
 ```
 !apt-get install build-essential
 !apt-get install cmake git libgtk2.0-dev pkg-config libavcodec-dev libavformat-dev libswscale-dev
@@ -29,7 +24,9 @@ Se quitó *libjasper-dev* por error en el comando original:
 apt-get install python-dev python-numpy libtbb2 libtbb-dev libjpeg-dev libpng-dev libtiff-dev **libjasper-dev** libdc1394-22-dev
 ```
 
-### Download OpenCV src
+## OpenCV 
+
+### Descarga de fuentes
 Descarga de github en *my_working_directory*=*/content/drive/My\ Drive/Colab/download*
 ```
 %mkdir /content/drive/My\ Drive/Colab/download
@@ -44,13 +41,13 @@ El paquete *https://github.com/opencv/opencv_contrib.git* no está siendo usado.
 !cp /content/drive/My\ Drive/Colab/download/opencv /content
 ```
 
+### Build opencv lib
 ```
 %mkdir /content/opencv/build
 %cd /content/opencv/build
 !cmake -D CMAKE_BUILD_TYPE=Release -D CMAKE_INSTALL_PREFIX=/usr/local -DBUILD_DOCS=TRUE -D BUIL_EXAMPLES=TRUE ..
 !make -j7
 ```
-
 
 Si las fuentes de OpenCV se encuentra en una carpeta de Drive surge el siguiente error, por lo que hay se tuvo que mover antes de linkear y compilar a una carpeta local de Google Colab (i.e. */content/opencv*). Esto se debe a incompatibilidad de Google Drive con *hardlinks*.
 
@@ -68,7 +65,7 @@ make: *** [all] Error 2
 ```
 
 
-### Testing
+## Testing
 ```
 %cp -r /content/drive/My\ Drive/Colab/example_cmake /content/example_cmake
 %cd /content/example_cmake/build/
