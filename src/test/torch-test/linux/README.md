@@ -28,7 +28,7 @@ Se debe copiar la carpeta del proyecto dentro del *Google Colab* desde el *Googl
 %mkdir /content/example-app/build
 ```
 
-### Compile, link y execute
+### Compile, link and execute
 ```
 %cd  /content/example-app/build
 %rm -r *
