@@ -3,8 +3,7 @@ Ejemplo que muesta como compilar un código OpenCV utilizando CMake en linux (MI
 
 [Instalación OpenCV en Linux](/docs/Instalar Opencv-Linux.md)
 
- 
- 
+
 ## LINUX
 
 ### Compile and build
