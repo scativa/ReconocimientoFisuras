@@ -8,7 +8,7 @@ Debe incluir dos archivos: ```pch.cpp``` y ```pch.h```
 _Project properties_
 ```
 Prepocessor->
--> Preprocess to a file = **Yes (/P)**
+-> Preprocess to a file = Yes (/P)
 
 Precompiled Headers"->
 -> Precompiled Header = Use (/Yu)
@@ -24,7 +24,7 @@ Sólo una línea
 Prepocessor->
 -> Preprocess to a file = No
 Precompiled Headers->
--> Precompiled Header = Use (/Y**c**)
+-> Precompiled Header = Use (/Yc)
 -> Precompiled Header File = pch.h
 ```
 
@@ -39,7 +39,7 @@ Prepocessor->
 -> Preprocess to a file = No
 
 Precompiled Headers"->
--> Precompiled Header = Use (/Y**u**)
+-> Precompiled Header = Use (/Yu)
 -> Precompiled Header File = pch.h
 ```
 ## Referecnias
