@@ -21,14 +21,17 @@ Template: ```Console App```
 
 Copiar en la carpeta donde se encuetra el proyecto librerías dinámicas de pytorch en la carpeta del proyecto:
 ```xcopy C:\Repositories\libtorch\.dll %PATHTOPROJECT%\torch-test\torch-test\```
+Para este projecto específico sólo se están precisando: ```c10.dll``` ```torch.dll``` ```libiomp5md.dll```
 
-Para este projecto específico sólo precisa: ```c10.dll``` ```torch.dll``` ```libiomp5md.dll```
+Para no tener que realizar la copia DLL se debe agregar la variable de entorno de windows PATH el camino a la librería (ej. C:\Repositories\libtorch\lib). 
 
-La copia de las DLL se puede evitar agregando el la variable de entorno de windows PATH el camino a la librería (ej. C:\Repositories\libtorch\lib). 
-Opencv utiliza este modalidad [+ ver más detalles](../docs/Environment.md). 
+Opencv utiliza este modalidad [+ ver más detalles](/docs/opencv/OpenCV-Install-Windows.md). 
 Tiene la ventaja de no andar moviendo para compartir el proyecto, ni duplicando DLL en cada proyecto. Evita ocupar espacio y hacer pesada la solución y simplifica una actualización de DLL.
 
-*Importante: No es necesario copiar los *.lib*
+Si no se modifica la variable de entorno PATH es preciso copiar en la carpeta donde se encuetra el proyecto librerías dinámicas de pytorch en la carpeta del proyecto: ```xcopy C:\Repositories\libtorch\*.dll %PATHTOPROJECT%\torch-test\torch-test\```
+Para este projecto específico sólo se están precisando: ```c10.dll``` ```torch.dll``` ```libiomp5md.dll```
+
+__Importante__: No es necesario bajo ningún motivo copiar los ```.lib``` 
 
 ### Configuración
 Configuration manager: 
