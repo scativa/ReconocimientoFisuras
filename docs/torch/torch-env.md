@@ -42,9 +42,12 @@ Language: ```C++/Java```
 
 CUDA: ```None```
 
-Run this Command:```Download here (Pre-cxx11 ABI):
+Run this Command:
+```
+Download here (Pre-cxx11 ABI):
 https://download.pytorch.org/libtorch/cpu/libtorch-shared-with-deps-1.5.0%2Bcpu.zip
 
 Download here (cxx11 ABI):
-https://download.pytorch.org/libtorch/cpu/libtorch-cxx11-abi-shared-with-deps-1.5.0%2Bcpu.zip```
+https://download.pytorch.org/libtorch/cpu/libtorch-cxx11-abi-shared-with-deps-1.5.0%2Bcpu.zip
+```
 
