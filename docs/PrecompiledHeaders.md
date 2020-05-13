@@ -42,7 +42,12 @@ Precompiled Headers"->
 -> Precompiled Header = Use (/Yu)
 -> Precompiled Header File = pch.h
 ```
-## Referecnias
+
+## Problemas experimentados
+Puede suceder que a pesar de poner la configuración indicada, producto de pruebas intermedias continúe complilándose el código completo. Esto se soluciona borrando todos los archivos de las carpetas ```/x64``` (condiderando estar en esa plataforma), tanto del proyecto en particular como de la solución de Visual Studio.
+
+
+## Referencias
 
 ## The Cherno
 [Precompiled Headers in C+](https://www.youtube.com/watch?v=eSI4wctZUto&list=PLlrATfBNZ98dudnM48yfGUldqGD0S4FFb&index=72)
