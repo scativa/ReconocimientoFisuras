@@ -47,8 +47,7 @@ torch::Device device = (torch::cuda::is_available() ? torch::kCUDA : torch::kCPU
 
 int main(int argc, char* argv[]) {
 
-
-    cout << "Corriendo ..."; exit(0);
+    cout << "Terminado"; exit(0);
 
     CmdLineOpt opt(argc, argv);
 

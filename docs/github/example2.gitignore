@@ -1,12 +1,14 @@
-# ignore all .exe files in the doc/ directory
-/**/*.exe
-/**/*.*obj
-/**/*.*log
-/**/*.log
-/**/Release/*
-/**/Debug/*
-/**/*.pt
-/.vs
+# ignore all binaries and proyect files in src directory
+/src/**/*.exe
+/src/**/*.*obj
+/src/**/*.*log
+/src/**/*.log
+/src/**/Release/*
+/src/**/Debug/*
+/src/**/.vs
+
 /.gitignore
+
+/src/**/*.pt
 
 
