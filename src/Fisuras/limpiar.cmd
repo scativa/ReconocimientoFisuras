@@ -8,6 +8,7 @@ del /F /S /Q .\x64\*.*
 del /F /S /Q .\.vs\*.*
 del /F /S /Q .\CVNet_Cement\x64\*.*
 del /F /S /Q .\Visualizacion_Fracturas\x64\*.*
+del /F /S /Q .\CVNet_DatasetBuilder\x64\*.*
 
 echo Limpieza realizada
 pause

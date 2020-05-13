@@ -1,6 +1,4 @@
 #pragma once
-#ifndef PCH_H
-#define PCH_H
 
 #include <stdint.h>
 #include <cstddef>
@@ -19,11 +17,8 @@
 //#include <torch/data/example.h>
 //#include <torch/types.h>
 //#include <torch/csrc/WindowsTorchApiMacro.h>
-/*
+
 #include <opencv2/opencv.hpp>
 #include <opencv2/imgproc.hpp>
 #include <opencv2/imgcodecs.hpp>
-*/
-
-#endif // !PCH_H
 
