@@ -11,7 +11,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Visualizacion_Fracturas", "
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CVNet_DatasetBuilder", "CVNet_DatasetBuilder\CVNet_DatasetBuilder.vcxproj", "{C02B6BBA-CAB7-4AA4-9A13-DD427E79FF84}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CVNet_Cement2", "CVNet_DatasetBuilder2\CVNet_Cement2.vcxproj", "{502EC6B3-F755-48C4-B835-0710F575E176}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CVNet_CementTrainer", "CVNet_CementTrainer\CVNet_Cement2.vcxproj", "{502EC6B3-F755-48C4-B835-0710F575E176}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

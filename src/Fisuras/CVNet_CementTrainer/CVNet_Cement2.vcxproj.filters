@@ -15,16 +15,16 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="CVNet_Cement.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="pch.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Cement.cpp">
+    <ClCompile Include="cmdlineopt.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="cmdlineopt.cpp">
+    <ClCompile Include="CVNet_CementTrainer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CementTrainer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -32,13 +32,13 @@
     <ClInclude Include="pch.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Cement.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Net.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="cmdlineopt.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CementTrainer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
