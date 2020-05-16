@@ -4,9 +4,9 @@
 namespace torch {
     namespace data {
         namespace datasets {
-            
+
             ///
-            void Create_tensor_files_from_images(const std::string& ROOT_FOLDER, const std::string& PREFIX_FN, float Percentage_of_pictures_used_to_train, bool overwrite = false);
+            // void Create_tensor_files_from_images(const std::string& ROOT_FOLDER, const std::string& PREFIX_FN, float Percentage_of_pictures_used_to_train, bool overwrite = false);
 
             /// The CEMENT dataset.
             class Cement : public Dataset<Cement> {

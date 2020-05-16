@@ -3,15 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29806.167
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CVNet", "CVNet\CVNet.vcxproj", "{D6FC767D-9427-47F6-80CA-80676F8A8406}"
-EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CVNet_Cement", "CVNet_Cement\CVNet_Cement.vcxproj", "{8E1C442E-1CD4-4DCD-BB74-9969B201AF9C}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Visualizacion_Fracturas", "Visualizacion_Fracturas\Visualizacion_Fracturas.vcxproj", "{E1FC2D39-8A3A-4053-8891-DDA4A670A959}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CVNet_DatasetBuilder", "CVNet_DatasetBuilder\CVNet_DatasetBuilder.vcxproj", "{C02B6BBA-CAB7-4AA4-9A13-DD427E79FF84}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CVNet_CementTrainer", "CVNet_CementTrainer\CVNet_Cement2.vcxproj", "{502EC6B3-F755-48C4-B835-0710F575E176}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CVNet_CementTrainer2", "CVNet_CementTrainer2\CVNet_CementTrainer2.vcxproj", "{3AAFCE28-E1F7-4A0D-BA9A-3B241072E768}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,14 +19,6 @@ Global
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{D6FC767D-9427-47F6-80CA-80676F8A8406}.Debug|x64.ActiveCfg = Debug|x64
-		{D6FC767D-9427-47F6-80CA-80676F8A8406}.Debug|x64.Build.0 = Debug|x64
-		{D6FC767D-9427-47F6-80CA-80676F8A8406}.Debug|x86.ActiveCfg = Debug|Win32
-		{D6FC767D-9427-47F6-80CA-80676F8A8406}.Debug|x86.Build.0 = Debug|Win32
-		{D6FC767D-9427-47F6-80CA-80676F8A8406}.Release|x64.ActiveCfg = Release|x64
-		{D6FC767D-9427-47F6-80CA-80676F8A8406}.Release|x64.Build.0 = Release|x64
-		{D6FC767D-9427-47F6-80CA-80676F8A8406}.Release|x86.ActiveCfg = Release|Win32
-		{D6FC767D-9427-47F6-80CA-80676F8A8406}.Release|x86.Build.0 = Release|Win32
 		{8E1C442E-1CD4-4DCD-BB74-9969B201AF9C}.Debug|x64.ActiveCfg = Debug|x64
 		{8E1C442E-1CD4-4DCD-BB74-9969B201AF9C}.Debug|x64.Build.0 = Debug|x64
 		{8E1C442E-1CD4-4DCD-BB74-9969B201AF9C}.Debug|x86.ActiveCfg = Debug|Win32
@@ -53,14 +43,14 @@ Global
 		{C02B6BBA-CAB7-4AA4-9A13-DD427E79FF84}.Release|x64.Build.0 = Release|x64
 		{C02B6BBA-CAB7-4AA4-9A13-DD427E79FF84}.Release|x86.ActiveCfg = Release|Win32
 		{C02B6BBA-CAB7-4AA4-9A13-DD427E79FF84}.Release|x86.Build.0 = Release|Win32
-		{502EC6B3-F755-48C4-B835-0710F575E176}.Debug|x64.ActiveCfg = Debug|x64
-		{502EC6B3-F755-48C4-B835-0710F575E176}.Debug|x64.Build.0 = Debug|x64
-		{502EC6B3-F755-48C4-B835-0710F575E176}.Debug|x86.ActiveCfg = Debug|Win32
-		{502EC6B3-F755-48C4-B835-0710F575E176}.Debug|x86.Build.0 = Debug|Win32
-		{502EC6B3-F755-48C4-B835-0710F575E176}.Release|x64.ActiveCfg = Release|x64
-		{502EC6B3-F755-48C4-B835-0710F575E176}.Release|x64.Build.0 = Release|x64
-		{502EC6B3-F755-48C4-B835-0710F575E176}.Release|x86.ActiveCfg = Release|Win32
-		{502EC6B3-F755-48C4-B835-0710F575E176}.Release|x86.Build.0 = Release|Win32
+		{3AAFCE28-E1F7-4A0D-BA9A-3B241072E768}.Debug|x64.ActiveCfg = Debug|x64
+		{3AAFCE28-E1F7-4A0D-BA9A-3B241072E768}.Debug|x64.Build.0 = Debug|x64
+		{3AAFCE28-E1F7-4A0D-BA9A-3B241072E768}.Debug|x86.ActiveCfg = Debug|Win32
+		{3AAFCE28-E1F7-4A0D-BA9A-3B241072E768}.Debug|x86.Build.0 = Debug|Win32
+		{3AAFCE28-E1F7-4A0D-BA9A-3B241072E768}.Release|x64.ActiveCfg = Release|x64
+		{3AAFCE28-E1F7-4A0D-BA9A-3B241072E768}.Release|x64.Build.0 = Release|x64
+		{3AAFCE28-E1F7-4A0D-BA9A-3B241072E768}.Release|x86.ActiveCfg = Release|Win32
+		{3AAFCE28-E1F7-4A0D-BA9A-3B241072E768}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

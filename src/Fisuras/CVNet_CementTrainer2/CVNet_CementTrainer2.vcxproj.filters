@@ -21,10 +21,10 @@
     <ClCompile Include="cmdlineopt.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="CVNet_CementTrainer.cpp">
+    <ClCompile Include="CementTrainer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="CementTrainer.cpp">
+    <ClCompile Include="CVNet_CementTrainer2.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
