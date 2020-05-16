@@ -1,14 +1,13 @@
 #include "pch.h"
 #include "Net.h"
-#include "Cement.h"
+#include "CementTrainer.h"
 #include "cmdlineopt.h"
-
 
 using namespace cv;
 using namespace std;
 
 template <typename DataLoader>
-float test_batch(Net MODEL,  DataLoader& DATA_LOADER, size_t SIZE) {
+float test_batch(Net MODEL, DataLoader& DATA_LOADER, size_t SIZE) {
     std::printf("Testing... ");
 
     MODEL->eval();
@@ -17,7 +16,7 @@ float test_batch(Net MODEL,  DataLoader& DATA_LOADER, size_t SIZE) {
         auto prediction = MODEL->forward(batch.data);
         correct += prediction.argmax(1).eq(batch.target).sum().template item<int64_t>();
     };
-     
+
     float ACCURACY = ((float)correct / (float)SIZE);
     std::printf("Accuracy: %.3f% \r\n", ACCURACY);
     return ACCURACY;
@@ -38,7 +37,7 @@ void train_batch(size_t EPOCH, Net MODEL, DataLoader& DATA_LOADER, torch::optim:
         loss.backward();
         optimizer.step();
 
-        std::printf("\rTrain Epoch: %ld [%5ld/%5ld] Loss: %.4f ", EPOCH, batch_idx++ * m_batch_size, SIZE, loss.template item<float>());
+        std::printf("\rTrain Epoch: %ld [%zd/%zd] Loss: %.4f ", EPOCH, batch_idx++ * m_batch_size, SIZE, loss.template item<float>());
     }
     std::printf("\r\n");
 };
@@ -47,7 +46,7 @@ torch::Device device = (torch::cuda::is_available() ? torch::kCUDA : torch::kCPU
 
 int main(int argc, char* argv[]) {
 
-    cout << "Cement"; exit(0);
+    cout << "Cement Trainer2 ABc" << endl; // exit(0);
 
     CmdLineOpt opt(argc, argv);
 
@@ -66,13 +65,13 @@ int main(int argc, char* argv[]) {
 
     //------------------------------------------------------------------------------------------------
     // Si existe un entrenamiento previo arranca desde ahi, sino empieza desde cero/
-    if (opt.NewModel()) 
+    if (opt.NewModel())
         try {
-            torch::load(net, opt.ModelFN());
-            if (opt.Verbose())
-                cout << "Archivo '" << opt.ModelFN() << "'!" << endl;
-        }
-        catch (...) { if (opt.Verbose()) cout << "Archivo '" << opt.ModelFN() << "' no encontrado. Creando '" << opt.ModelFN() << "' de cero." << endl; }
+        torch::load(net, opt.ModelFN());
+        if (opt.Verbose())
+            cout << "Archivo '" << opt.ModelFN() << "'!" << endl;
+    }
+    catch (...) { if (opt.Verbose()) cout << "Archivo '" << opt.ModelFN() << "' no encontrado. Creando '" << opt.ModelFN() << "' de cero." << endl; }
     else
         if (opt.Verbose()) cout << "Creando '" << opt.ModelFN() << "' de cero." << endl;
 
@@ -85,8 +84,8 @@ int main(int argc, char* argv[]) {
     //------------------------------------------------------------------------------------------------
     // Variables con las cuales voy a entrenar la RED
     //------------------------------------------------------------------------------------------------
- 
-    torch::data::datasets::Create_tensor_files_from_images(DATA_DIR, opt.DatasetPrefix(), opt.PercentToTrain(), opt.OverwriteDataset());
+
+    // torch::data::datasets::Create_tensor_files_from_images(DATA_DIR, opt.DatasetPrefix(), opt.PercentToTrain(), opt.OverwriteDataset());
 
     auto m_data_set_train =
         torch::data::datasets::Cement(DATA_DIR, opt.DatasetPrefix(), torch::data::datasets::Cement::Mode::Train)/*TRAIN*/
@@ -105,7 +104,7 @@ int main(int argc, char* argv[]) {
     auto m_data_set_test =
         torch::data::datasets::Cement(DATA_DIR, opt.DatasetPrefix(), torch::data::datasets::Cement::Mode::Test)/*TEST*/
         .map(torch::data::transforms::Stack<>());
-    
+
     auto m_data_loader_test =
         torch::data::make_data_loader(
             m_data_set_test,
@@ -155,5 +154,4 @@ int main(int argc, char* argv[]) {
     //system("pause");
     return 0;
 };
-
 
