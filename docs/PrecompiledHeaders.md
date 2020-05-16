@@ -44,19 +44,20 @@ Precompiled Headers"->
 ```
 
 ## Problemas experimentados
-Puede suceder que a pesar de poner la configuración indicada, producto de pruebas intermedias continúe complilándose el código completo. Esto se soluciona borrando todos los archivos de las carpetas ```/x64``` (condiderando estar en esa plataforma), tanto del proyecto en particular como de la solución de Visual Studio.
+Puede suceder que a pesar de poner la configuración indicada, producto de pruebas intermedias continúe complilándose el código completo. Esto se soluciona borrando todos los archivos de las carpetas ```/x64``` (si esa es la plataforma elegida), tanto del proyecto en particular como de la solución de Visual Studio. NO SE PUDO SOLUCIONAR. Desconozco porqué vuelve a recompilar el pch.h
 
 
 ## Referencias
 
-## The Cherno
+### The Cherno
 [Precompiled Headers in C+](https://www.youtube.com/watch?v=eSI4wctZUto&list=PLlrATfBNZ98dudnM48yfGUldqGD0S4FFb&index=72)
 
 ### https://docs.microsoft.com/
 [Precompiled Header Files](https://docs.microsoft.com/en-us/cpp/build/creating-precompiled-header-files?view=vs-2019)
 [/Yc (Create Precompiled Header File](https://docs.microsoft.com/en-us/cpp/build/reference/yc-create-precompiled-header-file?view=vs-2019)
 
-
+### No Visual Studio
+[How to Optimize Compilation Times with Precompiled Headers (PCH Files)](https://www.codeproject.com/Articles/1188975/How-to-Optimize-Compilation-Times-with-Precompil)
 
 
 
