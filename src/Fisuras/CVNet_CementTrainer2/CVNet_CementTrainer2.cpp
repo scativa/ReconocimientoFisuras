@@ -3,7 +3,6 @@
 #include "CementTrainer.h"
 #include "cmdlineopt.h"
 
-using namespace cv;
 using namespace std;
 
 template <typename DataLoader>
