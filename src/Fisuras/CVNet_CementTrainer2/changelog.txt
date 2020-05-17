@@ -1,0 +1,26 @@
+20200517
+# Preparativos para pasarlo a linux
+
+En propiedades del proyecto (para más detalle ver las documentacion sobre OpenCV en VS)
+- Quito los path hacia las librerías e includes de OpenCV
+- Quito la inclusion de las librerías de OpenCV
+
+
+- En CementTrainer.cpp
+-- Cambio el tipo uint por unsigned int usado en 
+-- Borro la línea using namespace cv;
+
+En el Código
+- pch.h
+Quito #include de OpenCV
+
+También los .h siguientes. Creo que no da error porque deben estar incluídas en los .h de torch.
+//#include <stdint.h>
+//#include <cstddef>
+//#include <fstream>
+//#include <iostream>
+//#include <string>
+//#include <vector>
+//#include <stdlib.h>
+//#include <tchar.h>
+//#include <stdio.h>

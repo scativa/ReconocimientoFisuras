@@ -31,7 +31,7 @@ namespace torch {
 
                 auto IDX = torch::randperm(IMAGES.size(0), device).to(at::kInt);
 
-                for (uint idx = 0; idx < IDX.size(0); idx++) {
+                for (unsigned int idx = 0; idx < IDX.size(0); idx++) {
                     MIXED_IMAGES[idx] = IMAGES[IDX[idx]];
                     MIXED_TARGETS[idx] = TARGETS[IDX[idx]];
                 };
