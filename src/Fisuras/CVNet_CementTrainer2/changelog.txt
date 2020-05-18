@@ -1,3 +1,29 @@
+20200518
+
+====
+copiar en el la carpeta del proyecto cxxopts.hpp
+cmdlineopt.h:
+cambiar: #include <cxxopts.hpp> por #include "cxxopts.hpp"
+
+====
+error: ‘struct torch::optim::AdamOptions’ has no member named ‘beta1’; did you mean ‘betas’?
+ tim::Adam optimizer(net->parameters(), torch::optim::AdamOptions(2e-4).beta1(0.5));
+https://github.com/pytorch/examples/pull/765/files
+
+
+====
+for (int epoch = 0; epoch < N_EPOCH_TO_TRAIN; epoch++)
+for (size_t epoch = 0; epoch < N_EPOCH_TO_TRAIN; epoch++)
+
+
+====
+std::printf("Accuracy: %.3f% \r\n", ACCURACY);
+std::printf("Accuracy: %.3f \r\n", ACCURACY);
+
+
+
+
+
 20200517
 # Preparativos para pasarlo a linux
 
