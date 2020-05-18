@@ -82,7 +82,10 @@ int main(int argc, char* argv[]) {
     // string DATA_DIR = "C:/Repositories/CementCrack/5y9wdsg2zt-1";
 
     // Linux
-    string DATA_DIR = "~/Repositories/CementCrack/5y9wdsg2zt-1";
+    // string DATA_DIR = "/home/seba/Repositories/CementCrack/5y9wdsg2zt-1";
+    
+    // Google Colab
+    string DATA_DIR = "/content/5y9wdsg2zt-1";
 
     //string DATA_DIR = "C:\\Repositories\\CementCrack\\SDNET2018";
     // https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6247444/
