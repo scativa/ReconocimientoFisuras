@@ -1,24 +1,22 @@
 ## Subiendo un nuevo branch local a GitHub
 
 ### push --set-upstream
-uso: 
+Uso: 
 ```
 $git push --set-upstream origin <branch_a_subir>
 ```
-git branch --set-upstream-to=origin/<branch> test_linux_compile
-  
-  
+y más genericament:
+```
+git branch --set-upstream-to=origin/<branch> <branch_a_subir>
+```
+
 ### Ejemplo
-Intentos 
-  
-  
-Nuevo branch: ejemplo *test_linux_compile*
+Intentos utilizando un nuevo branch: ejemplo *test_linux_compile*
 
 Se muestra la sucesión de pruebas hasta llegar al comando ```$git push --set-upstream origin test_linux_compile```.
 
 ```
 $ git branch
-
   master
   old-MINST-folder-organization
   test_linux_compile
@@ -27,7 +25,6 @@ $ git branch
 Intento traer la información desde github estando en el branch local que no existe en GitHub...
 ```
 $ git pull origin
-
 You asked to pull from the remote 'origin', but did not specify
 a branch. Because this is not the default configured remote
 for your current branch, you must specify a branch on the command line.
@@ -63,7 +60,6 @@ hint: "git push -u" to set the upstream config as you push.
 
 ```
 $ git push -u
-
 fatal: The current branch test_linux_compile has no upstream branch.
 To push the current branch and set the remote as upstream, use
 
@@ -90,5 +86,6 @@ To https://github.com/scativa/ReconocimientoFisuras
  * [new branch]      test_linux_compile -> test_linux_compile
 Branch 'test_linux_compile' set up to track remote branch 'test_linux_compile' from 'origin'.
 ```
+Este comando funcionó a la perfección.
 
 
