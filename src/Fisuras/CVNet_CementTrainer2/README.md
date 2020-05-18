@@ -1,7 +1,7 @@
-#
+# Cement Trainer
 
 ## Google Colab
-Ver la preparación del entorno
+Ver la preparación del entorno de /docs/torch/
 
 ```
 # Copia los dataset para entrenar y testear a /content
@@ -17,6 +17,7 @@ Ver la preparación del entorno
 ```
 
 ```
+# Compilación y build del código
 %cd /content/CVNet_CementTrainer2/build
 !cmake -DCMAKE_PREFIX_PATH=/content/libtorch ..
 !cmake --build . --config Release
