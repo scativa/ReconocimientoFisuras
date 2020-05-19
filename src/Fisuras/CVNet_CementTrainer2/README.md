@@ -12,7 +12,7 @@ Al finalizar la ejecución se obtiene el archivo con los pesos sinápticos gener
 ## Linux
 
 ## Google Colab
-Ver la preparación del entorno en [torch-install-GoogleColab.md](/docs/torch/torch-install-GoogleColab.md)
+Ver la preparación del entorno en [torch-install-GoogleColab.md](docs/torch/torch-install-GoogleColab.md)
 
 ### Google Drive a Colab
 ```
