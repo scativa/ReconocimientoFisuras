@@ -41,4 +41,6 @@ Ver la preparación del entorno en [torch-install-GoogleColab.md](docs/torch/tor
 ```
 ## Referencias
 Entorno Google Colab [torch-install-GoogleColab.md](/docs/torch/torch-install-GoogleColab.md)
+
 Ejemplo PyTorch en Visual Studio, Linux y Google Colab: [torch-test](/src/test/torch-test/)
+
