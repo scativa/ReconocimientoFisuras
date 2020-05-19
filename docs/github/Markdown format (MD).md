@@ -31,16 +31,15 @@ user/repo/blob/branch/other_file.md`.
 > , you’ll have to update your documentation to use the new syntax.
 
 ## Syntax highlighting
-Sintaxis reconocidas
-[] Markdown
-[]javascript
-[]CPP
-[]
+Sintaxis reconocidas que pude recopilar
+- CPP
+- Markdown
+- javascript
+- ruby
 
 > Here’s an example of how you can use syntax highlighting with GitHub Flavored Markdown:
 [Creating and highlighting code blocks](https://help.github.com/en/github/writing-on-github/creating-and-highlighting-code-blocks)
-
-Examples:
+> Examples:
 
 ```javascript
 function fancyAlert(arg) {
@@ -67,4 +66,4 @@ puts markdown.to_html
 
 [About READMEs](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/about-readmes)
 
-
+[Creating and highlighting code blocks](https://help.github.com/en/github/writing-on-github/creating-and-highlighting-code-blocks)
