@@ -6,9 +6,7 @@
 /src/**/Release/*
 /src/**/Debug/*
 /src/**/.vs
-
-/.gitignore
+/src/**/Build/*
 
 /src/**/*.pt
-
 
