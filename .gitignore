@@ -1,0 +1,13 @@
+# ignore all binaries and proyect files in src directory
+/src/**/*.exe
+/src/**/*.*obj
+/src/**/*.*log
+/src/**/*.log
+/src/**/Release/*
+/src/**/Debug/*
+/src/**/.vs
+/src/**/Build/*
+
+/src/**/*.pt
+
+
