@@ -18,7 +18,7 @@ $ git pull origin master
 $ git checkout -b my-new-feature-branch
 ```
 
-*Luego de agregar, sacar o mover archivos*
+*Luego de modificar, agregar, sacar o mover archivos*. Agrego las modificaciones al `stage area`, hago el commit y subo el branch a github.
 ```
 $ git add --all
 $ git commit -m "fixed bug with login feature"
@@ -38,7 +38,7 @@ $ git push origin my-feature-branch --force   /* force update the remote
 ### Ejemplo secuencias hechas (Seba) para mover unos documentos
 Casi lo mismo que lo anterior pero probado
 
-1. Empiezo por bajar lo que hay en el master de servidor y actualizo (el listado?) de branches remotos
+1. Empiezo por bajar lo que hay en el master de servidor y actualizo el listado de branches remotos
 ```
 $ git branch
 $ git checkout master
@@ -54,14 +54,14 @@ $ git checkout organizando-doc
 
 3. Trabajo con los archivos y la estructura de la carpeta: Copio, muevo y borro archivos y carpetas según lo quiera organizar
 
-4. Cuando termino agrego todo al branch y hago el commit
+4. Cuando termino agrego todas las modificaciones al branch, hago el commit y lo subo al Github
 ```
 $ git add --all /* agrega las modificaciones al index
-$ git commit -m "organizando documentacion de martin" /* No me queda claro que es exactamente lo que hace el commit, ya que no lo sube a GitHub.
+$ git commit -m "organizando documentacion de martin"
 $ git push origin organizando-doc /* sube al github el branch
 ```
 
-5. Vuelvo a actualizar el master para estar seguro (no sé por qué usa "rebase" y no "pull origin")...
+5. Vuelvo a actualizar el master para estar seguro (no sé por qué usa "rebase" y no "pull")...
 ```
 $ git rebase master
 $ git push origin organizando-doc --force /* y lo fuerzo a subir (no lo había hecho en el comando anterior??)

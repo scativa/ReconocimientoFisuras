@@ -6,22 +6,37 @@
 > It’s important to note that when you do a fetch that brings down new remote branches, you don’t automatically have local, editable copies of them. In other words, in this case, you don’t have a new ```serverfix``` branch – you only have an ```origin/serverfix``` pointer that you can’t modify.
 
 ## Branches remotos
-Como bajar branches remotos que no están locales
+
+### Bajar branches remotos que no están locales
+Ejemplo para seguir (track) localmente el branch remoto `test_linux_compile`
+
+Listo branches remotos
 ```
 $ git branch -r
   origin/HEAD -> origin/master
   origin/master
   origin/test_linux_compile
 ```
+Lo asocio con uno local (en este caso con el mismo nombre)
 ```
 $ git checkout -b test_linux_compile origin/test_linux_compile
 Switched to a new branch 'test_linux_compile'
 Branch 'test_linux_compile' set up to track remote branch 'test_linux_compile' from 'origin'.
 ```
+Listo branches locales
 ```
 $ git branch
   master
 * test_linux_compile
+```
+
+### Para borrar y actualizar branches remotos
+Ejemplo para borrar `add-trainingimages-seba`
+```
+git branch -a
+git remote update origin --prune
+git remote prune origin
+git branch -d add-trainingimages-seba
 ```
 
 ## Pull

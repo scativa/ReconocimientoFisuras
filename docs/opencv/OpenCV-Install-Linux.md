@@ -32,3 +32,7 @@ make -j7
 ## Log
 ./Instalacion OpenCV-Linux.log.md
 
+## Referencias
+[OpenCV.or Installation in Linux](https://docs.opencv.org/master/d7/d9f/tutorial_linux_install.html)
+
+

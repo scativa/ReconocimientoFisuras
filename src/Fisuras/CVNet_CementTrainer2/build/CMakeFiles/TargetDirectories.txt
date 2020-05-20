@@ -1,3 +1,0 @@
-/home/seba/github/ReconocimientoFisuras/src/Fisuras/CVNet_CementTrainer2/build/CMakeFiles/rebuild_cache.dir
-/home/seba/github/ReconocimientoFisuras/src/Fisuras/CVNet_CementTrainer2/build/CMakeFiles/edit_cache.dir
-/home/seba/github/ReconocimientoFisuras/src/Fisuras/CVNet_CementTrainer2/build/CMakeFiles/CVNet_CementTrainer2.dir
