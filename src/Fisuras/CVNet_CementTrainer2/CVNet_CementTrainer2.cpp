@@ -17,7 +17,7 @@ float test_batch(Net MODEL, DataLoader& DATA_LOADER, size_t SIZE) {
     };
 
     float ACCURACY = ((float)correct / (float)SIZE);
-    std::printf("Accuracy: %.3f% \r\n", ACCURACY);
+    std::printf("Accuracy: %.3f \r\n", ACCURACY);
     return ACCURACY;
 };
 
@@ -77,7 +77,16 @@ int main(int argc, char* argv[]) {
     //------------------------------------------------------------------------------------------------
     // 5y9wdsg2zt-1.zip: Crea dos subcarpetas Negative y Positive, se decomprimio en esta direccion.
     // https://data.mendeley.com/datasets/5y9wdsg2zt/1
-    string DATA_DIR = "C:/Repositories/CementCrack/5y9wdsg2zt-1";
+    
+    // Windows
+    // string DATA_DIR = "C:/Repositories/CementCrack/5y9wdsg2zt-1";
+
+    // Linux
+    // string DATA_DIR = "/home/seba/Repositories/CementCrack/5y9wdsg2zt-1";
+    
+    // Google Colab
+    string DATA_DIR = "/content/5y9wdsg2zt-1";
+
     //string DATA_DIR = "C:\\Repositories\\CementCrack\\SDNET2018";
     // https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6247444/
     //------------------------------------------------------------------------------------------------
@@ -119,13 +128,14 @@ int main(int argc, char* argv[]) {
     // https://arxiv.org/pdf/1412.6980.pdf
     //------------------------------------------------------------------------------------------------
     //torch::optim::SGD optimizer(net.parameters(), torch::optim::SGDOptions(0.1).momentum(0.4));
-    torch::optim::Adam optimizer(net->parameters(), torch::optim::AdamOptions(2e-4).beta1(0.5));
+    //torch::optim::Adam optimizer(net->parameters(), torch::optim::AdamOptions(2e-4).beta1(0.5));
+    torch::optim::Adam optimizer(net->parameters(), torch::optim::AdamOptions(2e-4).betas(std::make_tuple (0.5, 0.5)));
     //--------------------------------------------------------------------------------------------
 
     size_t N_EPOCH_TO_TRAIN = opt.EpochCount();
     float m_best_accuracy = 0.0f;
 
-    for (int epoch = 0; epoch < N_EPOCH_TO_TRAIN; epoch++) {
+    for (size_t epoch = 0; epoch < N_EPOCH_TO_TRAIN; epoch++) {
         cout << endl << "Epoch: " << epoch << "/" << N_EPOCH_TO_TRAIN << ":" << endl;
         // Testea las imagenes de entrenamiento
         size_t m_train = m_data_set_train.size().value();
