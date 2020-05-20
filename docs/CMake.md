@@ -13,10 +13,17 @@ Debug flags: -Wdev, --debug-output and --trace
 
 ## Referencias
 [Introduction to CMake by Example](http://derekmolloy.ie/hello-world-introductions-to-cmake/)
+
 [How do I debug CMakeLists.txt files?](https://stackoverflow.com/questions/22803607/how-do-i-debug-cmakelists-txt-files)
+
 [CMake and FIND PACKAGE](http://wiki.icub.org/wiki/CMake_and_FIND_PACKAGE)
+
 [find_package](https://cmake.org/cmake/help/latest/command/find_package.html)
+
 [cmake-variables](https://cmake.org/cmake/help/v3.0/manual/cmake-variables.7.html)
+
 [cmake-env-variables](https://cmake.org/cmake/help/v3.16/manual/cmake-env-variables.7.html)
+
 [CXXFLAGS](https://cmake.org/cmake/help/v3.16/envvar/CXXFLAGS.html)
+
 [message](https://cmake.org/cmake/help/v3.0/command/message.html)
