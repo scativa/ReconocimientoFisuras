@@ -1,6 +1,4 @@
 # Entorno en Google Colab
-Keywords: Pytorch, Google Colab, Google Drive
-
 Instrucciones para generar el entorno de trabajo para *pytorch* en *Google Colab*.
 
 ## Paso a paso
