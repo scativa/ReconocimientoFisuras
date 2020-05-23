@@ -1,5 +1,4 @@
-# Entorno en Google Colab
-Keywords: Google Colab, Google Drive
+# Google Colab
 
 ## Ejemplos
 [src/test/torch-test/linux/](src/test/torch-test/linux/README.md)
