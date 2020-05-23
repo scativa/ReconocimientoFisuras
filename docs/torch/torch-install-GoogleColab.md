@@ -35,7 +35,7 @@ Versiones libtorch disponibles
 #!wget https://download.pytorch.org/libtorch/cu92/libtorch-shared-with-deps-1.5.0%2Bcu92.zip
 #!unzip libtorch-shared-with-deps-1.5.0+cu92.zip -d /content
 ```
-**3. GPU CUDA 10.1** (*Versión utilizada en Google Colab*)
+3. **GPU CUDA 10.1** (*Versión utilizada en Google Colab*)
 ```
 !wget https://download.pytorch.org/libtorch/cu101/libtorch-shared-with-deps-1.5.0%2Bcu101.zip
 !unzip libtorch-shared-with-deps-1.5.0+cu101.zip -d /content
