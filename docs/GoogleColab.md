@@ -16,3 +16,5 @@
 [Google Colab: Tips para principiantes](https://medium.com/marvik/google-colab-tips-para-principiantes-e39d6e7051d4)
 [Uso de GPU](docs/GPU)
 [Configuración de entorno para Pytorch](/docs/torch/README.md)
+
+[First, WTF is Google Colab?](https://jovianlin.io/pytorch-with-gpu-in-google-colab/)
