@@ -58,7 +58,7 @@ Versiones libtorch disponibles
 La versión de pytorch descargada se corresponde a una que ejecuta en CPU. Cambiar el nombre del archivo, tanto a descargar como al descomprimir según la versión deseada. [Ver](https://pytorch.org/get-started/locally/). 
 
 ## Referencias
-(Google Colab: Tips para principiantes)[https://medium.com/marvik/google-colab-tips-para-principiantes-e39d6e7051d4]
+[Google Colab: Tips para principiantes](https://medium.com/marvik/google-colab-tips-para-principiantes-e39d6e7051d4)
 
 
 
