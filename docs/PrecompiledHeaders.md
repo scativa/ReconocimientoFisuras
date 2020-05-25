@@ -1,5 +1,8 @@
 # PrecompiledHeaders
 
+## Requerimientos
+* Linux: CMake 3.16 o superior
+
 ## VISUAL STUDIO Paso a paso
 ### Project
 Debe incluir dos archivos: ```pch.cpp``` y ```pch.h```
@@ -79,20 +82,26 @@ user	0m0,113s
 sys	0m0,026s
 ```
 
+### CMake
+[target_precompile_headers - cmake.org](https://cmake.org/cmake/help/git-stage/command/target_precompile_headers.html)
+
+[pch unity cmake](https://onqtam.com/programming/2019-12-20-pch-unity-cmake-3-16/)
+
+[pre-compiled-headers-gcc-clang-cmake](http://mochan.info/c++/2019/11/12/pre-compiled-headers-gcc-clang-cmake.html)
 
 ## Problemas experimentados
-Visual Studio: Puede suceder que a pesar de poner la configuración indicada, producto de pruebas intermedias continúe complilándose el código completo. Esto se soluciona borrando todos los archivos de las carpetas ```/x64``` (si esa es la plataforma elegida), tanto del proyecto en particular como de la solución de Visual Studio. NO SE PUDO SOLUCIONAR. Desconozco porqué vuelve a recompilar el pch.h
+* Visual Studio: Puede suceder que a pesar de poner la configuración indicada, producto de pruebas intermedias continúe complilándose el código completo. Esto se soluciona borrando todos los archivos de las carpetas ```/x64``` (si esa es la plataforma elegida), tanto del proyecto en particular como de la solución de Visual Studio. NO SE PUDO SOLUCIONAR. Desconozco porqué vuelve a recompilar el pch.h
+* CMake: No reconoce el comando `target_precompile_headers`. El preciso actualizar CMake a una versión 3.16 o superior
 
 ## Referencias
 
-### The Cherno
-[Precompiled Headers in C+](https://www.youtube.com/watch?v=eSI4wctZUto&list=PLlrATfBNZ98dudnM48yfGUldqGD0S4FFb&index=72)
+[The Cherno - Precompiled Headers in C+](https://www.youtube.com/watch?v=eSI4wctZUto&list=PLlrATfBNZ98dudnM48yfGUldqGD0S4FFb&index=72)
 
-### Microsoft
-[Precompiled Header Files](https://docs.microsoft.com/en-us/cpp/build/creating-precompiled-header-files?view=vs-2019)
-[/Yc (Create Precompiled Header File](https://docs.microsoft.com/en-us/cpp/build/reference/yc-create-precompiled-header-file?view=vs-2019)
+[microsoft.com - Precompiled Header Files](https://docs.microsoft.com/en-us/cpp/build/creating-precompiled-header-files?view=vs-2019)
 
-### No Visual Studio
+[microsoft.com - /Yc (Create Precompiled Header File](https://docs.microsoft.com/en-us/cpp/build/reference/yc-create-precompiled-header-file?view=vs-2019)
+
+
 [How to Optimize Compilation Times with Precompiled Headers (PCH Files)](https://www.codeproject.com/Articles/1188975/How-to-Optimize-Compilation-Times-with-Precompil)
 
 
