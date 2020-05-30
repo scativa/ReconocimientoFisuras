@@ -1,5 +1,5 @@
 # Cement Trainer
-Entrena la red de los archivos del dataset y almacena los pesos sinápticos en un archivos.
+Entrena la red de los archivos del dataset y almacena los pesos sinápticos en un archivos (CVNet_CementTrainer2).
 
 ### Input
 El dataset es generado por otro programa que genera a partir de un lote clasificado de imágenes positivas y negativas. Los archivos por defecto son: `TRAIN_IMAGES.tensor`, `TRAIN_TARGET.tensor`,`TEST_IMAGES.tensor`, `TEST_TARGET.tensor`. Ver [CVNet_DatasetBuilder](ReconocimientoFisuras/src/Fisuras/CVNet_DatasetBuilder)
@@ -10,6 +10,10 @@ Al finalizar la ejecución se obtiene el archivo con los pesos sinápticos gener
 ## Visual Studio - Windows 
 
 ## Linux
+Ver los cambios implementados en el código en Visual Stuadio - Windows para que compile en Linux/Colab, trantando tanto errores como warnings en:
+1. `changelog.txt` del 20200517 y 20200518
+2. `logCompileBuild001.html`, salida de la primer compilación y build.
+
 
 ## Google Colab
 Ver la preparación del entorno en [torch-install-GoogleColab.md](docs/torch/torch-install-GoogleColab.md)

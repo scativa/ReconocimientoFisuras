@@ -20,8 +20,6 @@ cmake --build . --config Release
 
 ## Google Colab
 
-
-
 #!wget https://download.pytorch.org/libtorch/cu102/libtorch-shared-with-deps-1.5.0.zip
 #!unzip libtorch-shared-with-deps-1.5.0.zip -d /content
 
@@ -93,8 +91,6 @@ device_lib.list_local_devices()
 
 ## Referencias
 [First, WTF is Google Colab?](https://jovianlin.io/pytorch-with-gpu-in-google-colab/)
-> 
-https://jovianlin.io/pytorch-with-gpu-in-google-colab/
 
 [Programmming PyTorch for Deep Learning](https://books.google.com.ar/books?id=udCwDwAAQBAJ&pg=PA156&lpg=PA156&dq=enable+gpu+google+colab+pytorch+cpp&source=bl&ots=ImnBsdKXw7&sig=ACfU3U34Fu9qVBjQORuFO_u2PQ7ZP9Iqtw&hl=es-419&sa=X&ved=2ahUKEwjGjvPK3cPpAhVzKLkGHRKUAbYQ6AEwDHoECAoQAQ#v=onepage&q=enable%20gpu%20google%20colab%20pytorch%20cpp&f=false)
 

@@ -1,8 +1,13 @@
-cmake_minimum_required(VERSION 3.0 FATAL_ERROR)
+cmake_minimum_required(VERSION 3.16 FATAL_ERROR)
 project(CVNet_CementTrainer2)
 
 find_package(Torch REQUIRED)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${TORCH_CXX_FLAGS}")
+
+target_precompile_headers(myTarget
+  PUBLIC
+    pch.h
+)
 
 add_executable(CVNet_CementTrainer2 CementTrainer.cpp CVNet_CementTrainer2.cpp pch.cpp  cmdlineopt.cpp)
 target_link_libraries(CVNet_CementTrainer2 "${TORCH_LIBRARIES}")

@@ -7,10 +7,10 @@
 #include <string>
 #include <vector>
 #include <stdlib.h>
-#include <tchar.h>
+//#include <tchar.h>
 #include <stdio.h>
 
 
 // Windows API 
 
-#include <Windows.h>
+// #include <Windows.h>

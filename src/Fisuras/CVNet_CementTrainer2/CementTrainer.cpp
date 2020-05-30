@@ -26,6 +26,7 @@ namespace torch {
             Device device = (torch::cuda::is_available() ? torch::kCUDA : torch::kCPU);
 
             std::pair<Tensor, Tensor> ShuffleTensors(at::Tensor& IMAGES, at::Tensor& TARGETS) {
+                std::cout << "Cement::ShuffleTensors()" << std::endl;
                 auto MIXED_IMAGES = torch::zeros({ IMAGES.sizes() }, device).to(torch::kByte);
                 auto MIXED_TARGETS = torch::zeros({ TARGETS.sizes() }, device).to(torch::kByte);
 
@@ -40,6 +41,7 @@ namespace torch {
             };
 
             Cement::Cement(const std::string& ROOT_FOLDER, const std::string& PREFIX_FN, const Mode& MODE) {
+                std::cout << "Cement::Cement()" << std::endl;
                 string images_fn = IMG_FNAME(ROOT_FOLDER, PREFIX_FN, MODE);
                 string targets_fn = TRG_FNAME(ROOT_FOLDER, PREFIX_FN, MODE);
 
@@ -59,22 +61,27 @@ namespace torch {
             }
 
             optional<size_t> Cement::size() const {
+                std::cout << "Cement::size()" << std::endl;
                 return images_.size(0);
             }
 
             bool Cement::is_train() const noexcept {
+                std::cout << "Cement::is_train()" << std::endl;
                 return images_.size(0) == TrainImageSize;
             }
 
             const Tensor& Cement::images() const {
+                std::cout << "Cement::images()" << std::endl;
                 return images_;
             }
 
             const Tensor& Cement::targets() const {
+                std::cout << "Cement::targets()" << std::endl;
                 return targets_;
             }
 
             const IntArrayRef Cement::sizes() const {
+                std::cout << "Cement::sizes()" << std::endl;
                 return images_.sizes();
             }
 
