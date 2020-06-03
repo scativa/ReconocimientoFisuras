@@ -43,18 +43,23 @@ Agregar la línea
 Ver **Anexo I**
 
 
-[Drivesync - Github](https://github.com/MStadlmeier/drivesync)
-[DriveSync – Easy way to Sync files between local and Google Drive from Linux CLI](https://www.2daygeek.com/drivesync-google-drive-sync-client-for-linux/)
-
 
 
 ## Referencias
 [Google Colab: Tips para principiantes](https://medium.com/marvik/google-colab-tips-para-principiantes-e39d6e7051d4)
+
 [Uso de GPU](docs/GPU)
+
 [Configuración de entorno para Pytorch](/docs/torch/README.md)
 
 [First, WTF is Google Colab?](https://jovianlin.io/pytorch-with-gpu-in-google-colab/)
 
+### Referencias Drivesync
+[Drivesync - Github](https://github.com/MStadlmeier/drivesync)
+
+[DriveSync – Easy way to Sync files between local and Google Drive from Linux CLI](https://www.2daygeek.com/drivesync-google-drive-sync-client-for-linux/)
+
+[Rsync (Remote Sync): 10 Practical Examples of Rsync Command in Linux](https://www.tecmint.com/rsync-local-remote-file-synchronization-commands/)
 
 ## Anexo I
 Ejemplo de Daniel Chispa Sanchez usando Drivesync
