@@ -40,6 +40,7 @@ Agregar la línea
 ```
 */1 * * * * ruby /path/to/drivesync/drivesync.rb
 ```
+Ver **Anexo I**
 
 
 [Drivesync - Github](https://github.com/MStadlmeier/drivesync)
@@ -53,3 +54,34 @@ Agregar la línea
 [Configuración de entorno para Pytorch](/docs/torch/README.md)
 
 [First, WTF is Google Colab?](https://jovianlin.io/pytorch-with-gpu-in-google-colab/)
+
+
+## Anexo I
+Ejemplo de Daniel Chispa Sanchez usando Drivesync
+
+```sh
+# nombre: alanube.sh
+# usando el programa rsync hago un bkup cada media hora de la carpeta de la tesis 
+# y la mando a mi google drive
+
+
+#SCRIPT A LA NUBE
+# dir script ---- /usr/local/bin/alanube.sh
+# usando el programa rsync hago un backup (programado cada media hora) de los que estuve trabajando en la tesis. 
+# actualiza los últimos cambios en la carpeta sincronizada con el google drive con el programa ruby
+#usuario: XXXX@gmail.com
+
+#!/bin/bash
+
+# hago el backup en la cumpu en la carpeta drive
+# sincronizo la carpeta donde tengo los programas del micro (del AVR que uso en wine) y los pongo en el directorio de la tesis
+rsync -avh --delete --exclude '/LTspiceXVII/' /home/daniels/.
+wine/drive_c/users/daniels/Mis\ Documentos/ /home/daniels/FIUBA/tesis\ SPS/Programas/
+
+# sincronizo la carpeta de la tesis en la carpeta que subo al drive
+rsync -avh --delete /home/daniels/FIUBA/ /home/daniels/Documents/drive/FIUBA/
+
+# envio los datos a la nube - drive de la cuenta de gmail -
+ruby /home/daniels/drivesync/drivesync.rb
+```
+
