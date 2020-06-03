@@ -1,4 +1,4 @@
-20200518
+20200518 - Adecuación para compilar en Linux
 
 ====
 copiar en el la carpeta del proyecto cxxopts.hpp
@@ -19,9 +19,6 @@ for (size_t epoch = 0; epoch < N_EPOCH_TO_TRAIN; epoch++)
 ====
 std::printf("Accuracy: %.3f% \r\n", ACCURACY);
 std::printf("Accuracy: %.3f \r\n", ACCURACY);
-
-
-
 
 
 20200517

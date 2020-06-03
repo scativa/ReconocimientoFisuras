@@ -45,7 +45,7 @@ torch::Device device = (torch::cuda::is_available() ? torch::kCUDA : torch::kCPU
 
 int main(int argc, char* argv[]) {
 
-    cout << "Cement Trainer2 ABc" << endl; // exit(0);
+    cout << "Cement Trainer2 - GPU Google Colab -- PCHLinux 6" << endl; // exit(0);
 
     CmdLineOpt opt(argc, argv);
 
@@ -140,7 +140,7 @@ int main(int argc, char* argv[]) {
         // Testea las imagenes de entrenamiento
         size_t m_train = m_data_set_train.size().value();
         cout << "Try " << float(m_train / 1000) << "k train data: ";
-        test_batch(net, *m_data_loader_train, m_train);
+        //test_batch(net, *m_data_loader_train, m_train);
 
         //Ahora testeo con imagenes con la cuales no entrena y nunca vio, si la red aprendio la graba a disco.
         size_t m_test = m_data_set_test.size().value();
