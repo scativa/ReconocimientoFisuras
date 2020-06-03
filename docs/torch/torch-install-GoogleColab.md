@@ -1,6 +1,4 @@
 # Entorno en Google Colab
-Keywords: Pytorch, Google Colab, Google Drive
-
 Instrucciones para generar el entorno de trabajo para *pytorch* en *Google Colab*.
 
 ## Paso a paso
@@ -23,21 +21,42 @@ drive.mount('/content/drive')
 %cd /content/drive/My\ Drive/Colab
 %mkdir download
 %cd download
+!wget https://download.pytorch.org/libtorch/<unidadproc/link-libtorch-version.zip>
+!unzip <libtorch-version.zip> -d /content
+```
+Versiones libtorch disponibles
+1. CPU
+```
 !wget https://download.pytorch.org/libtorch/cpu/libtorch-shared-with-deps-1.5.0%2Bcpu.zip
 !unzip libtorch-shared-with-deps-1.5.0+cpu.zip -d /content
+```
+2. GPU CUDA 9.2
+```
+#!wget https://download.pytorch.org/libtorch/cu92/libtorch-shared-with-deps-1.5.0%2Bcu92.zip
+#!unzip libtorch-shared-with-deps-1.5.0+cu92.zip -d /content
+```
+3. **GPU CUDA 10.1** (*Versión utilizada en Google Colab*)
+```
+!wget https://download.pytorch.org/libtorch/cu101/libtorch-shared-with-deps-1.5.0%2Bcu101.zip
+!unzip libtorch-shared-with-deps-1.5.0+cu101.zip -d /content
+```
+4. GPU CUDA 10.2
+```
+#!wget https://download.pytorch.org/libtorch/cu102/libtorch-shared-with-deps-1.5.0.zip
+#!unzip libtorch-shared-with-deps-1.5.0.zip -d /content
 ```
 
 ## Test
 [Torch test proyects](/src/test/torch-test/linux/README.md)
 
-## Notas
+## Recomendaciones
 **Atención** con el uso de '!' y '%'
 
 ### Entorno
 La versión de pytorch descargada se corresponde a una que ejecuta en CPU. Cambiar el nombre del archivo, tanto a descargar como al descomprimir según la versión deseada. [Ver](https://pytorch.org/get-started/locally/). 
 
 ## Referencias
-(Google Colab: Tips para principiantes)[https://medium.com/marvik/google-colab-tips-para-principiantes-e39d6e7051d4]
+[Google Colab: Tips para principiantes](https://medium.com/marvik/google-colab-tips-para-principiantes-e39d6e7051d4)
 
 
 
