@@ -45,7 +45,7 @@ torch::Device device = (torch::cuda::is_available() ? torch::kCUDA : torch::kCPU
 
 int main(int argc, char* argv[]) {
 
-    cout << "Cement Trainer2 - GPU Google Colab" << endl; // exit(0);
+    cout << "Cement Trainer2 - GPU Google Colab -- PCHLinux 6" << endl; // exit(0);
 
     CmdLineOpt opt(argc, argv);
 

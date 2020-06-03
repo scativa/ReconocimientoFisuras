@@ -1,8 +1,10 @@
+/* Test PRECOMPILED HEADERS */
 #include "pch.h"
 
 
-int main()
-{
+int main() {
+    std::cout << "Hello World, man!\n";
+    std::cout << "Hello World, man!\n";
     std::cout << "Hello World, man!\n";
     std::cout << "Hello World, man!\n";
 }
