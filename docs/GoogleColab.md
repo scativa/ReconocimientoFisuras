@@ -16,6 +16,7 @@
 Como subir los archivos al Google Drive 
 
 ### Drivesync$ 
+#### Instalación
 ```
 $ sudo apt install ruby ruby-bundler
 $ cd github/
@@ -29,21 +30,35 @@ $ sudo gem install bundler
 $ bundle install
 ```
 
+#####  Configuración e inicio
+Antes sincronizar se cambia la configuración de `./.drivesync/config.yml` para poder: usar sólo la carpta específica para el src; sobresescribir los archivos remotos, prevaleciendo los locales;
+```
+drive_path: "~/DrivesyncColabSrc"
+update_conflict_strategy: keep_local
+inclusion: whitelist
+whitelist: [Colab/src/*]
+sync_shared_in_drive: true
+```
+Empezar la actualización con la configuración anterior
 ```ruby
 $ ruby drivesync.rb
 ```
-
+En caso de falla o cambio de configuración
+```ruby
+$ ruby drivesync.rb reset
 ```
-crontab -e
-```
-Agregar la línea
+Si que quiere que la actualización sea automática ejecutamos `$ crontab -e` y se agrega la línea
 ```
 */1 * * * * ruby /path/to/drivesync/drivesync.rb
 ```
+##### Actualización
+Script para actualizar drive `./todrive` 
+```
+rsync -avh --delete ./ ~/DrivesyncColabSrc/Colab/src/CVNet_CementTrainer2/ 
+ruby ~/github/drivesync/drivesync.rb
+```
+
 Ver **Anexo I**
-
-
-
 
 ## Referencias
 [Google Colab: Tips para principiantes](https://medium.com/marvik/google-colab-tips-para-principiantes-e39d6e7051d4)
