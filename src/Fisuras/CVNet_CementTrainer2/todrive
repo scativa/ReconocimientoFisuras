@@ -1,0 +1,3 @@
+rsync -avh --delete ./ ~/DrivesyncColabSrc/Colab/src/CVNet_CementTrainer2/ 
+ruby ~/github/drivesync/drivesync.rb
+
