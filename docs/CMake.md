@@ -67,6 +67,24 @@ Debug flags: -Wdev, --debug-output and --trace
 
 [message](https://cmake.org/cmake/help/v3.0/command/message.html)
 
+[ucm - useful cmake macros](https://github.com/onqtam/ucm)
+
+[ucm - useful cmake macros](https://gitlab.kitware.com/cmake/community/-/wikis/home#cmake)
+
+[]()
+
+[]()
+
+[]()
+
+[]()
+
+[]()
+
+[]()
+
+[]()
+
 ### Referencias - Update
 [cmake.org - Download](https://cmake.org/download/)
 
