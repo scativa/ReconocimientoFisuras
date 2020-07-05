@@ -24,6 +24,8 @@ Se quitó *libjasper-dev* por error en el comando original:
 apt-get install python-dev python-numpy libtbb2 libtbb-dev libjpeg-dev libpng-dev libtiff-dev **libjasper-dev** libdc1394-22-dev
 ```
 
+Corroborar si lo anterior es necesario instalara para Colab
+
 ## OpenCV 
 
 ### Descarga de fuentes
@@ -32,9 +34,11 @@ apt-get install python-dev python-numpy libtbb2 libtbb-dev libjpeg-dev libpng-de
 %mkdir /content/drive/My\ Drive/Colab/download
 %cd /content/drive/My\ Drive/Colab/download
 !git clone https://github.com/opencv/opencv.git
-# !git clone https://github.com/opencv/opencv_contrib.git
 ```
-*(El paquete https://github.com/opencv/opencv_contrib.git no está siendo usado. Fallas en la descarga y no se precisa.)
+1.b Para usar con CUDA instalar las opencv_contrib
+```
+!git clone https://github.com/opencv/opencv_contrib.git
+```
 
 2 Se copia dentro del Google Colab. (Ver nota al pie sobre **Building**)
 ```
@@ -50,9 +54,12 @@ apt-get install python-dev python-numpy libtbb2 libtbb-dev libjpeg-dev libpng-de
 !make -j7
 ```
 
-
-
+Para usar con CUDA agrego al a líneade `cmake` las opciones de `opencv_contrib` y `WITH_CUDA`
 ```
+!cmake -DOPENCV_EXTRA_MODULES_PATH=/content/opencv_contrib/modules -D WITH_CUDA=ON -D CMAKE_BUILD_TYPE=Release -D CMAKE_INSTALL_PREFIX=/usr/local -DBUILD_DOCS=TRUE -D BUIL_EXAMPLES=TRUE ..```
+```
+
+__El siguiente error no aparece más (4/07/2020)__
 [ 28%] Linking CXX shared library ../../lib/libopencv_core.so
 CMake Error: cmake_symlink_library: System Error: Operation not supported
 CMake Error: cmake_symlink_library: System Error: Operation not supported
@@ -75,5 +82,7 @@ make: *** [all] Error 2
 **Atención** con el uso de '!' y '%'.
 > The issue is that each of the !-prefixed commands runs in its own subshell -- so the ```!cd``` starts a new shell, switches directories, and then kills that shell. The ```!ls``` then starts anew in the current directory. Doing ```!cd``` ```SwitchFrequencyAnalysis && ls``` would have worked, but using python's ```os.chdir``` is the cleaner approach here.
 
+## Referencias
+[OpenCV Contrib README.md - Github](https://github.com/opencv/opencv_contrib)
 
 
