@@ -1,3 +1,0 @@
-/home/seba/github/ReconocimientoFisuras/src/oring-QA/morph2/build/CMakeFiles/rebuild_cache.dir
-/home/seba/github/ReconocimientoFisuras/src/oring-QA/morph2/build/CMakeFiles/morph2.dir
-/home/seba/github/ReconocimientoFisuras/src/oring-QA/morph2/build/CMakeFiles/edit_cache.dir

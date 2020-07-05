@@ -1,3 +1,0 @@
-/home/seba/github/ReconocimientoFisuras/src/oring-QA/set-threshold/build/CMakeFiles/rebuild_cache.dir
-/home/seba/github/ReconocimientoFisuras/src/oring-QA/set-threshold/build/CMakeFiles/set-threshold.dir
-/home/seba/github/ReconocimientoFisuras/src/oring-QA/set-threshold/build/CMakeFiles/edit_cache.dir

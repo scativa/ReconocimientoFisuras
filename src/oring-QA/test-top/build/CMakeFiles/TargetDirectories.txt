@@ -1,3 +1,0 @@
-/home/seba/github/ReconocimientoFisuras/src/oring-QA/test-top/build/CMakeFiles/rebuild_cache.dir
-/home/seba/github/ReconocimientoFisuras/src/oring-QA/test-top/build/CMakeFiles/test-top.dir
-/home/seba/github/ReconocimientoFisuras/src/oring-QA/test-top/build/CMakeFiles/edit_cache.dir
