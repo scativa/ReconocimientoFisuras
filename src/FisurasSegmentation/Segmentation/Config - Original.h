@@ -33,10 +33,10 @@ const torch::DeviceType running_into = torch::cuda::is_available() ? torch::kCUD
 // que indica donde esta el objeto que quiero detectar, por eso, en el directorio \imgs estan las
 // imagenes de las fracturas y en el directorio \masks contienen la ubicacion de las fracturas para
 // poder saber donde se alojan.
-static const std::string Folder_with_RAW_pictures = "C:/Users/User/Proyectos/data/Samples_Segmentation";
+static const std::string Folder_with_RAW_pictures = "C:\\Repositories\\Samples_Segmentation";
 
 // En este directorio es donde crea la estructura de archivos que posteriormente voy a levantar con el DATASET
-static const std::string Folder_with_Procceced_pictures = "C:/Users/User/Proyectos/data/Segmentation";
+static const std::string Folder_with_Procceced_pictures = "C:\\Repositories\\Segmentation";
 //Folder_with_Procceced_pictures
 //├── CRACKS
 //│   ├── IMG
@@ -59,7 +59,7 @@ static const std::string Folder_with_Procceced_pictures = "C:/Users/User/Proyect
 
 //--------------------------------------------------------------------------------------------------
 // Directorio donde estan los PNG y/o los JPG que quiero analizar.-----------------------------
-static const std::string Folder_with_JPGs = "C:/Users/User/Proyectos/data/Positive";
+static const std::string Folder_with_JPGs = "C:\\Repositories\\CementCrack\\Ejemplos";
 //static const std::string Folder_with_JPGs = "C:\\Repositories\\CementCrack\\5y9wdsg2zt-1\\Positive";
 //static const std::string Folder_with_JPGs = "C:\\Repositories\\Samples_Segmentation\\img";
 //static const std::string Folder_with_JPGs = "C:\\Repositories\\CementCrack\\SDNET2018\\POSITIVE";

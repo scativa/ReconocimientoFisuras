@@ -80,8 +80,13 @@ namespace torch {
                     std::cout << "Done!." << std::endl;
                 }
               
-                auto imagen_patition = images_.split(size_t(images_.size(0) * Percentage_of_pictures_used_to_train));
-                auto mask_patition = targets_.split(size_t(targets_.size(0) * Percentage_of_pictures_used_to_train));
+                int images_size = images_.size(0);
+                int targets_size = targets_.size(0);
+
+                auto imagen_patition = images_.split(size_t(images_size * Percentage_of_pictures_used_to_train));
+                auto mask_patition = targets_.split(size_t(targets_size * Percentage_of_pictures_used_to_train));
+//                auto imagen_patition = images_.split(size_t(images_.size(0) * Percentage_of_pictures_used_to_train));
+//                auto mask_patition = targets_.split(size_t(targets_.size(0) * Percentage_of_pictures_used_to_train));
 
                 switch (mode) {
                 case Mode::Train:
