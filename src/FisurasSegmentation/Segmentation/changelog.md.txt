@@ -1,16 +1,21 @@
 # CHANGELOG 22/07/2020
 
 ## Problemas precompilación de headers
-No funciona ante cambios en 
+Problema: Ante la modificación en alguno de los archivos siguientes recompilaba todas las librerías (particularmente la libtorch).
 
 - Config.h
 - CementDataset.cpp
 - Serialize.cpp
 
+### Solución
+#### Archivos fuentes
+En los archivos 
+- CementDataset.cpp
+- Serialize.cpp
 
-Se corrige en los dos últimos
-1) Se mueve la línea `#include "pch.h"` del `.h` al `.cpp` (nota, el `pch.h` debe ser el primer include en cada caso).
+Se mueve la línea `#include "pch.h"` del `.h` al `.cpp` (nota, el `pch.h` debe ser el primer include en cada caso).
 
+#### Propiedades de los archivos
 2) Se cambia la configuración en _Configuration properties_-> _C/C++_->
 ```
 Precompiled Headers->
@@ -23,6 +28,22 @@ Precompiled Headers->
 	- Precompiled Header: Use (/Yc)
 	- Precompiled Header File: pch.h
 ```
+
+#### Configuración de proyecto
+Siquiendo las instrucciones del PCH se ajusta la configuración del proyecto, aunque de todas formas funcionaba sin esta modificación.
+
+_Configuration properties_-> _C/C++_->
+```
+Prepocessor->
+	- Preprocess to a file = Yes (/P)
+
+Precompiled Headers->
+	- Precompiled Header: Use (/Yc)
+	- Precompiled Header File: pch.h
+```
+
+A pesar de lo indicado en las instrucciones generales del PCH se configuró _C/C++_-> Prepocessor -> Preprocess to a file: **NO**_
+Si se usa "Yes" da el siguiente error: `LNK1181 cannot open input file 'x64\Release\Segmentation.obj'`
 
 ## Librerías
 
@@ -55,7 +76,15 @@ En ambas opciones se tilda `Inherit from parent or project defaults`
 Debe quedar de la siguiente forma, teniendo en cuenta la ubicación local de las librerías en cada equipo.
 
 __Configuratios properties__
-1. *VC++ Directories*->
+
+
+1. _C/C++_->
+	- Prepocessor->
+	  - Preprocess to a file: NO
+	- Precompiled Headers->
+	  - Precompiled Header: Use (/Yc)
+	  - Precompiled Header File: pch.h
+2. *VC++ Directories*->
    - __*Include Directories:*__
      - C:\Repositories\opencv\build\include
      - C:\Repositories\libtorch\include
@@ -64,8 +93,7 @@ __Configuratios properties__
      - C:\Repositories\opencv\build\x64\vc15\lib
      - C:\Repositories\libtorch\lib
 [X] Inherit from parent or project defaults
-
-2. *Linker*->*Input*->  
+3. *Linker*->*Input*->  
    - __*Additional Denpendencies:*__        
      - `opencv_world430d.lib`
 	 - `torch_cpu.lib`
