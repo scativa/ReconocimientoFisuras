@@ -1,5 +1,4 @@
 #pragma once
-#include "pch.h"
 #include "Config.h"
 
 class Serialize {

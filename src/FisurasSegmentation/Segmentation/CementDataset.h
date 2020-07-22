@@ -1,5 +1,4 @@
 ﻿#pragma once
-#include "pch.h"
 #include "Config.h"
 
     //. Estuctura de Archivos donde levanta las imagenes.

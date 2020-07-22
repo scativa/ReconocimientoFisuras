@@ -1,3 +1,4 @@
+#include "pch.h"
 #include "CementDataset.h"
 
 namespace torch {
@@ -72,21 +73,23 @@ namespace torch {
                 torch::save(targets_, PATH + "\\MASK.tensor");
             };
 
+
             auto  CementDataset::Load_tensors_from_disk(const std::string& PATH, const Mode& MODE) {
                 if ((images_.numel() == 0)) {
-                    std::cout << "Load_tensors_from_disk... " << std::endl;
+                    std::cout << "Load_tensors_from_disk... 3" << std::endl;
+                    std::cout << PATH + "\\IMG.tensor" << std::endl << PATH + "\\MASK.tensor";
                     torch::load(images_, PATH + "\\IMG.tensor");
                     torch::load(targets_, PATH + "\\MASK.tensor");
                     std::cout << "Done!." << std::endl;
                 }
               
-                int images_size = images_.size(0);
-                int targets_size = targets_.size(0);
+//                int images_size = images_.size(0);
+//                int targets_size = targets_.size(0);
 
-                auto imagen_patition = images_.split(size_t(images_size * Percentage_of_pictures_used_to_train));
-                auto mask_patition = targets_.split(size_t(targets_size * Percentage_of_pictures_used_to_train));
-//                auto imagen_patition = images_.split(size_t(images_.size(0) * Percentage_of_pictures_used_to_train));
-//                auto mask_patition = targets_.split(size_t(targets_.size(0) * Percentage_of_pictures_used_to_train));
+//                auto imagen_patition = images_.split(size_t(images_size * Percentage_of_pictures_used_to_train));
+//                auto mask_patition = targets_.split(size_t(targets_size * Percentage_of_pictures_used_to_train));
+                auto imagen_patition = images_.split(size_t(images_.size(0) * Percentage_of_pictures_used_to_train));
+                auto mask_patition = targets_.split(size_t(targets_.size(0) * Percentage_of_pictures_used_to_train));
 
                 switch (mode) {
                 case Mode::Train:
