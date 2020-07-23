@@ -8,7 +8,7 @@ public:
 	bool Directory_exists(const std::string& DIRNAME);
 	std::vector<cv::Mat> Augmentation(const cv::Mat& SRC, bool FLIP, bool ROTATE);
 
-	void Proccess_picture();
+	void Process_picture();
 private:
 	std::vector<std::string> IMG;
 	std::vector<std::string> MASK;

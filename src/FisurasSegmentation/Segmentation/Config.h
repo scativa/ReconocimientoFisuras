@@ -4,7 +4,9 @@
 // Comentar si solo quiero visualizar los resultados de un modelo previamente entranado
 //#define TRAIN_NET true 
 
+#ifdef _WIN64
 #define WINDOWS_COMPILER_VERSION true 
+#endif
 // Faltan las versiones para LINUX sobre el manejo de directorios.
 // Cuando esten se puede poner false en el flag.
 
@@ -21,7 +23,10 @@ constexpr size_t image_size = 96;
 //--------------------------------------------------------------------------------------------------
 constexpr size_t train_batch_size = 4;
 constexpr size_t test_batch_size  = 4;
+
 const float Percentage_of_pictures_used_to_train = 0.85f;
+//float Percentage_of_pictures_used_to_train = 0.85f;
+
 const std::vector<std::string> classes = { "CRACK" };// directorio de donde levanta el DATASET.
 const torch::DeviceType running_into = torch::cuda::is_available() ? torch::kCUDA : torch::kCPU;
 
@@ -32,12 +37,16 @@ const torch::DeviceType running_into = torch::cuda::is_available() ? torch::kCUD
 // de una RED de Segmentacion, debe tener su imagen y la mascara de la misma 
 // que indica donde esta el objeto que quiero detectar, por eso, en el directorio \imgs estan las
 // imagenes de las fracturas y en el directorio \masks contienen la ubicacion de las fracturas para
-// poder saber donde se alojan.
-static const std::string Folder_with_RAW_pictures = "C:/Users/User/Proyectos/data/Samples_Segmentation";
+// poder saber donde se alojan. SCOPE: SOLO SE USA EN SERIALIZE
+//static const std::string Folder_with_RAW_pictures = "C:/Users/User/Proyectos/data/Samples_Segmentation";
+static std::string Folder_with_RAW_pictures = "C:/Users/User/Proyectos/data/Samples_Segmentation";
+//std::string Folder_with_RAW_pictures = "C:/Users/User/Proyectos/data/Samples_Segmentation";
 
 // En este directorio es donde crea la estructura de archivos que posteriormente voy a levantar con el DATASET
-static const std::string Folder_with_Procceced_pictures = "C:/Users/User/Proyectos/data/Segmentation";
-//Folder_with_Procceced_pictures
+//static const std::string Folder_with_Processed_pictures = "C:/Users/User/Proyectos/data/Segmentation";
+static std::string Folder_with_Processed_pictures = "C:/Users/User/Proyectos/data/Segmentation";
+//std::string Folder_with_Processed_pictures = "C:/Users/User/Proyectos/data/Segmentation";
+//Folder_with_Processed_pictures
 //├── CRACKS
 //│   ├── IMG
 //│   │   ├── 0.png

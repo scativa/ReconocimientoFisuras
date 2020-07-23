@@ -74,7 +74,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
     <LibraryPath>C:\Repositories\OpenCV\build\x64\vc15\lib;C:\Repositories\libtorch\lib;$(LibraryPath)</LibraryPath>
-    <IncludePath>C:\Repositories\OpenCV\build\include;C:\Repositories\libtorch\include;C:\Repositories\libtorch\include\torch\csrc\api\include;$(IncludePath)</IncludePath>
+    <IncludePath>C:\Repositories\OpenCV\build\include;C:\Repositories\libtorch\include;C:\Repositories\libtorch\include\torch\csrc\api\include;C:\Repositories\cmdlineopt\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
@@ -176,6 +176,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\..\..\..\..\..\Repositories\cmdlineopt\include\cmdlineopt.hpp" />
     <ClInclude Include="CementDataset.h" />
     <ClInclude Include="Config.h" />
     <ClInclude Include="pch.h" />

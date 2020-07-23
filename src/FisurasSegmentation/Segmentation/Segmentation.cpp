@@ -58,7 +58,7 @@ int main() {
 	// Crea los DATASET de entrenamiento y testeo, cada corrida que se hace del programa crea uno distinto.
 	//--------------------------------------------------------------------------------------------------
 	auto train_dataset = torch::data::datasets::CementDataset(
-		Folder_with_Procceced_pictures,
+		Folder_with_Processed_pictures,
 		classes,
 		torch::data::datasets::CementDataset::Mode::Train
 	);
@@ -71,7 +71,7 @@ int main() {
 		);
 
 	auto test_dataset = torch::data::datasets::CementDataset(
-		Folder_with_Procceced_pictures,
+		Folder_with_Processed_pictures,
 		classes,
 		torch::data::datasets::CementDataset::Mode::Test
 	);

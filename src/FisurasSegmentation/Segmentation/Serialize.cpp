@@ -4,7 +4,7 @@
 Serialize::Serialize(const std::string& ADDRESS) {
     IMG = Get_structure_from_directory(ADDRESS + "\\IMG\\");
     MASK = Get_structure_from_directory(ADDRESS + "\\MASK\\");
-    Proccess_picture();
+    Process_picture();
 }
 
 bool Serialize::Directory_exists(const std::string& DIRNAME) {
@@ -75,19 +75,19 @@ std::vector<cv::Mat> Serialize::Augmentation(const cv::Mat& SRC, bool FLIP, bool
     return VEC;
 };
 
-void Serialize::Proccess_picture() {
+void Serialize::Process_picture() {
     //------------------------------------------------------------------------------------------------
     // Verifico si ya existe la estructura de directorios, sino es asi, la crea y prepara las imagenes
     //------------------------------------------------------------------------------------------------
-    if (!Directory_exists(Folder_with_Procceced_pictures)) {
+    if (!Directory_exists(Folder_with_Processed_pictures)) {
     #ifdef  WINDOWS_COMPILER_VERSION
-        CreateDirectory(std::string(Folder_with_Procceced_pictures).c_str(), NULL);
-        CreateDirectory(std::string(Folder_with_Procceced_pictures + "\\CRACK").c_str(), NULL);
-        CreateDirectory(std::string(Folder_with_Procceced_pictures + "\\CRACK\\IMG").c_str(), NULL);
-        CreateDirectory(std::string(Folder_with_Procceced_pictures + "\\CRACK\\MASK").c_str(), NULL);
-        CreateDirectory(std::string(Folder_with_Procceced_pictures + "\\NO_CRACK").c_str(), NULL);
-        CreateDirectory(std::string(Folder_with_Procceced_pictures + "\\NO_CRACK\\IMG").c_str(), NULL);
-        CreateDirectory(std::string(Folder_with_Procceced_pictures + "\\NO_CRACK\\MASK").c_str(), NULL);
+        CreateDirectory(std::string(Folder_with_Processed_pictures).c_str(), NULL);
+        CreateDirectory(std::string(Folder_with_Processed_pictures + "\\CRACK").c_str(), NULL);
+        CreateDirectory(std::string(Folder_with_Processed_pictures + "\\CRACK\\IMG").c_str(), NULL);
+        CreateDirectory(std::string(Folder_with_Processed_pictures + "\\CRACK\\MASK").c_str(), NULL);
+        CreateDirectory(std::string(Folder_with_Processed_pictures + "\\NO_CRACK").c_str(), NULL);
+        CreateDirectory(std::string(Folder_with_Processed_pictures + "\\NO_CRACK\\IMG").c_str(), NULL);
+        CreateDirectory(std::string(Folder_with_Processed_pictures + "\\NO_CRACK\\MASK").c_str(), NULL);
     #endif // WINDOWS_COMPILER_VERSION
 
     #ifndef WINDOWS_COMPILER_VERSION
@@ -128,8 +128,8 @@ void Serialize::Proccess_picture() {
                     if (margin == 0) {
                         //No hay fracturas en esta porcion de la imagen.
                         static size_t count = 0;
-                        cv::imwrite(Folder_with_Procceced_pictures + "\\NO_CRACK\\IMG\\" + std::to_string(count) + ".png", image_chunk, { cv::IMWRITE_PNG_COMPRESSION, 0 });
-                        cv::imwrite(Folder_with_Procceced_pictures + "\\NO_CRACK\\MASK\\" + std::to_string(count) + ".png", image_mask_chunk, { cv::IMWRITE_PNG_COMPRESSION, 0 });
+                        cv::imwrite(Folder_with_Processed_pictures + "\\NO_CRACK\\IMG\\" + std::to_string(count) + ".png", image_chunk, { cv::IMWRITE_PNG_COMPRESSION, 0 });
+                        cv::imwrite(Folder_with_Processed_pictures + "\\NO_CRACK\\MASK\\" + std::to_string(count) + ".png", image_mask_chunk, { cv::IMWRITE_PNG_COMPRESSION, 0 });
                         count++;
                     }
                     //if (margin > (0.04 * (image_size * image_size))) {
@@ -143,8 +143,8 @@ void Serialize::Proccess_picture() {
                         auto V2 = Augmentation(image_mask_chunk, true, true);
 
                         for (size_t k = 0; k < V1.size(); k++) {
-                            cv::imwrite(Folder_with_Procceced_pictures + "\\CRACK\\IMG\\" + std::to_string(count) + ".png", V1[k], { cv::IMWRITE_PNG_COMPRESSION, 0 });
-                            cv::imwrite(Folder_with_Procceced_pictures + "\\CRACK\\MASK\\" + std::to_string(count) + ".png", V2[k], { cv::IMWRITE_PNG_COMPRESSION, 0 });
+                            cv::imwrite(Folder_with_Processed_pictures + "\\CRACK\\IMG\\" + std::to_string(count) + ".png", V1[k], { cv::IMWRITE_PNG_COMPRESSION, 0 });
+                            cv::imwrite(Folder_with_Processed_pictures + "\\CRACK\\MASK\\" + std::to_string(count) + ".png", V2[k], { cv::IMWRITE_PNG_COMPRESSION, 0 });
                             count++;
                         }
                     }
