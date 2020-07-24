@@ -15,6 +15,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Visualizacion_Fracturas", "
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Segmentation", "Segmentation\Segmentation.vcxproj", "{5A0D18D2-C0DE-46BB-92AB-B15CDB05BB3C}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SerializeMod", "SerializeMod\SerializeMod.vcxproj", "{64246287-3F20-4D7C-AE4F-9593D4B681E6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -85,6 +87,16 @@ Global
 		{5A0D18D2-C0DE-46BB-92AB-B15CDB05BB3C}.Release|x64.Build.0 = Release|x64
 		{5A0D18D2-C0DE-46BB-92AB-B15CDB05BB3C}.Release|x86.ActiveCfg = Release|Win32
 		{5A0D18D2-C0DE-46BB-92AB-B15CDB05BB3C}.Release|x86.Build.0 = Release|Win32
+		{64246287-3F20-4D7C-AE4F-9593D4B681E6}.Debug|Any CPU.ActiveCfg = Debug|Win32
+		{64246287-3F20-4D7C-AE4F-9593D4B681E6}.Debug|x64.ActiveCfg = Debug|x64
+		{64246287-3F20-4D7C-AE4F-9593D4B681E6}.Debug|x64.Build.0 = Debug|x64
+		{64246287-3F20-4D7C-AE4F-9593D4B681E6}.Debug|x86.ActiveCfg = Debug|Win32
+		{64246287-3F20-4D7C-AE4F-9593D4B681E6}.Debug|x86.Build.0 = Debug|Win32
+		{64246287-3F20-4D7C-AE4F-9593D4B681E6}.Release|Any CPU.ActiveCfg = Release|Win32
+		{64246287-3F20-4D7C-AE4F-9593D4B681E6}.Release|x64.ActiveCfg = Release|x64
+		{64246287-3F20-4D7C-AE4F-9593D4B681E6}.Release|x64.Build.0 = Release|x64
+		{64246287-3F20-4D7C-AE4F-9593D4B681E6}.Release|x86.ActiveCfg = Release|Win32
+		{64246287-3F20-4D7C-AE4F-9593D4B681E6}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
