@@ -1,18 +1,13 @@
-﻿#pragma once
+﻿//
+// SerializeMod
+// Config
+//
+
+#pragma once
 #include "pch.h"
 
 // Comentar si solo quiero visualizar los resultados de un modelo previamente entranado
 //#define TRAIN_NET true 
-
-#define WINDOWS_COMPILER_VERSION true 
-// Faltan las versiones para LINUX sobre el manejo de directorios.
-// Cuando esten se puede poner false en el flag.
-
-/*
-#ifdef WINDOWS_COMPILER_VERSION
-#include <windows.h>
-#endif // WINDOWS_COMPILER_VERSION
-*/
 
 // Indica si se activa el mode Verbose donde muestra en pantalla cosas
 //bool Verbose;

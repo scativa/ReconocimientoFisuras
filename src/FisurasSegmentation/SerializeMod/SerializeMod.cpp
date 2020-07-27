@@ -1,5 +1,8 @@
-// SerializeMod.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
+// SerializeMod
+// Main
+//
+
 #include "pch.h"
 #include "Config.h"
 #include "Serialize.h"
