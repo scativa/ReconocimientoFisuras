@@ -22,6 +22,8 @@ constexpr size_t image_size = 96;
 const std::vector<std::string> classes = { "CRACK" };// directorio de donde levanta el DATASET.
 const torch::DeviceType running_into = torch::cuda::is_available() ? torch::kCUDA : torch::kCPU;
 
+//extern int verbose_mode;
+
 // En este directorio es donde crea la estructura de archivos que posteriormente voy a levantar con el DATASET
 //static const std::string Folder_with_Processed_pictures = "C:/Users/User/Proyectos/data/Segmentation";
 //static std::string Folder_with_Processed_pictures = "C:/Users/User/Proyectos/data/Segmentation";

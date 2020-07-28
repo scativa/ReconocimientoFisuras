@@ -8,8 +8,7 @@
 
 class Serialize {
 public:
-	Serialize(const std::string& input_folder, const std::string& output_folder, bool verbose_mode = false);
-	bool Verbose;
+	Serialize(const std::string& input_folder, const std::string& output_folder);
 
 private:
 	std::vector<std::string> Get_structure_from_directory(const std::string& ADDRESS);

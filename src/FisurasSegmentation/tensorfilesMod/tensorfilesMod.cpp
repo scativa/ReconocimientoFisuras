@@ -8,6 +8,7 @@
 #include "CementDataset.h"
 #include <iostream>
 #include <cmdlineopt.hpp> 
+#include "../common/globals.h"
 
 using namespace cmdlineopt;
 using namespace std;
@@ -15,12 +16,14 @@ using namespace std;
 int main(int argc, char* argv[]) {
 	cout << "tensorfilesMod" << endl;
 
-	// --input=C:/Users/User/Proyectos/data/Segmentation --prefix="" --verbose
+	//	exit(0);
+
+		// --input=C:/Users/User/Proyectos/data/Segmentation --prefix="" --verbose
 	CmdLineOpt opt(argc, argv);
 	opt.Parse();
 
-	bool Verbose = opt.Verbose();
-	if (Verbose) opt.Show();
+	globals::verbose_mode = opt.Verbose();
+	if (globals::verbose_mode) opt.Show();
 
 	static string Folder_with_Procceced_pictures = opt.Input();
 	string prefix = "";

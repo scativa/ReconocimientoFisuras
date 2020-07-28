@@ -5,6 +5,8 @@
 
 #include "pch.h"
 #include "CementDataset.h"
+#include "../common/globals.h"
+
 
 using namespace std;
 
@@ -60,7 +62,9 @@ namespace torch {
             };
             
             auto  CementDataset::Proccesing_data(const std::string& PATH, std::vector<std::string> DIRECTORY) {
+                if (globals::verbose_mode) cout << IMG_FULLNAME(PATH) << endl << MASK_FULLNAME(PATH) << endl;
                 for (auto dir : DIRECTORY) {
+                    if (globals::verbose_mode) cout << "  /" << dir << endl;
                     std::vector<std::string> PICTS = Get_file_list_from_directory(PATH + DSEP + dir + DSEP + "img");
 
                     auto IMG  = torch::empty({ (uint32_t)PICTS.size() ,1 , image_size, image_size }, running_into).to(torch::kByte);
@@ -89,25 +93,24 @@ namespace torch {
 
             //CementDataset::CementDataset(const std::string& PATH, std::vector<std::string> CLASSES, const Mode& MODE) : mode(MODE)
             CementDataset::CementDataset(const std::string& PATH, std::vector<std::string> CLASSES, const string& PREFIX_FN) : 
-                tensor_prefix(PREFIX_FN)
-            {
+                tensor_prefix(PREFIX_FN) {
+
+                if (globals::verbose_mode) std::cout << endl << "CementDataset " << PREFIX_FN << endl;
+
                 // Verifico que esten creados los tensores con las imagenes. si no lo estan los crea a partir del PATH
                 std::ifstream file;
                 file.open((IMG_FULLNAME(PATH)).c_str(), std::ios::binary);
                 if (file) {
-                    cout << "Sobreescribiendo archivos:" << endl;
+                    if (globals::verbose_mode) cout << "Sobreescribiendo archivos:" << endl;
                     file.close();
                 }
-                else {
-                    std::cout << "Archivos inexistendes. Creando:" << endl;
-
-                }
-                cout << IMG_FULLNAME(PATH) << endl;
-                cout << MASK_FULLNAME(PATH) << endl;
+                else 
+                    if (globals::verbose_mode) std::cout << "Archivos inexistendes. Creando:" << endl;
 
                 Proccesing_data(PATH, CLASSES);
 
                 // Load_tensors_from_disk(PATH, MODE);
+                if (globals::verbose_mode) cout << "Done!" << endl << endl;
             };
 
             Example<> CementDataset::get(size_t index) {

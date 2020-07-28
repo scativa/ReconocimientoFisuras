@@ -5,13 +5,14 @@
 
 #include "pch.h"
 #include "Serialize.h"
+#include "../common/globals.h"
 
 using namespace std;
 
 //Serialize::Serialize(const std::string& ADDRESS) {
-Serialize::Serialize(const std::string& input_folder, const std::string& output_folder, bool verbose_mode)
-    : Folder_with_RAW_pictures(input_folder), Folder_with_Procceced_pictures(output_folder), Verbose(verbose_mode) {
-    if (Verbose)
+Serialize::Serialize(const std::string& input_folder, const std::string& output_folder)
+    : Folder_with_RAW_pictures(input_folder), Folder_with_Procceced_pictures(output_folder) {
+    if (globals::verbose_mode)
         cout << "Serialize " << Folder_with_RAW_pictures << "(/IMG/, /MASK/)" << endl << endl;
 
     IMG = Get_structure_from_directory(Folder_with_RAW_pictures + "/IMG/");
@@ -48,9 +49,9 @@ std::vector<std::string> Serialize::Get_structure_from_directory(const std::stri
         std::vector<std::string> FILELIST;
         HANDLE hFind;
         WIN32_FIND_DATA data;
-        if (Verbose) cout << "Cargando imágenes..." << endl;
+        if (globals::verbose_mode) cout << "Cargando imágenes..." << endl;
         for (auto datatype : TYPES) {
-            if (Verbose) cout << ADDRESS << "*." << datatype << endl;
+            if (globals::verbose_mode) cout << ADDRESS << "*." << datatype << endl;
             hFind = FindFirstFile(std::string(ADDRESS + "*." + datatype).c_str(), &data);
             if (hFind != INVALID_HANDLE_VALUE) {
                 do {
@@ -97,9 +98,9 @@ void Serialize::Proccess_picture() {
     // Verifico si ya existe la estructura de directorios, sino es asi, la crea y prepara las imagenes.
     // Se asume que si Folder_with_Procceced_pictures está la estructura completa y los archivos.
     //-------------------------------------------------------------------------------------------------
-    if (Verbose) cout << "Procesando imágenes de salida en " << Folder_with_Procceced_pictures << endl;
+    if (globals::verbose_mode) cout << "Procesando imágenes de salida en " << Folder_with_Procceced_pictures << endl;
     if (!Directory_exists(Folder_with_Procceced_pictures)) {
-        if (Verbose) cout << "Estructura no encontrada. Se creará la estructura de carpetas y se procesaran imágenes." << endl;
+        if (globals::verbose_mode) cout << "Estructura no encontrada. Se creará la estructura de carpetas y se procesaran imágenes." << endl;
     #ifdef  _WIN64
         CreateDirectory(std::string(Folder_with_Procceced_pictures).c_str(), NULL);
         CreateDirectory(std::string(Folder_with_Procceced_pictures + "/CRACK").c_str(), NULL);
@@ -171,11 +172,11 @@ void Serialize::Proccess_picture() {
                 }
             }
         }
-        if (Verbose) cout << "Imágenes generadas en: " << endl <<
+        if (globals::verbose_mode) cout << "Imágenes generadas en: " << endl <<
             Folder_with_Procceced_pictures + "/NO_CRACK/IMG/" << endl <<
             Folder_with_Procceced_pictures + "/NO_CRACK/MASK/" << endl <<
             Folder_with_Procceced_pictures + "/CRACK/IMG/" << endl <<
             Folder_with_Procceced_pictures + "/CRACK/MASK/" << endl;
     } else 
-        if (Verbose) cout << "Imágenes existentes. " << endl;
+        if (globals::verbose_mode) cout << "Imágenes existentes. " << endl;
 };
