@@ -30,9 +30,6 @@
     <ClInclude Include="Tiramisu.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Visualize.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\..\..\..\..\Repositories\cmdlineopt\include\cmdlineopt.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>

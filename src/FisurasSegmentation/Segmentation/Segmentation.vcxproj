@@ -182,7 +182,6 @@
     <ClInclude Include="pch.h" />
     <ClInclude Include="Serialize.h" />
     <ClInclude Include="Tiramisu.h" />
-    <ClInclude Include="Visualize.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="text.txt" />

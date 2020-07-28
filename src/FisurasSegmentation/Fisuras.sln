@@ -19,6 +19,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SerializeMod", "SerializeMo
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "tensorfilesMod", "tensorfilesMod\tensorfilesMod.vcxproj", "{958F67A8-7C70-4310-A9AB-D31964C9986D}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TrainingMod", "TrainingMod\TrainingMod.vcxproj", "{787B1149-A60E-4437-A254-3699604592C5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -109,6 +111,16 @@ Global
 		{958F67A8-7C70-4310-A9AB-D31964C9986D}.Release|x64.Build.0 = Release|x64
 		{958F67A8-7C70-4310-A9AB-D31964C9986D}.Release|x86.ActiveCfg = Release|Win32
 		{958F67A8-7C70-4310-A9AB-D31964C9986D}.Release|x86.Build.0 = Release|Win32
+		{787B1149-A60E-4437-A254-3699604592C5}.Debug|Any CPU.ActiveCfg = Debug|Win32
+		{787B1149-A60E-4437-A254-3699604592C5}.Debug|x64.ActiveCfg = Debug|x64
+		{787B1149-A60E-4437-A254-3699604592C5}.Debug|x64.Build.0 = Debug|x64
+		{787B1149-A60E-4437-A254-3699604592C5}.Debug|x86.ActiveCfg = Debug|Win32
+		{787B1149-A60E-4437-A254-3699604592C5}.Debug|x86.Build.0 = Debug|Win32
+		{787B1149-A60E-4437-A254-3699604592C5}.Release|Any CPU.ActiveCfg = Release|Win32
+		{787B1149-A60E-4437-A254-3699604592C5}.Release|x64.ActiveCfg = Release|x64
+		{787B1149-A60E-4437-A254-3699604592C5}.Release|x64.Build.0 = Release|x64
+		{787B1149-A60E-4437-A254-3699604592C5}.Release|x86.ActiveCfg = Release|Win32
+		{787B1149-A60E-4437-A254-3699604592C5}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
