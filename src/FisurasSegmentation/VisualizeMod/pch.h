@@ -1,5 +1,5 @@
 //
-// SerializeMod
+// VisualizeMod
 // PCH
 //
 
@@ -17,6 +17,10 @@
 #include <random>
 #include <algorithm>
 #include <exception>
+
+#include <torch/all.h>
+#include <torch/torch.h>
+#include <torch/script.h>
 
 #ifdef _WIN64
 #include <windows.h>

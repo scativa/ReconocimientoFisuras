@@ -3,6 +3,8 @@
 #include "CementDataset.h"
 #include "Tiramisu.h"
 #include "Visualize.h"
+
+#ifdef TRAIN_NET
 #include "Serialize.h"
 
 template <typename DataLoader, typename Net>
@@ -45,8 +47,10 @@ void test_batch(Net& MODEL, DataLoader& DATA_LOADER, size_t SIZE) {
 	};
 	std::printf(" TESTING. Loss: %.4f \r\n", __loss/ (SIZE / test_batch_size));
 };
+#endif // TRAIN_NET
 
 int main() {
+#ifdef TRAIN_NET
 	//--------------------------------------------------------------------------------------------------
 	// Crea las imagenes con las que va a entrenar la RED.
 	// las toma del directorio de origen <Folder_with_RAW_pictures> definida en config.h
@@ -82,7 +86,8 @@ int main() {
 		std::move(test_dataset_mapping),
 		torch::data::DataLoaderOptions().batch_size(test_batch_size).workers(2)
 		);
-	
+#endif // TRAIN_NET
+
 	//--------------------------------------------------------------------------------------------------
 	// Configuracion de la RED, se puede toquetear los FEATURES y los LAYERS
 	Tiramisu net(1 /*CHANNEL_IN*/, 3 /*FEATURES*/, 4 /*LAYERS*/);
@@ -113,11 +118,11 @@ int main() {
 		};
 		test_batch(net, *test_data_loader, m_test);
 	}
-	#endif
+	#endif // TRAIN_NET
 
 	#ifndef TRAIN_NET
 	Visualize<Tiramisu> VISVISUALIZAR(Folder_with_JPGs, net);
-	#endif
+	#endif // TRAIN_NET
 
 	return 0;
 }

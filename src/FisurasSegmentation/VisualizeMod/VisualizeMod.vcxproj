@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{787b1149-a60e-4437-a254-3699604592c5}</ProjectGuid>
-    <RootNamespace>TrainingMod</RootNamespace>
+    <ProjectGuid>{7487bbe9-d90f-4319-87aa-9f15e140ed8c}</ProjectGuid>
+    <RootNamespace>VisualizeMod</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -50,7 +50,7 @@
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v142</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
-    <CharacterSet>Unicode</CharacterSet>
+    <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
@@ -81,8 +81,8 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>C:\Repositories\cmdlineopt\include;C:\Repositories\libtorch\include\torch\csrc\api\include;C:\Repositories\libtorch\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Repositories\libtorch\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Repositories\libtorch\include\torch\csrc\api\include;C:\Repositories\libtorch\include;C:\Repositories\opencv\build\include;C:\Repositories\cmdlineopt\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Repositories\libtorch\lib;C:\Repositories\opencv\build\x64\vc15\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -140,7 +140,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>c10.lib;torch_cpu.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>opencv_world430.lib;c10.lib;torch_cpu.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -149,18 +149,18 @@
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
       </PrecompiledHeaderFile>
     </ClCompile>
-    <ClCompile Include="CementDataset.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="TrainingMod.cpp" />
+    <ClCompile Include="VisualizeMod.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="CementDataset.h" />
+    <ClInclude Include="..\common\globals.h" />
     <ClInclude Include="Config.h" />
     <ClInclude Include="Net.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Tiramisu.h" />
+    <ClInclude Include="Visualize.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
