@@ -14,6 +14,9 @@ using namespace cmdlineopt;
 using namespace std;
 
 int main(int argc, char* argv[]) {
+
+	// Debugging -> Command Arguments:
+	// --input=C:/Users/User/Proyectos/data/Samples_Segmentation --output=C:/Users/User/Proyectos/data/Segmentation --verbose
 	CmdLineOpt opt(argc, argv);
 	opt.Parse();
 	

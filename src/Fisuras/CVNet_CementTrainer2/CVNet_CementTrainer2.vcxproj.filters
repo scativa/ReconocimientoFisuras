@@ -18,13 +18,13 @@
     <ClCompile Include="pch.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="cmdlineopt.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="CementTrainer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="CVNet_CementTrainer2.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\globals.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -35,10 +35,10 @@
     <ClInclude Include="Net.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="cmdlineopt.h">
+    <ClInclude Include="CementTrainer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="CementTrainer.h">
+    <ClInclude Include="..\common\globals.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

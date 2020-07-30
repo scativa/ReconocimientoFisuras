@@ -1,7 +1,7 @@
 #include "pch.h"
 #include "CementTrainer.h"
 
-#define _VERBOSE_MODE_
+using namespace std;
 
 constexpr auto DSEP = "/";
 
@@ -55,6 +55,8 @@ namespace torch {
 
                 images_.to(device);
                 targets_.to(device);
+
+                // cout << images_.device()
             };
 
             Example<> Cement::get(size_t index) {

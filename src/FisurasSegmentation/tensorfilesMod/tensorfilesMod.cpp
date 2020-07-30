@@ -16,9 +16,8 @@ using namespace std;
 int main(int argc, char* argv[]) {
 	cout << "tensorfilesMod" << endl;
 
-	//	exit(0);
-
-		// --input=C:/Users/User/Proyectos/data/Segmentation --prefix="" --verbose
+	// Debugging -> Command Arguments:
+	// --input=C:/Users/User/Proyectos/data/Segmentation --prefix="" --verbose
 	CmdLineOpt opt(argc, argv);
 	opt.Parse();
 
@@ -36,7 +35,6 @@ int main(int argc, char* argv[]) {
 	auto train_dataset = torch::data::datasets::CementDataset(
 		Folder_with_Procceced_pictures,
 		classes, prefix
-		//,torch::data::datasets::CementDataset::Mode::Train
 	);
 
 }

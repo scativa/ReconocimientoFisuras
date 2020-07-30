@@ -21,6 +21,7 @@ using namespace std;
 int main(int argc, char* argv[]) {
     std::cout << "Visualize\n";
 
+	// Debugging -> Command Arguments:
 	// --input=C:/Users/User/Proyectos/data/Positive --prefix="" --verbose
 	CmdLineOpt opt(argc, argv);
 	opt.Parse();

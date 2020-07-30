@@ -60,6 +60,8 @@ void test_batch(Net& MODEL, DataLoader& DATA_LOADER, size_t SIZE) {
 int main(int argc, char* argv[]) {
     std::cout << "TrainingMod\n";
 
+	// Debugging -> Command Arguments:
+	// --input=C:/Users/User/Proyectos/data/Segmentation --prefix="" --verbose
 	CmdLineOpt opt(argc, argv);
 	opt.Parse();
 
