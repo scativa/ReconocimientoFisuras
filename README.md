@@ -1,8 +1,10 @@
 # ReconocimientoFisuras
 
-Reconocimiento de fisuras
+## Descarga
+`git clone https://github.com/scativa/ReconocimientoFisuras/`
 
-Carpetas
-/docs: Documentacion del proyecto. Técnica
-/src: Fuente
-/data: Data usada por el sistema. Imágenes.
+## Carpetas
+
+- /docs: Documentacion del proyecto. Técnica
+- /src: Fuente
+- /data: Data usada por el sistema. Imágenes.
