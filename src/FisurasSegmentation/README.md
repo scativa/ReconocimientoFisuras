@@ -12,32 +12,47 @@ Proyecto original completo. Realiza todas las etapas de los módulos que se desc
 ### SerializeMod
 Parte de las imágenes crudas, las procesa y serializa.
 
-Input: Folder_with_RAW_pictures ("C:/Users/User/Proyectos/data/Samples_Segmentation")
+**Entrada**: `Folder_with_RAW_pictures` (ej. *C:/Users/User/Proyectos/data/Samples_Segmentation*)
 
-Output: Folder_with_Procceced_pictures ( "C:/Users/User/Proyectos/data/Segmentation")
+**Resultado**: `Folder_with_Procceced_pictures` (ej. *C:/Users/User/Proyectos/data/Segmentation*)
 
 ### tensorfilesMod
 A partir de las imágenes serializadas genera los archivos .tensor para el entrenamiento.
 
-Input: Folder_with_Procceced_pictures ("C:/Users/User/Proyectos/data/Segmentation")
+**Entrada**: `Folder_with_Procceced_pictures` (ej. *C:/Users/User/Proyectos/data/Segmentation*)
 
-Output: Archivos .tensor. ("C:/Users/User/Proyectos/data/Segmentation/IMG.tensor" y "C:/Users/User/Proyectos/data/Segmentation/MASK.tensor")
+**Resultado**: Archivos `.tensor`. (ej. *C:/Users/User/Proyectos/data/Segmentation/IMG.tensor* y *C:/Users/User/Proyectos/data/Segmentation/MASK.tensor*)
 
 ### TrainingMod
 Entrena la red utilizando los tensores y genera el archivo con los pesos sinápticos
 
-Input: Archivos .tensor. ("C:/Users/User/Proyectos/data/Segmentation/IMG.tensor" y "C:/Users/User/Proyectos/data/Segmentation/MASK.tensor")
+**Entrada**: Archivos `.tensor`. (ej. *C:/Users/User/Proyectos/data/Segmentation/IMG.tensor* y *C:/Users/User/Proyectos/data/Segmentation/MASK.tensor*)
 
-Output: Model ("model.pt")
+**Resultado**: Model (ej. `model.pt`)
 
 ### VisualizeMod
-Utilizad los pesos sinápticos del entrenamiento ("model.pt") para analizar todas las imágenes de la carpeta indicada.
+Utilizad los pesos sinápticos del entrenamiento `model.pt` para analizar todas las imágenes de la carpeta indicada.
 
-Input: Folder_with_JPGs ("C:/Users/User/Proyectos/data/Positive")
+**Entrada**: `Folder_with_JPGs` (ej. *C:/Users/User/Proyectos/data/Positive*)
 
-Output: Visualización partida de las imágenes analizadas y su resultado con las fracturas detectadas marcadas.
+**Resultado**: Visualización partida de las imágenes analizadas y su resultado con las fracturas detectadas marcadas.
+
+## Librerías
+### OptCmdLine
+Librería desarrollada para los argumentos por línea de comandos [link en Github](https://github.com/scativa/cmdlineopt).
+
+### Libtorch
+Versiones 1.4 y 1.5. Detalles, instalación y configuración consultar en el proyecto [dev-tools - Github](https://github.com/scativa/dev-tools)
+- [Documentación - Github](https://github.com/scativa/dev-tools/tree/master/docs/torch) 
+- [Test src - Github](https://github.com/scativa/dev-tools/tree/master/src/torch-test)
+### OpenCV
+Versiones 4.20 y 4.30. Detalles, instalación y configuración consultar en el proyecto [dev-tools - Github](https://github.com/scativa/dev-tools)
+- [Documentación - Github](https://github.com/scativa/dev-tools/tree/master/docs/opencv) 
+- [Test src - Github](https://github.com/scativa/dev-tools/tree/master/src/opencv-test)
 
 ## Notas
-- OptCmdLine: Librería desarrollada para los argumentos por línea de comandos
-- /commons/globals.cpp: Variables globales al proyectos y los archivos de los mismos. Actualmente se usa `verbose_mode`
-- 
+
+**Archivos comunes**
+- _../commons/globals.cpp_: Variables globales al proyectos y los archivos de los mismos. Actualmente se usa `verbose_mode`.
+- _./pch.h_: Header precopilado. **Nota**: Cambia según el módudo ya que no todos utilizan las mismas librerías.
+- _./Config.h_: Configuraciones del módulo. Ver cómo unificarlo en el futuro y reducir todo lo que se pueda a línea de comandos.
