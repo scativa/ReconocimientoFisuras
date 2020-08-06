@@ -1,9 +1,7 @@
 # Fisuras Segmentation
 Implementación de una red de segmentación para detección de fisuras
 
-Se partió del projecto *Segementation* que realiza todas las operación, desde las imágenes originales hasta el entrenamiento y visualzación.
-
-Luego se modularizó con entradas y salidas de cada módulo para bajar la complejidad. Entre otras cosas permite el entrenamiento en Google Colabs sin utilizar las librerías OpenCV.
+Se partió del projecto *Segementation* que realiza todas las operación, desde las imágenes originales hasta el entrenamiento y visualzación. Cada módulo trabaja con con entradas y salidas para bajar la complejidad. Entre otras cosas permite el entrenamiento en Google Colabs sin utilizar las librerías OpenCV.
 
 Durante la modularización se realizaron cambios en la implementación documentadas aparte.
 
