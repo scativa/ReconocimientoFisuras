@@ -1,3 +1,12 @@
+//
+// Antes llamadoa "Text.txt"
+// Aparente implementación de Convolutional Neural Networks (CNNs / ConvNets)
+// Applying Transfer Learning on Dogs vs Cats Dataset (ResNet18) using PyTorch C++ API
+// https://cs231n.github.io/convolutional-networks/
+// https://cs231n.github.io/transfer-learning/
+// https://krshrimali.github.io/Applying-Transfer-Learning-Dogs-Cats/
+//
+
 constexpr int IN_CHANNEL = 1;
 constexpr int OUT_CHANNEL = 1;
 constexpr int KERNEL3_3 = 3;
