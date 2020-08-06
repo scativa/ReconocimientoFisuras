@@ -1,9 +1,7 @@
 # Changelog
 Registro de los cambios más importantes del proyecto
 
-# 22/07/2020
-
-## Modificaciones a la versión inicial
+## 22/07/2020 - Modificaciones a la versión inicial
 1. Separación entre directorios, uso de `/` en lugar de `\\` dado que sirvte tanto para Windows como para Linux y es posible utilizarlos mexclados.
 2. Uso de la macro `_WIN64` para saber si se está compilando en Visual Studio para Windows.
 3. Uso de argumentos por línea de comandos para evitar la recompilación y poder ejecutar de línea de comandos. Se utiliza la librería [CmdLineOpt](https://github.com/scativa/cmdlineopt)
