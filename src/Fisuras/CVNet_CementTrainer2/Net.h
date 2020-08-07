@@ -1,7 +1,12 @@
 #pragma once
 #include "pch.h"
 
+#include "../common/globals.h"
+#include "Tensor_utils.h"
+
 const uint32_t m_batch_size = 32;
+
+using namespace std;
 
 struct NetImpl : torch::nn::Module {
     NetImpl() :
@@ -20,6 +25,21 @@ struct NetImpl : torch::nn::Module {
     }
 
     torch::Tensor forward(torch::Tensor x) {
+        if (globals::verbose_mode) {
+            cout << endl << "NetImpl.forward (Net.h)" << endl;
+            cout << "Tensor x (size: " << x.sizes() << ")" << endl;
+            print_opt(x);
+        }
+
+        torch::Device device = (torch::cuda::is_available() ? torch::kCUDA : torch::kCPU);
+        torch::Tensor x_todevice = x.to(device);
+        if (globals::verbose_mode) {
+            cout << "Tensor x_to (size: " << x_todevice.sizes() << ")" << endl;
+            print_opt(x_todevice);
+        }
+
+
+
         //std::cout << x.sizes()<<std::endl;
         x = torch::relu(torch::max_pool2d(conv1->forward(x), 2));
         // std::cout << x.sizes() <<  std::endl;
@@ -27,6 +47,12 @@ struct NetImpl : torch::nn::Module {
         // std::cout << x.sizes() <<  std::endl;
         x = torch::relu(torch::max_pool2d(conv3->forward(x), 2));
         //std::cout << x.sizes() << std::endl;
+
+        if (globals::verbose_mode) {
+            cout << "relu (x3) ->" << endl;
+            cout << "Tensor x (size: " << x.sizes() << ")" << endl;
+            print_opt(x);
+        }
 
         x = x.view({ -1, 1152 });
         x = torch::relu(fc1->forward(x));

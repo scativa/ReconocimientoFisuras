@@ -1,6 +1,9 @@
 #include "pch.h"
 #include "CementTrainer.h"
 
+#include "../common/globals.h"
+#include "Tensor_utils.h"
+
 using namespace std;
 
 constexpr auto DSEP = "/";
@@ -26,6 +29,7 @@ namespace torch {
 
             Device device = (torch::cuda::is_available() ? torch::kCUDA : torch::kCPU);
 
+
             std::pair<Tensor, Tensor> ShuffleTensors(at::Tensor& IMAGES, at::Tensor& TARGETS) {
                 std::cout << "Cement::ShuffleTensors()" << std::endl;
                 auto MIXED_IMAGES = torch::zeros({ IMAGES.sizes() }, device).to(torch::kByte);
@@ -42,21 +46,45 @@ namespace torch {
             };
 
             Cement::Cement(const std::string& ROOT_FOLDER, const std::string& PREFIX_FN, const Mode& MODE) {
-                std::cout << "Cement::Cement()" << std::endl;
+                if (globals::verbose_mode) cout << endl << "Cement::Cement()" << endl;
                 string images_fn = IMG_FNAME(ROOT_FOLDER, PREFIX_FN, MODE);
                 string targets_fn = TRG_FNAME(ROOT_FOLDER, PREFIX_FN, MODE);
 
-                std::cout << "Cargando " << images_fn << " ...";
-                torch::load(images_, images_fn);
-                std::cout << "Listo!" << std::endl;
-                std::cout << "Cargando " << targets_fn << " ...";
-                torch::load(targets_, targets_fn);
-                std::cout << "Listo!" << std::endl;
+                try {
+                    if (globals::verbose_mode) cout << "Cargando " << images_fn << " ...";
+                    torch::load(images_, images_fn);
+                    if (globals::verbose_mode) cout << "Listo!" << endl;
+                    if (globals::verbose_mode) cout << "Cargando " << targets_fn << " ...";
+                    torch::load(targets_, targets_fn);
+                    if (globals::verbose_mode) cout << "Listo!" << endl;
+                }
+                catch (const std::exception& e) {
+                    cerr << endl << e.what() << endl
+                        << "Error al cargar archivos:" << endl
+                        << "Path: " << ROOT_FOLDER << endl
+                        << "Prefix:" << PREFIX_FN << endl;
+                    throw(e);
+                }
+
+                if (globals::verbose_mode) {
+                    cout << endl << "images_.to pre: " << endl;
+                    print_opt(images_);
+                    cout << "targets_.to pre: " << endl;
+                    print_opt(targets_);
+                }
 
                 images_.to(device);
                 targets_.to(device);
 
+                if (globals::verbose_mode) {
+                    cout << "images_.to post: " << endl;
+                    print_opt(images_);
+                    cout << "targets_.to post: " << endl;
+                    print_opt(targets_);
+                }
+
                 // cout << images_.device()
+                if (globals::verbose_mode) cout << endl;
             };
 
             Example<> Cement::get(size_t index) {
@@ -64,27 +92,22 @@ namespace torch {
             }
 
             optional<size_t> Cement::size() const {
-                std::cout << "Cement::size()" << std::endl;
                 return images_.size(0);
             }
 
             bool Cement::is_train() const noexcept {
-                std::cout << "Cement::is_train()" << std::endl;
                 return images_.size(0) == TrainImageSize;
             }
 
             const Tensor& Cement::images() const {
-                std::cout << "Cement::images()" << std::endl;
                 return images_;
             }
 
             const Tensor& Cement::targets() const {
-                std::cout << "Cement::targets()" << std::endl;
                 return targets_;
             }
 
             const IntArrayRef Cement::sizes() const {
-                std::cout << "Cement::sizes()" << std::endl;
                 return images_.sizes();
             }
 

@@ -4,6 +4,8 @@
 #include <cmdlineopt.hpp> 
 #include "../common/globals.h"
 
+#include "Tensor_utils.h"
+
 using namespace std;
 
 template <typename DataLoader>
@@ -66,8 +68,15 @@ int main(int argc, char* argv[]) {
     // es equivalente ya que uso el TORCH_MODULE(Net) para "envolver la definicion" y poder usar la
     // definicion como Net simplemente. explicado en profundidad MUY POCO claro en,
     // https://pytorch.org/tutorials/advanced/cpp_frontend.html
-    net->to(device); // lo paso a GPU si existe.
     
+    try {
+        net->to(device); // lo paso a GPU si existe.
+    }
+    catch (const std::exception& e) {
+        cerr << endl << e.what() << endl
+            << "Error en: net->to(" << device << ");" << endl;
+    }
+
 
     if (globals::verbose_mode) {
         cout << "Device: ";
