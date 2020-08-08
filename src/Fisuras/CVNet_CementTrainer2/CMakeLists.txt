@@ -1,6 +1,6 @@
 # CVNet_CementTrainer2
 #
-# cmake -DCMAKE_PREFIX_PATH=/home/seba/libtorch ..
+# cmake -DCMAKE_PREFIX_PATH=/home/seba/libtorch -DCMDLINEOPT_PATH=/home/seba/Repositories/cmdlineopt ..
 # cmake --build . --config Debug
 
 
@@ -10,7 +10,7 @@ project(CVNet_CementTrainer2)
 find_package(Torch REQUIRED)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${TORCH_CXX_FLAGS}")
 
-add_executable(CVNet_CementTrainer2 CementTrainer.cpp CVNet_CementTrainer2.cpp cmdlineopt.cpp)
+add_executable(CVNet_CementTrainer2 CementTrainer.cpp CVNet_CementTrainer2.cpp ${CMDLINEOPT_PATH}/include/cmdlineopt.hpp ../common/globals.cpp)
 
 # Precompiled header pch.h
 target_precompile_headers(CVNet_CementTrainer2 PUBLIC pch.h)
