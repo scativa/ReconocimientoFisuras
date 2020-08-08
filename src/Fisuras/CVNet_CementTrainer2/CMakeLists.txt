@@ -10,7 +10,11 @@ project(CVNet_CementTrainer2)
 find_package(Torch REQUIRED)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${TORCH_CXX_FLAGS}")
 
-add_executable(CVNet_CementTrainer2 CementTrainer.cpp CVNet_CementTrainer2.cpp ${CMDLINEOPT_PATH}/include/cmdlineopt.hpp ../common/globals.cpp)
+include_directories(
+    ${CMDLINEOPT_PATH}/include/
+)
+
+add_executable(CVNet_CementTrainer2 CementTrainer.cpp CVNet_CementTrainer2.cpp Tensor_utils.cpp ${CMDLINEOPT_PATH}/include/cmdlineopt.hpp ../common/globals.cpp)
 
 # Precompiled header pch.h
 target_precompile_headers(CVNet_CementTrainer2 PUBLIC pch.h)
