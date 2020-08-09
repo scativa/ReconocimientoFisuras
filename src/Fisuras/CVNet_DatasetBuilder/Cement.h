@@ -1,12 +1,15 @@
 #pragma once
 #include "pch.h"
 
+using namespace std;
+
 namespace torch {
     namespace data {
         namespace datasets {
-            
+
             ///
-            void Create_tensor_files_from_images(const std::string& ROOT_FOLDER, const std::string& PREFIX_FN, float Percentage_of_pictures_used_to_train, bool overwrite = false);
+            void Create_tensor_files_from_images(const std::string& ROOT_FOLDER, const std::string& PREFIX_FN,
+                float Percentage_of_pictures_used_to_train, pair<uint32_t, uint32_t> resizerc, bool overwrite);
 
             /// The CEMENT dataset.
             class Cement : public Dataset<Cement> {
@@ -14,7 +17,7 @@ namespace torch {
                 /// The mode in which the dataset is loaded.
                 enum class Mode { Train, Test };
 
-                explicit Cement(const std::string& ROOT_FOLDER, const std::string& PREFIX_FN, const Mode&);
+                explicit Cement(const string& ROOT_FOLDER, const string& PREFIX_FN, const Mode& MODE);
 
                 /// Returns the `Example` at the given `index`.
                 Example<> get(size_t index) override;

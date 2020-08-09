@@ -73,8 +73,8 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>C:\Repositories\cmdlineopt\include;C:\Repositories\libtorch\include;C:\Repositories\libtorch\include\torch\csrc\api\include;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
-    <LibraryPath>C:\Repositories\libtorch\lib;$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64);$(NETFXKitsDir)Lib\um\x64</LibraryPath>
+    <IncludePath>C:\Repositories\cmdlineopt\include;C:\Repositories\libtorch\include;C:\Repositories\libtorch\include\torch\csrc\api\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Repositories\libtorch\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
