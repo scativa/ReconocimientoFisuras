@@ -32,10 +32,12 @@ struct NetImpl : torch::nn::Module {
         }
 
         torch::Device device = (torch::cuda::is_available() ? torch::kCUDA : torch::kCPU);
-        torch::Tensor x_todevice = x.to(device);
+        // torch::Tensor x_todevice = 
+        x = x.to(device);
+        
         if (globals::verbose_mode) {
-            cout << "Tensor x_to (size: " << x_todevice.sizes() << ")" << endl;
-            print_opt(x_todevice);
+            cout << "Tensor post x.to(device); (size: " << x.sizes() << ")" << endl;
+            print_opt(x);
         }
 
 

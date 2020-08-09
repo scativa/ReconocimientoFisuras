@@ -73,13 +73,13 @@ namespace torch {
                     print_opt(targets_);
                 }
 
-                images_.to(device);
-                targets_.to(device);
+                images_ = images_.to(device);
+                targets_ = targets_.to(device);
 
                 if (globals::verbose_mode) {
-                    cout << "images_.to post: " << endl;
+                    cout << "images_.to post images_ = images_.to(device); : " << endl;
                     print_opt(images_);
-                    cout << "targets_.to post: " << endl;
+                    cout << "targets_.to post targets_ = targets_.to(device); : " << endl;
                     print_opt(targets_);
                 }
 
