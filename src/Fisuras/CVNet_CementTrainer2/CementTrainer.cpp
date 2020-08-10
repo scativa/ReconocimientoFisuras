@@ -21,8 +21,8 @@ namespace torch {
             std::string str_mode[] = { "TRAIN_", "TEST_" };
 
             // float Percentage_of_pictures_used_to_train = 0.015f;
-            uint32_t Image_rows_to_resize_picture = 64;
-            uint32_t Image_column_to_resize_picture = 64;
+            uint32_t Image_rows_to_resize_picture = 32;
+            uint32_t Image_column_to_resize_picture = 32;
             uint32_t Number_of_pictures_that_use_to_train;
             uint32_t Number_of_pictures_that_use_to_test;
             uint32_t TrainImageSize;
