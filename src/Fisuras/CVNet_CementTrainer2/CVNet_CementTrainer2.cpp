@@ -48,20 +48,32 @@ torch::Device device = (torch::cuda::is_available() ? torch::kCUDA : torch::kCPU
 
 int main(int argc, char* argv[]) {
 
-    cout << "Cement Trainer" << endl; // exit(0);
+    cout << "Cement Trainer" << endl;
 
-    // --input=C:/Users/User/Proyectos/data/CementCrack/5y9wdsg2zt-1 --epoch=7 --model=nuevomov.pt --verbose --prefix=ds1 --percent_to_train=0.50
+try {
+    // Opciones de línea de comando
+    // --input=E:\data\CementCrack\5y9wdsg2zt-1 --prefix=32x32(0.50) --epoch=1 --model=model.pt --verbose
     cmdlineopt::CmdLineOpt opt(argc, argv);
     opt.Parse();
 
+    // Opciones generales
+    globals::quiet_mode = opt.Quiet();
     globals::verbose_mode = opt.Verbose();
     if (globals::verbose_mode) opt.Show();
-
+   
+    // Opciones Archivos
     string DATA_DIR = opt.Input();
-    string prefix = "";
-    opt.Parse("prefix", prefix);
+    string prefix = opt.Prefix();
 
+    // Opciones Entrenamiento
     string modelfn = opt.Model();
+
+    // Device: CPU - GPU
+    if (globals::verbose_mode) {
+        std::cout << "Device: ";
+        if (device == torch::kCUDA) cout << "CUDA"; else cout << "CPU";
+        cout << endl;
+    }
 
     //------------------------------------------------------------------------------------------------
     Net net; // auto net = make_shared<NetImpl>();
@@ -69,20 +81,8 @@ int main(int argc, char* argv[]) {
     // definicion como Net simplemente. explicado en profundidad MUY POCO claro en,
     // https://pytorch.org/tutorials/advanced/cpp_frontend.html
     
-    try {
-        net->to(device); // lo paso a GPU si existe.
-    }
-    catch (const std::exception& e) {
-        cerr << endl << e.what() << endl
-            << "Error en: net->to(" << device << ");" << endl;
-    }
-
-
-    if (globals::verbose_mode) {
-        cout << "Device: ";
-        if (device == torch::kCUDA) cout << "CUDA"; else cout << "CPU";
-        cout << endl;
-    }
+    // Revisar si esto es útil y necesario
+    net->to(device); // lo paso a GPU si existe.
 
     //------------------------------------------------------------------------------------------------
     // Si existe un entrenamiento previo arranca desde ahi, sino empieza desde cero/
@@ -148,28 +148,33 @@ int main(int argc, char* argv[]) {
     float m_best_accuracy = 0.0f;
 
     for (size_t epoch = 0; epoch < N_EPOCH_TO_TRAIN; epoch++) {
-        cout << endl << "Epoch: " << epoch << "/" << N_EPOCH_TO_TRAIN << ":" << endl;
+        if (!globals::quiet_mode) cout << endl << "Epoch: " << epoch << "/" << N_EPOCH_TO_TRAIN << ":" << endl;
         // Testea las imagenes de entrenamiento
         size_t m_train = m_data_set_train.size().value();
-        cout << "Try " << float(m_train / 1000) << "k train data: ";
+        if (!globals::quiet_mode) cout << "Try " << float(m_train / 1000) << "k train data: ";
+        test_batch(net, *m_data_loader_train, m_train);
 
         //Ahora testeo con imagenes con la cuales no entrena y nunca vio, si la red aprendio la graba a disco.
         size_t m_test = m_data_set_test.size().value();
-        cout << "Try " << float(m_test / 1000) << "k test data: ";
+        if (!globals::quiet_mode) cout << "Try " << float(m_test / 1000) << "k test data: ";
         float m_accuracy = test_batch(net, *m_data_loader_test, m_test);
 
         if (m_accuracy > m_best_accuracy) {
             m_best_accuracy = m_accuracy;
-            cout << "Guardando '" << modelfn << "'... ";
+            if (globals::verbose_mode) cout << "Guardando '" << modelfn << "' ";
             torch::save(net, modelfn);
-            cout << "Listo!" << endl;
+            if (globals::verbose_mode) cout << "Listo!" << endl;
         }
 
         //Haciendo una pasada por todas las imagenes para entrenar.
-        cout << "Entrenando:" << endl;
+        if (globals::verbose_mode) cout << "Entrenando:" << endl;
         train_batch(epoch, net, *m_data_loader_train, optimizer, m_train);
     };
 
     return 0;
+}
+catch (exception e) {
+    cerr << "Error: " << e.what();
+}
 };
 

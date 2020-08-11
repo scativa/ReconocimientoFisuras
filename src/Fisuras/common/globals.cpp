@@ -2,5 +2,6 @@
 
 namespace globals {
 	bool verbose_mode = false;
-	const char* verbose_status[] = { "OFF", "ON" };
+	bool quiet_mode = false;
+	const char* str_status[] = { "OFF", "ON" };
 };

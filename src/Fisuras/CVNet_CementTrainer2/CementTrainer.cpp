@@ -15,20 +15,19 @@ constexpr auto DSEP = "/";
 namespace torch {
     namespace data {
         namespace datasets {
-            enum type { POSITIVE = 0, NEGATIVE = 1 };
-            enum mode { TRAIN = 0, TEST = 1 };
-            std::string str_type[] = { "Positive", "Negative" };
+            //enum type { POSITIVE = 0, NEGATIVE = 1 };
+            //enum mode { TRAIN = 0, TEST = 1 };
+            //std::string str_type[] = { "Positive", "Negative" };
             std::string str_mode[] = { "TRAIN_", "TEST_" };
 
             // float Percentage_of_pictures_used_to_train = 0.015f;
-            uint32_t Image_rows_to_resize_picture = 32;
-            uint32_t Image_column_to_resize_picture = 32;
+            //uint32_t Image_rows_to_resize_picture = 32;
+            //uint32_t Image_column_to_resize_picture = 32;
             uint32_t Number_of_pictures_that_use_to_train;
             uint32_t Number_of_pictures_that_use_to_test;
             uint32_t TrainImageSize;
 
             Device device = (torch::cuda::is_available() ? torch::kCUDA : torch::kCPU);
-
 
             std::pair<Tensor, Tensor> ShuffleTensors(at::Tensor& IMAGES, at::Tensor& TARGETS) {
                 std::cout << "Cement::ShuffleTensors()" << std::endl;
@@ -45,6 +44,7 @@ namespace torch {
                 return std::pair<Tensor, Tensor>(MIXED_IMAGES, MIXED_TARGETS);
             };
 
+
             Cement::Cement(const std::string& ROOT_FOLDER, const std::string& PREFIX_FN, const Mode& MODE) {
                 if (globals::verbose_mode) cout << endl << "Cement::Cement()" << endl;
                 string images_fn = IMG_FNAME(ROOT_FOLDER, PREFIX_FN, MODE);
@@ -59,27 +59,22 @@ namespace torch {
                     if (globals::verbose_mode) cout << "Listo!" << endl;
                 }
                 catch (const std::exception& e) {
-                    cerr << endl << e.what() << endl
+                    cerr << endl << "Cement::Cement" << endl << e.what() << endl
                         << "Error al cargar archivos:" << endl
                         << "Path: " << ROOT_FOLDER << endl
                         << "Prefix:" << PREFIX_FN << endl;
                     throw(e);
                 }
 
-                if (globals::verbose_mode) {
-                    cout << endl << "images_.to pre: " << endl;
-                    print_opt(images_);
-                    cout << "targets_.to pre: " << endl;
-                    print_opt(targets_);
+                if (torch::cuda::is_available()) { // Es realmente necesario?
+                    images_ = images_.to(device);
+                    targets_ = targets_.to(device);
                 }
 
-                images_ = images_.to(device);
-                targets_ = targets_.to(device);
-
                 if (globals::verbose_mode) {
-                    cout << "images_.to post images_ = images_.to(device); : " << endl;
+                    cout << "images_ in device=" << device << endl;
                     print_opt(images_);
-                    cout << "targets_.to post targets_ = targets_.to(device); : " << endl;
+                    cout << "targets_ in device=" << device << endl;
                     print_opt(targets_);
                 }
 
@@ -110,6 +105,7 @@ namespace torch {
             const IntArrayRef Cement::sizes() const {
                 return images_.sizes();
             }
+
 
         } // namespace datasets
     } // namespace data

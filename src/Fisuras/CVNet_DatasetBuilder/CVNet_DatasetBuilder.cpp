@@ -1,5 +1,5 @@
 #include "pch.h"
-#include "Cement.h"
+#include "DataBuilder.h"
 //#include "cmdlineopt.h"
 
 #include <cmdlineopt.hpp> 
@@ -13,36 +13,38 @@ using namespace std;
 torch::Device device = (torch::cuda::is_available() ? torch::kCUDA : torch::kCPU);
 
 int main(int argc, char* argv[]) {
+    cout << "Cement DatasetBuilder" << endl;
 
-
-    cout << "Cement Trainer" << endl; // exit(0);
-
-    // --input=C:/Users/User/Proyectos/data/CementCrack/5y9wdsg2zt-1 --verbose --prefix=100x100 --percent_to_train=0.75 --resize_x=32 --resize_y=32
+try {
+    // Opciones de línea de comando
+    // --input=E:\data\CementCrack\5y9wdsg2zt-1 --prefix=32x32(0.15) --training_percentage=0.15 --size_x=32 --size_y=32 --verbose 
     cmdlineopt::CmdLineOpt opt(argc, argv);
     opt.Parse();
 
+    // Opciones generales
+    globals::quiet_mode = opt.Quiet();
     globals::verbose_mode = opt.Verbose();
     if (globals::verbose_mode) opt.Show();
 
+    // Opciones Archivos
     string DATA_DIR = opt.Input();
-    string prefix = "";
-    opt.Parse("prefix", prefix);
+    string prefix = opt.Prefix();
 
-    string modelfn = opt.Model();
+    // Opciones Entrenamiento
+    float Percentage_of_pictures_used_to_train = opt.TrainingPercentage();
 
-    int resize_x = 64;
-    int resize_y = 64;
-    opt.Parse("resize_x", resize_x);
-    opt.Parse("resize_y", resize_y);
-
+    // Opciones tamaño imagen
+    int resize_x = (opt.SizeX() > 0) ? opt.SizeX() : 64; // Se usa 64x64 en caso de hacer el resize <= 0. Significa que no se pasó como parámetro
+    int resize_y = (opt.SizeY() > 0) ? opt.SizeY() : 64;
+    assert(resize_y == resize_y);
     pair<uint32_t, uint32_t> image_resize(resize_y, resize_x);
 
-   if (globals::verbose_mode) {
+    // Device: CPU - GPU
+    if (globals::verbose_mode) {
         std::cout << "Device: ";
         if (device == torch::kCUDA) cout << "CUDA"; else cout << "CPU";
         cout << endl;
     }
-
 
     //------------------------------------------------------------------------------------------------
     // 5y9wdsg2zt-1.zip: Crea dos subcarpetas Negative y Positive, se decomprimio en esta direccion.
@@ -54,9 +56,9 @@ int main(int argc, char* argv[]) {
     // Variables con las cuales voy a entrenar la RED
     //------------------------------------------------------------------------------------------------
 
-    torch::data::datasets::Create_tensor_files_from_images(DATA_DIR, prefix, 0.75f, image_resize, true);
-    torch::data::datasets::Create_tensor_files_from_images(DATA_DIR, prefix, 0.75f, image_resize, true);
+    torch::data::datasets::Create_tensor_files_from_images(DATA_DIR, prefix, Percentage_of_pictures_used_to_train, image_resize, true);
 
+#ifdef ANULAR
     auto m_data_set_train =
         torch::data::datasets::Cement(DATA_DIR, prefix, torch::data::datasets::Cement::Mode::Train)/*TRAIN*/
         /* creo q la opcion que le sigue es para que vaya sacando secuencialmente el par <IMG,LABEL>
@@ -82,10 +84,13 @@ int main(int argc, char* argv[]) {
 
     std::cout << "m_data_set_train size: " << m_data_set_train.size().value() << endl;
     std::cout << "m_data_set_test size: " << m_data_set_test.size().value() << endl;
+#endif
 
-
-    //system("pause");
     return 0;
+}
+catch (exception e) {
+    cerr << "Error: " << e.what();
+}
 };
 
 
