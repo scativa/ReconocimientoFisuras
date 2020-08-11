@@ -64,7 +64,8 @@ int main()
     //------------------------------------------------------------------------------------------------
     // 5y9wdsg2zt-1.zip: Crea dos subcarpetas Negative y Positive, se decomprimio en esta direccion.
     // https://data.mendeley.com/datasets/5y9wdsg2zt/1
-    string DATA_DIR = "C:\\Repositories\\CementCrack\\5y9wdsg2zt-1";
+    //string DATA_DIR = "C:\\Repositories\\CementCrack\\5y9wdsg2zt-1";
+    string DATA_DIR = "E:\\data\\CementCrack\\5y9wdsg2zt-1";
     //string DATA_DIR = "C:\\Repositories\\CementCrack\\SDNET2018";
     //------------------------------------------------------------------------------------------------
     // Variables con las cuales voy a entrenar la RED
@@ -97,7 +98,8 @@ int main()
     // https://arxiv.org/pdf/1412.6980.pdf
     //------------------------------------------------------------------------------------------------
     //torch::optim::SGD optimizer(net.parameters(), torch::optim::SGDOptions(0.1).momentum(0.4));
-    torch::optim::Adam optimizer(net->parameters(), torch::optim::AdamOptions(2e-4).beta1(0.5));
+    //torch::optim::Adam optimizer(net->parameters(), torch::optim::AdamOptions(2e-4).beta1(0.5));
+    torch::optim::Adam optimizer(net->parameters(), torch::optim::AdamOptions(2e-4).betas(make_tuple(0.5, 0.5)));
     //--------------------------------------------------------------------------------------------
 
     size_t N_EPOCH_TO_TRAIN = 10;
