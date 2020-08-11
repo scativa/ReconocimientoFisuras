@@ -33,7 +33,7 @@ struct NetImpl : torch::nn::Module {
             static bool first_time = true;
             if (first_time) {
                 first_time = false;
-                cout << "NetImpl.forward (Net.h) - ";
+                cout << endl << "NetImpl.forward (Net.h) - ";
                 cout << "Tensor post_x.to(" << device << "); (size: " << x.sizes() << "): " << endl;
                 print_opt(x);
             }
