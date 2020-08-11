@@ -29,13 +29,15 @@ struct NetImpl : torch::nn::Module {
 
         x = x.to(device);
         
-        /*
-        if (globals::verbose_mode) {
-            cout << endl << "NetImpl.forward (Net.h)" << endl;
-            cout << "Tensor post x.to(" << device << "); (size: " << x.sizes() << ")" << endl;
-            print_opt(x);
+        if (globals::verbose_mode) { // Imprime los datos del Tensor SÓLO la primera vez.
+            static bool first_time = true;
+            if (first_time) {
+                first_time = false;
+                cout << "NetImpl.forward (Net.h) - ";
+                cout << "Tensor post_x.to(" << device << "); (size: " << x.sizes() << "): " << endl;
+                print_opt(x);
+            }
         }
-        */
 
         //std::cout << x.sizes()<<std::endl;
         x = torch::relu(torch::max_pool2d(conv1->forward(x), 2));

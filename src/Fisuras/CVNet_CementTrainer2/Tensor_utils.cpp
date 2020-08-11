@@ -6,8 +6,8 @@ using namespace std;
 void print_opt(at::Tensor t) {
     auto optt = t.options();
 
-    cout << "Tensor options: " << endl
-        << "Device: " << optt.device() << "(" << optt.device_index() << ") " << endl
+    cout // << "Tensor options: " << endl
+        << "Device: " << optt.device() << "(" << optt.device_index() << ") "
         << "Dtype: " << optt.dtype() << endl << endl;
 }
 

@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <LocalDebuggerCommandArguments>--input=E:\data\CementCrack\5y9wdsg2zt-1 --prefix=32x32(0.15) --training_percentage=0.15 --size_x=32 --size_y=32 --verbose </LocalDebuggerCommandArguments>
+    <LocalDebuggerCommandArguments>--input=E:\data\CementCrack\5y9wdsg2zt-1 --prefix=DSB_64x64(075) --training_percentage=0.75 --size_x=64 --size_y=64 --verbose </LocalDebuggerCommandArguments>
     <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
   </PropertyGroup>
 </Project>

@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <LocalDebuggerCommandArguments>--input=E:\data\CementCrack\5y9wdsg2zt-1 --prefix=64x64(0.50) --epoch=1 --model=model.pt --verbose</LocalDebuggerCommandArguments>
+    <LocalDebuggerCommandArguments>--input=E:\data\CementCrack\5y9wdsg2zt-1 --prefix=ORI_64x64(075) --epoch=10 --model=ORI_64x64(075)_model.pt --verbose</LocalDebuggerCommandArguments>
     <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
   </PropertyGroup>
 </Project>

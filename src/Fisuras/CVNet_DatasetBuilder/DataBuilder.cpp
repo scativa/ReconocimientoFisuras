@@ -27,8 +27,8 @@ namespace torch {
             string str_type[] = { "Positive", "Negative" };
             string str_mode[] = { "TRAIN_", "TEST_" };
 
-            uint32_t Image_rows_to_resize_picture = 0; //64
-            uint32_t Image_column_to_resize_picture = 0; //64
+            uint32_t Image_rows_to_resize_picture; //64
+            uint32_t Image_column_to_resize_picture; //64
             uint32_t Number_of_pictures_that_use_to_train;
             uint32_t Number_of_pictures_that_use_to_test;
 
