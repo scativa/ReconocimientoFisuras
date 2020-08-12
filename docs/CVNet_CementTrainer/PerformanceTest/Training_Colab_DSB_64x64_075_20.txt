@@ -1,0 +1,175 @@
+!time ./CVNet_CementTrainer2 --input=/content/5y9wdsg2zt-1 --epoch=20 --verbose --prefix=DSB_64x64_075 --size_x=64 --size_y=64 --model=model_DSB_64x64_075_20.pt
+
+Cement Trainer
+input=/content/5y9wdsg2zt-1
+quiet=OFF
+verbose=ON
+prefix=DSB_64x64_075
+model=model_DSB_64x64_075_20.pt
+epoch=20
+size_x=64
+size_y=64
+Device: CUDA
+Archivo 'model_DSB_64x64_075_20.pt' no encontrado. Creando 'model_DSB_64x64_075_20.pt' de cero.
+
+Cement::Cement()
+tcmalloc: large alloc 1474560000 bytes == 0x5624f2c6a000 @  0x7f3b114ba1e7 0x7f3b04050b06 0x7f3b05081a63 0x7f3b0506154d 0x7f3b05063350 0x7f3b050637f0 0x7f3b050820a7 0x7f3b050823c8 0x7f3b05084f15 0x7f3b05085c55 0x7f3b05085ff9 0x7f3b056137ae 0x5624a5ec87d4 0x5624a5ebc7f1 0x5624a5edd49f 0x7f3ac99b6b97 0x5624a5ebae4a
+Cargando /content/5y9wdsg2zt-1/DSB_64x64_075_TRAIN_IMAGES.tensor ...Listo!
+Cargando /content/5y9wdsg2zt-1/DSB_64x64_075_TRAIN_TARGET.tensor ...Listo!
+images_ in device=cuda
+Device: cuda:0(0) Dtype: float
+
+targets_ in device=cuda
+Device: cuda:0(0) Dtype: long int
+
+
+
+Cement::Cement()
+Cargando /content/5y9wdsg2zt-1/DSB_64x64_075_TEST_IMAGES.tensor ...Listo!
+Cargando /content/5y9wdsg2zt-1/DSB_64x64_075_TEST_TARGET.tensor ...Listo!
+images_ in device=cuda
+Device: cuda:0(0) Dtype: float
+
+targets_ in device=cuda
+Device: cuda:0(0) Dtype: long int
+
+
+m_data_set_train size: 30000
+m_data_set_test size: 10000
+
+Epoch: 0/20:
+Try 30k train data: Testing... 
+NetImpl.forward (Net.h) - Tensor post_x.to(cuda); (size: [32, 3, 64, 64]): 
+Device: cuda:0(0) Dtype: float
+
+Accuracy: 0.504 
+Try 10k test data: Testing... Accuracy: 0.509 
+Guardando 'model_DSB_64x64_075_20.pt' Listo!
+Entrenando:
+Train Epoch: 0 [29984/30000] Loss: 0.0042 
+
+Epoch: 1/20:
+Try 30k train data: Testing... Accuracy: 0.987 
+Try 10k test data: Testing... Accuracy: 0.987 
+Guardando 'model_DSB_64x64_075_20.pt' Listo!
+Entrenando:
+Train Epoch: 1 [29984/30000] Loss: 0.0011 
+
+Epoch: 2/20:
+Try 30k train data: Testing... Accuracy: 0.987 
+Try 10k test data: Testing... Accuracy: 0.989 
+Guardando 'model_DSB_64x64_075_20.pt' Listo!
+Entrenando:
+Train Epoch: 2 [29984/30000] Loss: 0.0441 
+
+Epoch: 3/20:
+Try 30k train data: Testing... Accuracy: 0.990 
+Try 10k test data: Testing... Accuracy: 0.991 
+Guardando 'model_DSB_64x64_075_20.pt' Listo!
+Entrenando:
+Train Epoch: 3 [29984/30000] Loss: 0.3294 
+
+Epoch: 4/20:
+Try 30k train data: Testing... Accuracy: 0.978 
+Try 10k test data: Testing... Accuracy: 0.980 
+Entrenando:
+Train Epoch: 4 [29984/30000] Loss: 0.0055 
+
+Epoch: 5/20:
+Try 30k train data: Testing... Accuracy: 0.990 
+Try 10k test data: Testing... Accuracy: 0.989 
+Entrenando:
+Train Epoch: 5 [29984/30000] Loss: 0.0036 
+
+Epoch: 6/20:
+Try 30k train data: Testing... Accuracy: 0.977 
+Try 10k test data: Testing... Accuracy: 0.979 
+Entrenando:
+Train Epoch: 6 [29984/30000] Loss: 0.0016 
+
+Epoch: 7/20:
+Try 30k train data: Testing... Accuracy: 0.993 
+Try 10k test data: Testing... Accuracy: 0.994 
+Guardando 'model_DSB_64x64_075_20.pt' Listo!
+Entrenando:
+Train Epoch: 7 [29984/30000] Loss: 0.0011 
+
+Epoch: 8/20:
+Try 30k train data: Testing... Accuracy: 0.995 
+Try 10k test data: Testing... Accuracy: 0.995 
+Guardando 'model_DSB_64x64_075_20.pt' Listo!
+Entrenando:
+Train Epoch: 8 [29984/30000] Loss: 0.0027 
+
+Epoch: 9/20:
+Try 30k train data: Testing... Accuracy: 0.993 
+Try 10k test data: Testing... Accuracy: 0.993 
+Entrenando:
+Train Epoch: 9 [29984/30000] Loss: 0.0049 
+
+Epoch: 10/20:
+Try 30k train data: Testing... Accuracy: 0.995 
+Try 10k test data: Testing... Accuracy: 0.995 
+Entrenando:
+Train Epoch: 10 [29984/30000] Loss: 0.0007 
+
+Epoch: 11/20:
+Try 30k train data: Testing... Accuracy: 0.995 
+Try 10k test data: Testing... Accuracy: 0.995 
+Entrenando:
+Train Epoch: 11 [29984/30000] Loss: 0.0001 
+
+Epoch: 12/20:
+Try 30k train data: Testing... Accuracy: 0.996 
+Try 10k test data: Testing... Accuracy: 0.996 
+Guardando 'model_DSB_64x64_075_20.pt' Listo!
+Entrenando:
+Train Epoch: 12 [29984/30000] Loss: 0.0024 
+
+Epoch: 13/20:
+Try 30k train data: Testing... Accuracy: 0.990 
+Try 10k test data: Testing... Accuracy: 0.992 
+Entrenando:
+Train Epoch: 13 [29984/30000] Loss: 0.0006 
+
+Epoch: 14/20:
+Try 30k train data: Testing... Accuracy: 0.995 
+Try 10k test data: Testing... Accuracy: 0.996 
+Entrenando:
+Train Epoch: 14 [29984/30000] Loss: 0.0000 
+
+Epoch: 15/20:
+Try 30k train data: Testing... Accuracy: 0.995 
+Try 10k test data: Testing... Accuracy: 0.995 
+Entrenando:
+Train Epoch: 15 [29984/30000] Loss: 0.0007 
+
+Epoch: 16/20:
+Try 30k train data: Testing... Accuracy: 0.994 
+Try 10k test data: Testing... Accuracy: 0.995 
+Entrenando:
+Train Epoch: 16 [29984/30000] Loss: 0.0001 
+
+Epoch: 17/20:
+Try 30k train data: Testing... Accuracy: 0.994 
+Try 10k test data: Testing... Accuracy: 0.995 
+Entrenando:
+Train Epoch: 17 [29984/30000] Loss: 0.0001 
+
+Epoch: 18/20:
+Try 30k train data: Testing... Accuracy: 0.996 
+Try 10k test data: Testing... Accuracy: 0.996 
+Guardando 'model_DSB_64x64_075_20.pt' Listo!
+Entrenando:
+Train Epoch: 18 [29984/30000] Loss: 0.0000 
+
+Epoch: 19/20:
+Try 30k train data: Testing... Accuracy: 0.996 
+Try 10k test data: Testing... Accuracy: 0.997 
+Guardando 'model_DSB_64x64_075_20.pt' Listo!
+Entrenando:
+Train Epoch: 19 [29984/30000] Loss: 0.0039 
+
+real	4m6.140s
+user	3m38.817s
+sys	0m56.043s

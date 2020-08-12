@@ -1,0 +1,26 @@
+Cement DatasetBuilder
+input=E:\data\CementCrack\5y9wdsg2zt-1
+quiet=OFF
+verbose=ON
+prefix=DSB_64x64(075)
+training_percentage=0.750000
+size_x=64
+size_y=64
+Device: CPU
+
+Create tensor files from images:
+E:\data\CementCrack\5y9wdsg2zt-1
+Training percentage: 0.75
+Resize to: (64,64)
+Overrite 1
+
+Creando Base de Imagenes y Tensores...
+Preproccesing NEGATIVE
+Warning: Deprecation warning: In a future PyTorch release torch.full will no longer return tensors of floating dtype by default. Instead, a bool fill_value will return a tensor of torch.bool dtype, and an integral fill_value will return a tensor of torch.long dtype. Set the optional `dtype` or `out` arguments to suppress this warning. (operator () at ..\..\aten\src\ATen\native\TensorFactories.cpp:361)
+Preproccesing POSITIVE
+Shuffle Tensors
+Split Tensors
+Save Tensors
+Train: 30000/40000
+Test:  10000/40000
+

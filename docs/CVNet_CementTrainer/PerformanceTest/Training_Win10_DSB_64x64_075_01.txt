@@ -1,0 +1,54 @@
+DatasetBuilder.exe (process 4580) exited with code 0.
+
+Cement Trainer
+input=E:\data\CementCrack\5y9wdsg2zt-1
+quiet=OFF
+verbose=ON
+prefix=DSB_64x64(075)
+model=DSB_64x64(075)_model.pt
+epoch=1
+Device: CPU
+Archivo 'DSB_64x64(075)_model.pt' no encontrado. Creando 'DSB_64x64(075)_model.pt' de cero.
+
+Cement::Cement()
+Cargando E:\data\CementCrack\5y9wdsg2zt-1/DSB_64x64(075)_TRAIN_IMAGES.tensor ...Listo!
+Cargando E:\data\CementCrack\5y9wdsg2zt-1/DSB_64x64(075)_TRAIN_TARGET.tensor ...Listo!
+images_ in device=cpu
+Tensor options:
+Device: cpu(-1)
+Dtype: float
+
+targets_ in device=cpu
+Tensor options:
+Device: cpu(-1)
+Dtype: __int64
+
+
+
+Cement::Cement()
+Cargando E:\data\CementCrack\5y9wdsg2zt-1/DSB_64x64(075)_TEST_IMAGES.tensor ...Listo!
+Cargando E:\data\CementCrack\5y9wdsg2zt-1/DSB_64x64(075)_TEST_TARGET.tensor ...Listo!
+images_ in device=cpu
+Tensor options:
+Device: cpu(-1)
+Dtype: float
+
+targets_ in device=cpu
+Tensor options:
+Device: cpu(-1)
+Dtype: __int64
+
+
+m_data_set_train size: 30000
+m_data_set_test size: 10000
+
+Epoch: 0/1:
+Try 30k train data: Testing... Accuracy: 0.501
+Try 10k test data: Testing... Accuracy: 0.496
+Guardando 'DSB_64x64(075)_model.pt' Listo!
+Entrenando:
+Train Epoch: 0 [29984/30000] Loss: 0.0035
+
+C:\Users\User\Proyectos\ReconocimientoFisuras\src\Fisuras\x64\Release\CVNet_CementTrainer2.exe (process 1028) exited with code 0.
+To automatically close the console when debugging stops, enable Tools->Options->Debugging->Automatically close the console when debugging stops.
+Press any key to close this window . . .

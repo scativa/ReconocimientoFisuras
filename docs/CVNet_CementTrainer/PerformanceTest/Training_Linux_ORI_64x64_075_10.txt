@@ -1,0 +1,114 @@
+$ time ./CVNet_CementTrainer2 --input=/home/seba/Proyectos/data/CementCrack/5y9wdsg2zt-1 --prefix=ORI_64x64_075 --size_x=64 --size_y=64 --model=model_ORI_64x64_075_10.pt --epoch=10 --verbose
+Cement Trainer
+input=/home/seba/Proyectos/data/CementCrack/5y9wdsg2zt-1
+quiet=OFF
+verbose=ON
+prefix=ORI_64x64_075
+model=model_ORI_64x64_075_10.pt
+epoch=10
+size_x=64
+size_y=64
+Device: CPU
+Archivo 'model_ORI_64x64_075_10.pt' no encontrado. Creando 'model_ORI_64x64_075_10.pt' de cero.
+
+Cement::Cement()
+Cargando /home/seba/Proyectos/data/CementCrack/5y9wdsg2zt-1/ORI_64x64_075_TRAIN_IMAGES.tensor ...Listo!
+Cargando /home/seba/Proyectos/data/CementCrack/5y9wdsg2zt-1/ORI_64x64_075_TRAIN_TARGET.tensor ...Listo!
+images_ in device=cpu
+Device: cpu(-1) Dtype: float
+
+targets_ in device=cpu
+Device: cpu(-1) Dtype: long int
+
+
+
+Cement::Cement()
+Cargando /home/seba/Proyectos/data/CementCrack/5y9wdsg2zt-1/ORI_64x64_075_TEST_IMAGES.tensor ...Listo!
+Cargando /home/seba/Proyectos/data/CementCrack/5y9wdsg2zt-1/ORI_64x64_075_TEST_TARGET.tensor ...Listo!
+images_ in device=cpu
+Device: cpu(-1) Dtype: float
+
+targets_ in device=cpu
+Device: cpu(-1) Dtype: long int
+
+
+m_data_set_train size: 30000
+m_data_set_test size: 10000
+
+Epoch: 0/10:
+Try 30k train data: Testing... 
+NetImpl.forward (Net.h) - Tensor post_x.to(cpu); (size: [32, 3, 64, 64]): 
+Device: cpu(-1) Dtype: float
+
+Accuracy: 0.506 
+Try 10k test data: Testing... Accuracy: 0.506 
+Guardando 'model_ORI_64x64_075_10.pt' Listo!
+Entrenando:
+Train Epoch: 0 [29984/30000] Loss: 0.0080 
+
+Epoch: 1/10:
+Try 30k train data: Testing... Accuracy: 0.978 
+Try 10k test data: Testing... Accuracy: 0.978 
+Guardando 'model_ORI_64x64_075_10.pt' Listo!
+Entrenando:
+Train Epoch: 1 [29984/30000] Loss: 0.0102 
+
+Epoch: 2/10:
+Try 30k train data: Testing... Accuracy: 0.987 
+Try 10k test data: Testing... Accuracy: 0.987 
+Guardando 'model_ORI_64x64_075_10.pt' Listo!
+Entrenando:
+Train Epoch: 2 [29984/30000] Loss: 0.0066 
+
+Epoch: 3/10:
+Try 30k train data: Testing... Accuracy: 0.989 
+Try 10k test data: Testing... Accuracy: 0.989 
+Guardando 'model_ORI_64x64_075_10.pt' Listo!
+Entrenando:
+Train Epoch: 3 [29984/30000] Loss: 0.0809 
+
+Epoch: 4/10:
+Try 30k train data: Testing... Accuracy: 0.991 
+Try 10k test data: Testing... Accuracy: 0.991 
+Guardando 'model_ORI_64x64_075_10.pt' Listo!
+Entrenando:
+Train Epoch: 4 [29984/30000] Loss: 0.0012 
+
+Epoch: 5/10:
+Try 30k train data: Testing... Accuracy: 0.991 
+Try 10k test data: Testing... Accuracy: 0.991 
+Guardando 'model_ORI_64x64_075_10.pt' Listo!
+Entrenando:
+Train Epoch: 5 [29984/30000] Loss: 0.0003 
+
+Epoch: 6/10:
+Try 30k train data: Testing... Accuracy: 0.990 
+Try 10k test data: Testing... Accuracy: 0.989 
+Entrenando:
+Train Epoch: 6 [29984/30000] Loss: 0.0505 
+
+Epoch: 7/10:
+Try 30k train data: Testing... Accuracy: 0.994 
+Try 10k test data: Testing... Accuracy: 0.993 
+Guardando 'model_ORI_64x64_075_10.pt' Listo!
+Entrenando:
+Train Epoch: 7 [29984/30000] Loss: 0.6893 
+
+Epoch: 8/10:
+Try 30k train data: Testing... Accuracy: 0.995 
+Try 10k test data: Testing... Accuracy: 0.995 
+Guardando 'model_ORI_64x64_075_10.pt' Listo!
+Entrenando:
+Train Epoch: 8 [29984/30000] Loss: 0.0001 
+
+Epoch: 9/10:
+Try 30k train data: Testing... Accuracy: 0.984 
+Try 10k test data: Testing... Accuracy: 0.984 
+Entrenando:
+Train Epoch: 9 [29984/30000] Loss: 0.0002 
+
+real	17m51,922s
+user	49m52,273s
+sys	1m51,365s
+
+

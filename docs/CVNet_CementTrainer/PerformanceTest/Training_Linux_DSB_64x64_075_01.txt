@@ -1,0 +1,14 @@
+$ time ./CVNet_CementTrainer2 --input=/home/seba/Proyectos/data/CementCrack/5y9wdsg2zt-1 --prefix=DSB_64x64_075 --size_x=64 --size_y=64 --Training_Percentage=0.75
+Cement Trainer
+m_data_set_train size: 30000
+m_data_set_test size: 10000
+
+Epoch: 0/1:
+Try 30k train data: Testing... Accuracy: 0.499 
+Try 10k test data: Testing... Accuracy: 0.504 
+Train Epoch: 0 [29984/30000] Loss: 0.0243 621 
+
+real	3m19,275s
+user	8m15,646s
+sys	0m17,194s
+

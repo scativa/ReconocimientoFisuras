@@ -1,0 +1,53 @@
+!time ./CVNet_CementTrainer2 --input=/content/5y9wdsg2zt-1 --epoch=1 --verbose --prefix=ORI_64x64_015 --size_x=64 --size_y=64 --model=modelORI_64x64_015_01.pt
+
+/content/CVNet_CementTrainer2/build
+Cement Trainer
+input=/content/5y9wdsg2zt-1
+quiet=OFF
+verbose=ON
+prefix=ORI_64x64_015
+model=modelORI_64x64_015_01.pt
+epoch=1
+size_x=64
+size_y=64
+Device: CUDA
+Archivo 'modelORI_64x64_015_01.pt' no encontrado. Creando 'modelORI_64x64_015_01.pt' de cero.
+
+Cement::Cement()
+Cargando /content/5y9wdsg2zt-1/ORI_64x64_015_TRAIN_IMAGES.tensor ...Listo!
+Cargando /content/5y9wdsg2zt-1/ORI_64x64_015_TRAIN_TARGET.tensor ...Listo!
+images_ in device=cuda
+Device: cuda:0(0) Dtype: float
+
+targets_ in device=cuda
+Device: cuda:0(0) Dtype: long int
+
+
+
+Cement::Cement()
+Cargando /content/5y9wdsg2zt-1/ORI_64x64_015_TEST_IMAGES.tensor ...Listo!
+Cargando /content/5y9wdsg2zt-1/ORI_64x64_015_TEST_TARGET.tensor ...Listo!
+images_ in device=cuda
+Device: cuda:0(0) Dtype: float
+
+targets_ in device=cuda
+Device: cuda:0(0) Dtype: long int
+
+
+m_data_set_train size: 6000
+m_data_set_test size: 6000
+
+Epoch: 0/1:
+Try 6k train data: Testing... 
+NetImpl.forward (Net.h) - Tensor post_x.to(cuda); (size: [32, 3, 64, 64]): 
+Device: cuda:0(0) Dtype: float
+
+Accuracy: 0.497 
+Try 6k test data: Testing... Accuracy: 0.500 
+Guardando 'modelORI_64x64_015_01.pt' Listo!
+Entrenando:
+Train Epoch: 0 [5984/6000] Loss: 0.2413 
+
+real	0m5.727s
+user	0m4.383s
+sys	0m1.739s

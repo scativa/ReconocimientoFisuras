@@ -1,0 +1,19 @@
+Creando Base de Imagenes y Tensores...
+Warning: Deprecation warning: In a future PyTorch release torch.full will no longer return tensors of floating dtype by default. Instead, a bool fill_value will return a tensor of torch.bool dtype, and an integral fill_value will return a tensor of torch.long dtype. Set the optional `dtype` or `out` arguments to suppress this warning. (operator () at ..\..\aten\src\ATen\native\TensorFactories.cpp:361)
+Cargando Imagenes para entrenamiento.
+Listo!.
+Cargando Imagenes para testeo.
+Listo!.
+Try 6k: Testing...
+
+Net.h
+	x = x.view({ -1, 1152 });
+* Unhandled exception at 0x00007FFCAFA83E49 in CVNet_Cement.exe: 
+Microsoft C++ exception: 
+std::runtime_error at memory location 0x0000006D5B5CE228.
+
+Cement.cpp
+	const float Percentage_of_pictures_used_to_train = 0.15f;
+	uint32_t Image_rows_to_resize_picture = 32;
+	uint32_t Image_column_to_resize_picture = 32;
+

@@ -1,0 +1,39 @@
+Creando Base de Imagenes y Tensores...
+Warning: Deprecation warning: In a future PyTorch release torch.full will no longer return tensors of floating dtype by default. Instead, a bool fill_value will return a tensor of torch.bool dtype, and an integral fill_value will return a tensor of torch.long dtype. Set the optional `dtype` or `out` arguments to suppress this warning. (operator () at ..\..\aten\src\ATen\native\TensorFactories.cpp:361)
+Cargando Imagenes para entrenamiento.
+Listo!.
+Cargando Imagenes para testeo.
+Listo!.
+Try 6k: Testing... Accuracy: 0.993
+Try 6k: Testing... Accuracy: 0.989
+Guardando!!.. a model.pt
+Train Epoch: 0 [ 5984/ 6000] Loss: 0.0006
+Try 6k: Testing... Accuracy: 0.993
+Try 6k: Testing... Accuracy: 0.991
+Guardando!!.. a model.pt
+Train Epoch: 1 [ 5984/ 6000] Loss: 0.0022
+Try 6k: Testing... Accuracy: 0.993
+Try 6k: Testing... Accuracy: 0.990
+Train Epoch: 2 [ 5984/ 6000] Loss: 0.0001
+Try 6k: Testing... Accuracy: 0.989
+Try 6k: Testing... Accuracy: 0.985
+Train Epoch: 3 [ 5984/ 6000] Loss: 0.0012
+Try 6k: Testing... Accuracy: 0.984
+Try 6k: Testing... Accuracy: 0.979
+Train Epoch: 4 [ 5984/ 6000] Loss: 0.0135
+Try 6k: Testing... Accuracy: 0.994
+Try 6k: Testing... Accuracy: 0.989
+Train Epoch: 5 [ 5984/ 6000] Loss: 0.0007
+Try 6k: Testing... Accuracy: 0.994
+Try 6k: Testing... Accuracy: 0.989
+Train Epoch: 6 [ 5984/ 6000] Loss: 0.0034
+Try 6k: Testing... Accuracy: 0.994
+Try 6k: Testing... Accuracy: 0.989
+Train Epoch: 7 [ 5984/ 6000] Loss: 0.0019
+Try 6k: Testing... Accuracy: 0.996
+Try 6k: Testing... Accuracy: 0.990
+Train Epoch: 8 [ 5984/ 6000] Loss: 0.7719
+Try 6k: Testing... Accuracy: 0.995
+Try 6k: Testing... Accuracy: 0.989
+Train Epoch: 9 [ 5984/ 6000] Loss: 0.0007
+Press any key to continue . . .

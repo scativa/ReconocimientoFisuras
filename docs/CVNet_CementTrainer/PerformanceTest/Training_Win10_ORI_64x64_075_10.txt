@@ -1,0 +1,110 @@
+Microsoft Windows [Version 10.0.19041.388]
+(c) 2020 Microsoft Corporation. All rights reserved.
+
+C:\Users\User>cd C:\Users\User\Proyectos\ReconocimientoFisuras\src\Fisuras\x64\Release
+
+C:\Users\User\Proyectos\ReconocimientoFisuras\src\Fisuras\x64\Release>CVNet_CementTrainer2.exe --input=E:\data\CementCrack\5y9wdsg2zt-1 --prefix=ORI_64x64(075) --epoch=10 --model=ORI_64x64(075)_model.pt --verbose
+Cement Trainer
+input=E:\data\CementCrack\5y9wdsg2zt-1
+quiet=OFF
+verbose=ON
+prefix=ORI_64x64(075)
+model=ORI_64x64(075)_model.pt
+epoch=10
+Device: CPU
+Archivo 'ORI_64x64(075)_model.pt' no encontrado. Creando 'ORI_64x64(075)_model.pt' de cero.
+
+Cement::Cement()
+Cargando E:\data\CementCrack\5y9wdsg2zt-1/ORI_64x64(075)_TRAIN_IMAGES.tensor ...Listo!
+Cargando E:\data\CementCrack\5y9wdsg2zt-1/ORI_64x64(075)_TRAIN_TARGET.tensor ...Listo!
+images_ in device=cpu
+Device: cpu(-1) Dtype: float
+
+targets_ in device=cpu
+Device: cpu(-1) Dtype: __int64
+
+
+
+Cement::Cement()
+Cargando E:\data\CementCrack\5y9wdsg2zt-1/ORI_64x64(075)_TEST_IMAGES.tensor ...Listo!
+Cargando E:\data\CementCrack\5y9wdsg2zt-1/ORI_64x64(075)_TEST_TARGET.tensor ...Listo!
+images_ in device=cpu
+Device: cpu(-1) Dtype: float
+
+targets_ in device=cpu
+Device: cpu(-1) Dtype: __int64
+
+
+m_data_set_train size: 30000
+m_data_set_test size: 10000
+
+Epoch: 0/10:
+Try 30k train data: Testing... NetImpl.forward (Net.h) - Tensor post_x.to(cpu); (size: [32, 3, 64, 64]):
+Device: cpu(-1) Dtype: float
+
+Accuracy: 0.500
+Try 10k test data: Testing... Accuracy: 0.500
+Guardando 'ORI_64x64(075)_model.pt' Listo!
+Entrenando:
+Train Epoch: 0 [29984/30000] Loss: 0.0671
+
+Epoch: 1/10:
+Try 30k train data: Testing... Accuracy: 0.985
+Try 10k test data: Testing... Accuracy: 0.986
+Guardando 'ORI_64x64(075)_model.pt' Listo!
+Entrenando:
+Train Epoch: 1 [29984/30000] Loss: 0.2133
+
+Epoch: 2/10:
+Try 30k train data: Testing... Accuracy: 0.988
+Try 10k test data: Testing... Accuracy: 0.989
+Guardando 'ORI_64x64(075)_model.pt' Listo!
+Entrenando:
+Train Epoch: 2 [29984/30000] Loss: 0.0194
+
+Epoch: 3/10:
+Try 30k train data: Testing... Accuracy: 0.990
+Try 10k test data: Testing... Accuracy: 0.990
+Guardando 'ORI_64x64(075)_model.pt' Listo!
+Entrenando:
+Train Epoch: 3 [29984/30000] Loss: 0.0061
+
+Epoch: 4/10:
+Try 30k train data: Testing... Accuracy: 0.991
+Try 10k test data: Testing... Accuracy: 0.991
+Guardando 'ORI_64x64(075)_model.pt' Listo!
+Entrenando:
+Train Epoch: 4 [29984/30000] Loss: 0.0267
+
+Epoch: 5/10:
+Try 30k train data: Testing... Accuracy: 0.991
+Try 10k test data: Testing... Accuracy: 0.991
+Entrenando:
+Train Epoch: 5 [29984/30000] Loss: 0.0041
+
+Epoch: 6/10:
+Try 30k train data: Testing... Accuracy: 0.991
+Try 10k test data: Testing... Accuracy: 0.991
+Entrenando:
+Train Epoch: 6 [29984/30000] Loss: 0.0002
+
+Epoch: 7/10:
+Try 30k train data: Testing... Accuracy: 0.993
+Try 10k test data: Testing... Accuracy: 0.993
+Guardando 'ORI_64x64(075)_model.pt' Listo!
+Entrenando:
+Train Epoch: 7 [29984/30000] Loss: 0.0050
+
+Epoch: 8/10:
+Try 30k train data: Testing... Accuracy: 0.988
+Try 10k test data: Testing... Accuracy: 0.988
+Entrenando:
+Train Epoch: 8 [29984/30000] Loss: 0.0003
+
+Epoch: 9/10:
+Try 30k train data: Testing... Accuracy: 0.987
+Try 10k test data: Testing... Accuracy: 0.987
+Entrenando:
+Train Epoch: 9 [29984/30000] Loss: 0.0009
+
+C:\Users\User\Proyectos\ReconocimientoFisuras\src\Fisuras\x64\Release>CVNet_CementTrainer2.exe --input=E:\data\CementCrack\5y9wdsg2zt-1 --prefix=ORI_64x64(075) --epoch=10 --model=ORI_64x64(075)_model.pt --verbose

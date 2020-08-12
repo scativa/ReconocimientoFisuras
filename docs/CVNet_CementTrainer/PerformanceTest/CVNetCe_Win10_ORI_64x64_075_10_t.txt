@@ -1,0 +1,51 @@
+
+
+The START time is: 10:45:24.35
+The END time is: 11:38:52.25
+The END time is: 01:53:27
+
+E:\data\CementCrack\5y9wdsg2zt-1>ORI_64x64_075_CVNet_Cement
+Creando Base de Imagenes y Tensores...
+Warning: Deprecation warning: In a future PyTorch release torch.full will no longer return tensors of floating dtype by default. Instead, a bool fill_value will return a tensor of torch.bool dtype, and an integral fill_value will return a tensor of torch.long dtype. Set the optional `dtype` or `out` arguments to suppress this warning. (operator () at ..\..\aten\src\ATen\native\TensorFactories.cpp:361)
+Cargando Imagenes para entrenamiento.
+Listo!.
+Cargando Imagenes para testeo.
+Listo!.
+Try 30k: Testing... Accuracy: 0.500
+Try 10k: Testing... Accuracy: 0.502
+Guardando!!.. a model.pt
+Train Epoch: 0 [29984/30000] Loss: 0.0811
+Try 30k: Testing... Accuracy: 0.986
+Try 10k: Testing... Accuracy: 0.987
+Guardando!!.. a model.pt
+Train Epoch: 1 [29984/30000] Loss: 0.0020
+Try 30k: Testing... Accuracy: 0.987
+Try 10k: Testing... Accuracy: 0.987
+Guardando!!.. a model.pt
+Train Epoch: 2 [29984/30000] Loss: 0.0031
+Try 30k: Testing... Accuracy: 0.974
+Try 10k: Testing... Accuracy: 0.972
+Train Epoch: 3 [29984/30000] Loss: 0.0027
+Try 30k: Testing... Accuracy: 0.991
+Try 10k: Testing... Accuracy: 0.991
+Guardando!!.. a model.pt
+Train Epoch: 4 [29984/30000] Loss: 0.0019
+Try 30k: Testing... Accuracy: 0.993
+Try 10k: Testing... Accuracy: 0.992
+Guardando!!.. a model.pt
+Train Epoch: 5 [29984/30000] Loss: 0.0009
+Try 30k: Testing... Accuracy: 0.993
+Try 10k: Testing... Accuracy: 0.993
+Guardando!!.. a model.pt
+Train Epoch: 6 [29984/30000] Loss: 0.0003
+Try 30k: Testing... Accuracy: 0.992
+Try 10k: Testing... Accuracy: 0.992
+Train Epoch: 7 [29984/30000] Loss: 0.0001
+Try 30k: Testing... Accuracy: 0.994
+Try 10k: Testing... Accuracy: 0.993
+Guardando!!.. a model.pt
+Train Epoch: 8 [29984/30000] Loss: 0.0069
+Try 30k: Testing... Accuracy: 0.995
+Try 10k: Testing... Accuracy: 0.994
+Guardando!!.. a model.pt
+Train Epoch: 9 [29984/30000] Loss: 0.0003

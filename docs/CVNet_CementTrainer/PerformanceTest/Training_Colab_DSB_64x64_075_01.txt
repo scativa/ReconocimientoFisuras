@@ -1,0 +1,53 @@
+/content/CVNet_CementTrainer2/build
+Cement Trainer
+input=/content/5y9wdsg2zt-1
+quiet=OFF
+verbose=ON
+prefix=DSB_64x64_075
+model=model_64x64_075_01.pt
+epoch=1
+size_x=64
+size_y=64
+Device: CUDA
+Archivo 'model_64x64_075_01.pt' no encontrado. Creando 'model_64x64_075_01.pt' de cero.
+
+Cement::Cement()
+tcmalloc: large alloc 1474560000 bytes == 0x561f0b560000 @  0x7fae9ce2c1e7 0x7fae8f9c2b06 0x7fae909f3a63 0x7fae909d354d 0x7fae909d5350 0x7fae909d57f0 0x7fae909f40a7 0x7fae909f43c8 0x7fae909f6f15 0x7fae909f7c55 0x7fae909f7ff9 0x7fae90f857ae 0x561ebf8f87d4 0x561ebf8ec7f1 0x561ebf90d49f 0x7fae55328b97 0x561ebf8eae4a
+Cargando /content/5y9wdsg2zt-1/DSB_64x64_075_TRAIN_IMAGES.tensor ...Listo!
+Cargando /content/5y9wdsg2zt-1/DSB_64x64_075_TRAIN_TARGET.tensor ...Listo!
+images_ in device=cuda
+Device: cuda:0(0) Dtype: float
+
+targets_ in device=cuda
+Device: cuda:0(0) Dtype: long int
+
+
+
+Cement::Cement()
+Cargando /content/5y9wdsg2zt-1/DSB_64x64_075_TEST_IMAGES.tensor ...Listo!
+Cargando /content/5y9wdsg2zt-1/DSB_64x64_075_TEST_TARGET.tensor ...Listo!
+images_ in device=cuda
+Device: cuda:0(0) Dtype: float
+
+targets_ in device=cuda
+Device: cuda:0(0) Dtype: long int
+
+
+m_data_set_train size: 30000
+m_data_set_test size: 10000
+
+Epoch: 0/1:
+Try 30k train data: Testing... 
+NetImpl.forward (Net.h) - Tensor post_x.to(cuda); (size: [32, 3, 64, 64]): 
+Device: cuda:0(0) Dtype: float
+
+Accuracy: 0.501 
+Try 10k test data: Testing... Accuracy: 0.496 
+Guardando 'model_64x64_075_01.pt' Listo!
+Entrenando:
+Train Epoch: 0 [29984/30000] Loss: 0.2579 
+
+real	0m16.425s
+user	0m13.032s
+sys	0m5.016s
+
