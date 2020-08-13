@@ -1,0 +1,42 @@
+E:\data\CementCrack\5y9wdsg2zt-1>CVNet_CementTrainer2.exe --input=E:\data\CementCrack\5y9wdsg2zt-1 --prefix=ORI_32x32_015 --epoch=1 --model=_32x32_015_01_model.pt --verbose
+Cement Trainer
+input=E:\data\CementCrack\5y9wdsg2zt-1
+quiet=OFF
+verbose=ON
+prefix=ORI_32x32_015
+model=_32x32_015_01_model.pt
+epoch=1
+Device: CPU
+Archivo '_32x32_015_01_model.pt' no encontrado. Creando '_32x32_015_01_model.pt' de cero.
+
+Cement::Cement()
+Cargando E:\data\CementCrack\5y9wdsg2zt-1/ORI_32x32_015_TRAIN_IMAGES.tensor ...Listo!
+Cargando E:\data\CementCrack\5y9wdsg2zt-1/ORI_32x32_015_TRAIN_TARGET.tensor ...Listo!
+images_ in device=cpu
+Device: cpu(-1) Dtype: float
+
+targets_ in device=cpu
+Device: cpu(-1) Dtype: __int64
+
+
+
+Cement::Cement()
+Cargando E:\data\CementCrack\5y9wdsg2zt-1/ORI_32x32_015_TEST_IMAGES.tensor ...Listo!
+Cargando E:\data\CementCrack\5y9wdsg2zt-1/ORI_32x32_015_TEST_TARGET.tensor ...Listo!
+images_ in device=cpu
+Device: cpu(-1) Dtype: float
+
+targets_ in device=cpu
+Device: cpu(-1) Dtype: __int64
+
+
+m_data_set_train size: 6000
+m_data_set_test size: 6000
+
+Epoch: 0/1:
+Try 6k train data: Testing... NetImpl.forward (Net.h) - Tensor post_x.to(cpu); (size: [32, 3, 32, 32]):
+Device: cpu(-1) Dtype: float
+
+Error: shape '[-1, 1152]' is invalid for input of size 4096
+E:\data\CementCrack\5y9wdsg2zt-1>time /T
+08:59 PM

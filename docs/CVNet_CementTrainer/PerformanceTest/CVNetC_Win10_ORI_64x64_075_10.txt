@@ -1,8 +1,9 @@
+CVNet_Cement
+Trainig y Generación de archivos .tensor
 
-
-The START time is: 10:45:24.35
-The END time is: 11:38:52.25
-The END time is: 01:53:27
+The START 		time is: 10:45:24.35
+The END 		time is: 11:38:52.25
+The ELAPSED 	time is: 01:53:27
 
 E:\data\CementCrack\5y9wdsg2zt-1>ORI_64x64_075_CVNet_Cement
 Creando Base de Imagenes y Tensores...

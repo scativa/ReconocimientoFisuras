@@ -1,9 +1,9 @@
 CVNet_Cement
-Archivos .tensor previamente generados.
+Trainig solamente. Los archivos .tensor ya habían sido generados.
 
-The START time is: 11:58:21.82
-The END time is: 12:36:53.34
-The Elapsed time is: 1:38:32
+The START 		time is: 11:58:21.82
+The END 		time is: 12:36:53.34
+The ELAPSED 	time is: 01:38:32
 
 E:\data\CementCrack\5y9wdsg2zt-1>ORI_64x64_075_CVNet_Cement
 Cargando Imagenes para entrenamiento.

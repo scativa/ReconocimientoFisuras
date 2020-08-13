@@ -1,0 +1,110 @@
+08:18 PM
+08:59 PM
+
+E:\data\CementCrack\5y9wdsg2zt-1>CVNet_CementTrainer2.exe --input=E:\data\CementCrack\5y9wdsg2zt-1 --prefix=DSB_64x64_075 --epoch=10 --model=_64x64_075_10_model.pt --verbose
+Cement Trainer
+input=E:\data\CementCrack\5y9wdsg2zt-1
+quiet=OFF
+verbose=ON
+prefix=DSB_64x64_075
+model=_64x64_075_10_model.pt
+epoch=10
+Device: CPU
+Archivo '_64x64_075_10_model.pt' no encontrado. Creando '_64x64_075_10_model.pt' de cero.
+
+Cement::Cement()
+Cargando E:\data\CementCrack\5y9wdsg2zt-1/DSB_64x64_075_TRAIN_IMAGES.tensor ...Listo!
+Cargando E:\data\CementCrack\5y9wdsg2zt-1/DSB_64x64_075_TRAIN_TARGET.tensor ...Listo!
+images_ in device=cpu
+Device: cpu(-1) Dtype: float
+
+targets_ in device=cpu
+Device: cpu(-1) Dtype: __int64
+
+
+
+Cement::Cement()
+Cargando E:\data\CementCrack\5y9wdsg2zt-1/DSB_64x64_075_TEST_IMAGES.tensor ...Listo!
+Cargando E:\data\CementCrack\5y9wdsg2zt-1/DSB_64x64_075_TEST_TARGET.tensor ...Listo!
+images_ in device=cpu
+Device: cpu(-1) Dtype: float
+
+targets_ in device=cpu
+Device: cpu(-1) Dtype: __int64
+
+
+m_data_set_train size: 30000
+m_data_set_test size: 10000
+
+Epoch: 0/10:
+Try 30k train data: Testing... NetImpl.forward (Net.h) - Tensor post_x.to(cpu); (size: [32, 3, 64, 64]):
+Device: cpu(-1) Dtype: float
+
+Accuracy: 0.499
+Try 10k test data: Testing... Accuracy: 0.504
+Guardando '_64x64_075_10_model.pt' Listo!
+Entrenando:
+Train Epoch: 0 [29984/30000] Loss: 0.0021
+
+Epoch: 1/10:
+Try 30k train data: Testing... Accuracy: 0.983
+Try 10k test data: Testing... Accuracy: 0.984
+Guardando '_64x64_075_10_model.pt' Listo!
+Entrenando:
+Train Epoch: 1 [29984/30000] Loss: 0.0014
+
+Epoch: 2/10:
+Try 30k train data: Testing... Accuracy: 0.984
+Try 10k test data: Testing... Accuracy: 0.986
+Guardando '_64x64_075_10_model.pt' Listo!
+Entrenando:
+Train Epoch: 2 [29984/30000] Loss: 0.0018
+
+Epoch: 3/10:
+Try 30k train data: Testing... Accuracy: 0.990
+Try 10k test data: Testing... Accuracy: 0.990
+Guardando '_64x64_075_10_model.pt' Listo!
+Entrenando:
+Train Epoch: 3 [29984/30000] Loss: 0.0019
+
+Epoch: 4/10:
+Try 30k train data: Testing... Accuracy: 0.992
+Try 10k test data: Testing... Accuracy: 0.992
+Guardando '_64x64_075_10_model.pt' Listo!
+Entrenando:
+Train Epoch: 4 [29984/30000] Loss: 0.0430
+
+Epoch: 5/10:
+Try 30k train data: Testing... Accuracy: 0.992
+Try 10k test data: Testing... Accuracy: 0.992
+Guardando '_64x64_075_10_model.pt' Listo!
+Entrenando:
+Train Epoch: 5 [29984/30000] Loss: 0.0168
+
+Epoch: 6/10:
+Try 30k train data: Testing... Accuracy: 0.991
+Try 10k test data: Testing... Accuracy: 0.990
+Entrenando:
+Train Epoch: 6 [29984/30000] Loss: 0.0172
+
+Epoch: 7/10:
+Try 30k train data: Testing... Accuracy: 0.992
+Try 10k test data: Testing... Accuracy: 0.992
+Entrenando:
+Train Epoch: 7 [29984/30000] Loss: 0.0014
+
+Epoch: 8/10:
+Try 30k train data: Testing... Accuracy: 0.991
+Try 10k test data: Testing... Accuracy: 0.992
+Entrenando:
+Train Epoch: 8 [29984/30000] Loss: 0.0000
+
+Epoch: 9/10:
+Try 30k train data: Testing... Accuracy: 0.995
+Try 10k test data: Testing... Accuracy: 0.995
+Guardando '_64x64_075_10_model.pt' Listo!
+Entrenando:
+Train Epoch: 9 [29984/30000] Loss: 0.0010
+
+E:\data\CementCrack\5y9wdsg2zt-1>time /T
+08:59 PM
