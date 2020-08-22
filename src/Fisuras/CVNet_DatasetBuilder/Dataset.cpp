@@ -7,13 +7,14 @@ auto Dataset::get_file_or_directory_structure(
     const std::string& PATH,
     const std::string& EXT = "")
 {
-    std::vector<std::string> VEC;
     WIN32_FIND_DATA data;
     HANDLE hFind = FindFirstFile(std::string(PATH + DSEP + "*." + EXT).c_str(), &data);
 
+    std::vector<std::string> VEC;
     if (hFind != INVALID_HANDLE_VALUE) {
         do {
-            if (data.dwFileAttributes == TYPE) VEC.push_back(data.cFileName);
+            if (data.dwFileAttributes == TYPE) 
+                VEC.push_back(data.cFileName);
         } while (FindNextFile(hFind, &data));
     }
 
