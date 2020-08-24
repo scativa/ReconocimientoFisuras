@@ -2,10 +2,6 @@
 #include "cmdlineopt.h"
 #include "CVNet.h"
 
-#define DSEP "\\"
-#define IMG_FNAME(ROOT_FOLDER,PREFIX_FN) ROOT_FOLDER + DSEP + PREFIX_FN + "IMAGES.tensor"
-#define TRG_FNAME(ROOT_FOLDER,PREFIX_FN) ROOT_FOLDER + DSEP + PREFIX_FN + "TARGET.tensor"
-
 class Trainer
 {
 public:

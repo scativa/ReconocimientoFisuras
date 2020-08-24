@@ -24,7 +24,8 @@ auto Dataset::get_file_or_directory_structure(
 
 auto Dataset::get_image_from_directory(
     const std::string& PATH,
-    const std::string& EXT)
+    const std::string& EXT, 
+    const uint32_t& SIZE)
 {
     std::vector<torch::Tensor> IMG;
 
@@ -34,13 +35,13 @@ auto Dataset::get_image_from_directory(
         // Pre-tratamiento de cada imagen con OpenCV.
         cv::Mat aux = cv::imread(PATH + DSEP + filename);
         std::vector<cv::Mat> rgb;
-        cv::resize(aux, aux, cv::Size(64, 64));
+        cv::resize(aux, aux, cv::Size(SIZE, SIZE));
         cv::split(aux, rgb);
         //---------------------------------------------------------------------
-        auto m_images = torch::zeros({ 3,64,64 }, torch::kByte);
-        m_images[0] = torch::from_blob(rgb[0].data, { 64, 64 }, torch::kByte);
-        m_images[1] = torch::from_blob(rgb[1].data, { 64, 64 }, torch::kByte);
-        m_images[2] = torch::from_blob(rgb[2].data, { 64, 64 }, torch::kByte);
+        auto m_images = torch::zeros({ 3,SIZE,SIZE }, torch::kByte);
+        m_images[0] = torch::from_blob(rgb[0].data, { SIZE, SIZE }, torch::kByte);
+        m_images[1] = torch::from_blob(rgb[1].data, { SIZE, SIZE }, torch::kByte);
+        m_images[2] = torch::from_blob(rgb[2].data, { SIZE, SIZE }, torch::kByte);
 
         IMG.push_back(m_images);
     }
@@ -64,7 +65,7 @@ Dataset::Pair Dataset::proccesing_data(
         if (dirname != "." && dirname != "..") {
             std::string STR = PATH + DSEP + dirname;
             if (CmdLineOpt::verbose) std::cout << STR << std::endl;
-            IMG.push_back(get_image_from_directory(STR, "jpg"));
+            IMG.push_back(get_image_from_directory(STR, "jpg",SIZE));
             TRG.push_back(torch::full({ IMG[count].size(0) }, count).to(at::kByte));
             count++;
         }

@@ -19,6 +19,7 @@ int main(int argc, const char* argv[]) {
     }
     catch (std::exception e) {
         std::cerr << "Error: " << e.what();
+        exit(-1)
     }
 };
 

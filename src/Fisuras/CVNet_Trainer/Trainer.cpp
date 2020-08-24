@@ -2,9 +2,17 @@
 #include "Trainer.h"
 
 using namespace std;
+// es un espacio de nombres estandar muy usadado. Se abrevian comandos muy repetidos.
+
+constexpr auto DSEP="/";
+// Estandar de separador de carpetas compatible Win y Linux que puede convivir con la barra invertida de windows
+
+#define IMG_FNAME(ROOT_FOLDER,PREFIX_FN) ROOT_FOLDER + DSEP + PREFIX_FN + "IMAGES.tensor"
+#define TRG_FNAME(ROOT_FOLDER,PREFIX_FN) ROOT_FOLDER + DSEP + PREFIX_FN + "TARGET.tensor"
 
 Trainer::Trainer() {
     try {
+		cout << "Cargando " << IMG_FNAME(CmdLineOpt::dataset_path, CmdLineOpt::dataset_prefix) << endl;
 	    torch::load(_image, IMG_FNAME(CmdLineOpt::dataset_path, CmdLineOpt::dataset_prefix));
     	torch::load(_target, TRG_FNAME(CmdLineOpt::dataset_path, CmdLineOpt::dataset_prefix));
     } catch(exception &e) {

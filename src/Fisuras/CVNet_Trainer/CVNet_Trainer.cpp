@@ -15,6 +15,7 @@ int main(int argc, const char* argv[]) {
         return 0;
     }
     catch (std::exception e) {
-        std::cerr << "Error: " << e.what();
+        std::cerr << "CVNet_Trainer Error: " << e.what();
+        exit(-1);
     }
 };
