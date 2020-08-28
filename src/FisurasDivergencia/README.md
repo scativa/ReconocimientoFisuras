@@ -5,8 +5,48 @@ Hay modificaciones importantes como:
 - Uso de librería CmdLineOpt mejorada
 - Manejo de excepciones y asserts
 - Funcionamiento en Colab
-- Tensor utils.cpp
+- TorchUtils.cpp
 - CMakelist.txt
+
+Luego de la divergencia del desarrollo se utiliza para analizar la estructura y respuesta de la red, así como el desarrollo de herramientas. Por ejemplo el cálculo de la primera capa lineal dependiente, entre otros parámetros del tamaño de la imagen de entrada.
+```cpp
+  namespace torch_utils
+  class ConvOptionsLayer
+  class SecConvOptions
+```
+
+Está planifiicado descartar _FisurasDivergencias_ del master una vez desarrolladas las características propuestas y realizadas las pruebas necesarias.
+
+## Capa lineal
+El cálculo se hace recursivo teniendo en cuenta:
+1. Tamaño de las imágenes
+2. Por cada capa convolucional
+   - kernel
+   - pool size
+   - input size
+3. En este caso __no__ tiene en cuenta el batch
+En el ejemplo el kernel, el pool size (=2) se mantienen igual en cada capa. La entrada tiene igula alto=ancho. No se considera el padding, strides, ni otras opciones. 
+Ver [TensorLayer.md](https://github.com/scativa/ReconocimientoFisuras/blob/newCVNet/docs/CVNet_CementTrainer/TensorLayers.md)
+
+```cpp
+const uint32_t m_batch_size = 16;
+uint32_t img_size = 64;
+constexpr int kernel_size = 3;
+constexpr int cant_layers = 3;
+
+uint32_t rec_fc1_input_size(uint32_t in_size, int k_size, int layer) {
+    uint32_t aux_size = (in_size - (k_size - 1)) / 2 /*pool_size*/;
+    if (layer == cant_layers)
+        return aux_size;
+    else
+        return rec_fc1_input_size(aux_size, k_size, layer + 1);
+}
+
+uint32_t fc1_input_size() {
+    uint32_t aux_rec = rec_fc1_input_size(img_size, kernel_size, 1);
+    return aux_rec * aux_rec * 32 /*last_layer_out_size*/;
+}
+```
 
 ## Changelog
 ### Adecuación para compilar en Linux - 20200518
