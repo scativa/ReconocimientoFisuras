@@ -2,7 +2,7 @@
 #include "pch.h"
 
 #include "../common/globals.h"
-#include "Tensor_utils.h"
+#include "TorchUtils.h"
 
 using namespace std;
 
@@ -30,7 +30,7 @@ uint32_t fc1_input_size() {
 
 
 #define IF_PRINT if (globals::verbose_mode && first_time)
-#define PRINT_TS(label,t) IF_PRINT cout << label << " tensor size: " << t.sizes() << "; strides: " << t.strides() /*<< "; shape: " << t.shape()*/ << endl
+#define PRINT_TS(label,t) IF_PRINT cout << label << " tensor size: " << t.sizes() << "; strides: " << t.strides() << endl
 
 struct NetImpl : torch::nn::Module {
 
@@ -59,7 +59,14 @@ struct NetImpl : torch::nn::Module {
         PRINT_TS("fc1 weight", fc1->weight);
         PRINT_TS("fc2 weight", fc2->weight);
 
-        
+        torch_utils::SecConvOptions conv_options(img_size);
+        conv_options.layers_opts.push_back(torch_utils::ConvOptionsLayer(3,32,kernel_size,2));
+        conv_options.layers_opts.push_back(torch_utils::ConvOptionsLayer(32,32,kernel_size,2));
+        conv_options.layers_opts.push_back(torch_utils::ConvOptionsLayer(32,32,kernel_size,2));
+
+        conv_options.Print();
+
+        cout << "NextLinearLayer_InputSize=" << conv_options.NextLinearLayer_InputSize() << endl;
     }
 
     torch::Tensor forward(torch::Tensor x) {

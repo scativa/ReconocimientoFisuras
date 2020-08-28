@@ -4,7 +4,7 @@
 #include <cmdlineopt.hpp> 
 #include "../common/globals.h"
 
-#include "Tensor_utils.h"
+#include "TorchUtils.h"
 
 using namespace std;
 

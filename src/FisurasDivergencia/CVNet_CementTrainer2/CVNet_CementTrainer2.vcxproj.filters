@@ -27,7 +27,7 @@
     <ClCompile Include="..\common\globals.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Tensor_utils.cpp">
+    <ClCompile Include="TorchUtils.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -44,7 +44,7 @@
     <ClInclude Include="..\common\globals.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Tensor_utils.h">
+    <ClInclude Include="TorchUtils.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
