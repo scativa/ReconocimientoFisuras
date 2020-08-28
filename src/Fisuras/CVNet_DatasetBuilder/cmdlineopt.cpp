@@ -35,7 +35,7 @@ namespace CmdLineOpt {
             if (result.count("path")) std::cout << "Direccion donde busca Imagenes. <" << dataset_path << ">" << std::endl;
             if (result.count("size")) std::cout << "Las Imagenes del tensor tienen dimension <" << image_size << "," << image_size << ">" << std::endl;
  
-            if (result.count("dataset_prefix")) {
+            if (result.count("prefix")) {
                 dataset_prefix.append("_");
                 std::cout << "Prefijo Dataset. <" << overwrite_dataset << ">" << std::endl;
             }

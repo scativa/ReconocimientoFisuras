@@ -4,16 +4,48 @@
 #include "../common/globals.h"
 #include "Tensor_utils.h"
 
-const uint32_t m_batch_size = 32;
-
 using namespace std;
 
+const uint32_t m_batch_size = 16;
+uint32_t img_size = 64;
+constexpr int kernel_size = 3;
+constexpr int cant_layers = 3;
+
+uint32_t rec_fc1_input_size(uint32_t in_size, int k_size, int layer) {
+    uint32_t aux_size = (in_size - (k_size - 1)) / 2 /*pool_size*/;
+    cout << "rec_fc1_input_size (" << in_size << "," << k_size << "," << layer << ") = " << aux_size << endl;
+    if (layer == cant_layers)
+        return aux_size;
+    else
+        return rec_fc1_input_size(aux_size, k_size, layer + 1);
+}
+
+uint32_t fc1_input_size() {
+    uint32_t aux_rec = rec_fc1_input_size(img_size, kernel_size, 1);
+    uint32_t aux_res = aux_rec * aux_rec * 32 /*last_layer_out_size*/;
+    cout << "rec_fc1_input_size = " << aux_rec << endl;
+    cout << "fc1_input_size = " << aux_res << endl;
+    return aux_res;
+}
+
+
+#define IF_PRINT if (globals::verbose_mode && first_time)
+#define PRINT_TS(label,t) IF_PRINT cout << label << " tensor size: " << t.sizes() << "; strides: " << t.strides() /*<< "; shape: " << t.shape()*/ << endl
+
 struct NetImpl : torch::nn::Module {
+
+    torch::nn::Conv2d conv1;
+    torch::nn::Conv2d conv2;
+    torch::nn::Conv2d conv3;
+    torch::nn::Linear fc1;
+    torch::nn::Linear fc2;
+
     NetImpl() :
-        conv1(torch::nn::Conv2dOptions(3, 32, /*kernel_size=*/3)),
-        conv2(torch::nn::Conv2dOptions(32, 32, /*kernel_size=*/3)),
-        conv3(torch::nn::Conv2dOptions(32, 32, /*kernel_size=*/3)),
-        fc1(1152, 100),
+        // https://pytorch.org/cppdocs/api/structtorch_1_1nn_1_1_conv_options.html#_CPPv4I_6size_tEN5torch2nn11ConvOptionsE
+        conv1(torch::nn::Conv2dOptions(3, 32, kernel_size)), // ConvOptions(int64_t in_channels, int64_t out_channels, ExpandingArray<D> kernel_size)
+        conv2(torch::nn::Conv2dOptions(32, 32, kernel_size)),
+        conv3(torch::nn::Conv2dOptions(32, 32, kernel_size)),
+        fc1(fc1_input_size(), 100),
         fc2(100, 2) {
 
         // register_module() is needed if we want to use the parameters() method later on
@@ -22,50 +54,77 @@ struct NetImpl : torch::nn::Module {
         register_module("conv3", conv3);
         register_module("fc1", fc1);
         register_module("fc2", fc2);
+
+        bool first_time = true;
+        PRINT_TS("fc1 weight", fc1->weight);
+        PRINT_TS("fc2 weight", fc2->weight);
+
+        
     }
 
     torch::Tensor forward(torch::Tensor x) {
+        static bool first_time = true; 
         torch::Device device = (torch::cuda::is_available() ? torch::kCUDA : torch::kCPU);
+        PRINT_TS("fc1 weight", fc1->weight);
 
         x = x.to(device);
-        
-        if (globals::verbose_mode) { // Imprime los datos del Tensor SÓLO la primera vez.
-            static bool first_time = true;
-            if (first_time) {
-                first_time = false;
-                cout << endl << "NetImpl.forward (Net.h) - ";
-                cout << "Tensor post_x.to(" << device << "); (size: " << x.sizes() << "): " << endl;
-                print_opt(x);
-            }
+        PRINT_TS("fc1 weight", fc1->weight);
+
+
+
+        IF_PRINT{ // Imprime los datos del Tensor SÓLO la primera vez.
+            cout << endl << "NetImpl.forward (Net.h) - " << endl;
+            PRINT_TS("input tensor",x);
+            //print_opt(x);
         }
 
-        //std::cout << x.sizes()<<std::endl;
-        x = torch::relu(torch::max_pool2d(conv1->forward(x), 2));
-        // std::cout << x.sizes() <<  std::endl;
+        IF_PRINT cout << endl << "== Conv1 ==" << endl;
+        x = conv1->forward(x);
+        PRINT_TS("forward out", x);
+        x = torch::max_pool2d(x, 2);
+        PRINT_TS("max_pool2d out", x);
+        x = torch::relu(x);
+        PRINT_TS("relu out", x);
+
+        IF_PRINT cout << endl << "== Conv2 ==" << endl;
         x = torch::relu(torch::max_pool2d(conv2->forward(x), 2));
-        // std::cout << x.sizes() <<  std::endl;
-        x = torch::relu(torch::max_pool2d(conv3->forward(x), 2));
-        //std::cout << x.sizes() << std::endl;
+        PRINT_TS("out tensor size: ", x);
 
+        IF_PRINT cout << endl << "== Conv3 ==" << endl;
+        x = torch::relu(torch::max_pool2d(conv3->forward(x), 2));
+        PRINT_TS("out tensor size: ", x);
+
+        IF_PRINT cout << endl << "== XView ==" << endl;
+        int64_t vsize = x.size(1) * x.size(2) * x.size(3);
+        
+        //auto xa = x.view({ -1, vsize });
         /*
-        if (globals::verbose_mode) {
-            cout << "relu (x3) ->" << endl;
-            cout << "Tensor x (size: " << x.sizes() << ")" << endl;
-            print_opt(x);
-        }
+        auto xb = x.view({ -1, x.size(0) });
+        auto xc = x.view({ x.size(0), -1 });
+        auto xd = x.view({ -1, x.size(1) * x.size(2) * x.size(3) });
+        auto xd = x.view({ -1, x.size(0) });
         */
 
-        x = x.view({ -1, 1152 });
+        x = x.view({ -1, vsize });
+        PRINT_TS("out tensor size: ", x);
+
+        //x = x.view({ -1, x.size(0) });
+        //x = x.view({ x.size(0), -1 });
+        // https://stackoverflow.com/questions/60826846/dimension-mismatch-cnn-libtorch-pytorch
+
+        PRINT_TS("fc1 weight", fc1->weight);
+
         x = torch::relu(fc1->forward(x));
+        PRINT_TS("fc1 out tensor size: ",x);
+
         x = fc2->forward(x);
+        PRINT_TS("fc1 out tensor size: ", x);
+
+        if (first_time) first_time = false;
+
         return torch::log_softmax(x, /*dim=*/1);
     }
 
-    torch::nn::Conv2d conv1;
-    torch::nn::Conv2d conv2;
-    torch::nn::Conv2d conv3;
-    torch::nn::Linear fc1;
-    torch::nn::Linear fc2;
 
  };
 

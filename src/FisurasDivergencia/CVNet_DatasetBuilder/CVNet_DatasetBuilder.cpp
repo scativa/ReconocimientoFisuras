@@ -17,7 +17,7 @@ int main(int argc, char* argv[]) {
 
 try {
     // Opciones de línea de comando
-    // --input=E:\data\CementCrack\5y9wdsg2zt-1 --prefix=32x32(0.15) --training_percentage=0.15 --size_x=32 --size_y=32 --verbose 
+    // --input=C:/Users/User/Proyectos/data/CementCrack/5y9wdsg2zt-1-c20 --training_percentage=0.15 --prefix=64 --size_x=64 --size_y=64 --verbose 
     cmdlineopt::CmdLineOpt opt(argc, argv);
     opt.Parse();
 
@@ -35,9 +35,10 @@ try {
 
     // Opciones tamaño imagen
     int resize_x = (opt.SizeX() > 0) ? opt.SizeX() : 64; // Se usa 64x64 en caso de hacer el resize <= 0. Significa que no se pasó como parámetro
-    int resize_y = (opt.SizeY() > 0) ? opt.SizeY() : 64;
+    //int resize_y = (opt.SizeY() > 0) ? opt.SizeY() : 64;
+
     assert(resize_y == resize_y);
-    pair<uint32_t, uint32_t> image_resize(resize_y, resize_x);
+    pair<uint32_t, uint32_t> image_resize(resize_x, resize_x);
 
     // Device: CPU - GPU
     if (globals::verbose_mode) {

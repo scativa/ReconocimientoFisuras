@@ -4,6 +4,8 @@
 struct NetworkImpl : torch::nn::SequentialImpl
 {
     NetworkImpl() {
+        constexpr int img_sz = 64;
+
         using namespace torch::nn;
         // Layer 1
         push_back(Conv2d(Conv2dOptions(3, 32, 3)));
@@ -19,7 +21,8 @@ struct NetworkImpl : torch::nn::SequentialImpl
         push_back(Functional(torch::relu));
         // Layer 4
         push_back(Flatten());
-        push_back(Linear(1152, 100));
+        push_back(Linear(img_sz * 18, 100));
+        //push_back(Linear(1152, 100));
         push_back(Functional(torch::relu));
         // Layer 5
         push_back(Linear(100, 2));    

@@ -71,12 +71,14 @@ namespace torch {
                     targets_ = targets_.to(device);
                 }
 
+                /*
                 if (globals::verbose_mode) {
                     cout << "images_ in device=" << device << endl;
                     print_opt(images_);
                     cout << "targets_ in device=" << device << endl;
                     print_opt(targets_);
                 }
+                */
 
                 // cout << images_.device()
                 if (globals::verbose_mode) cout << endl;

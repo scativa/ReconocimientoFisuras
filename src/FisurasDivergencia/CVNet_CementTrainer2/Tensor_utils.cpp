@@ -8,7 +8,9 @@ void print_opt(at::Tensor t) {
 
     cout // << "Tensor options: " << endl
         << "Device: " << optt.device() << "(" << optt.device_index() << ") "
-        << "Dtype: " << optt.dtype() << endl << endl;
+        << "Dtype: " << optt.dtype() << endl 
+        << " tensor size: " << t.sizes() << "; strides: " << t.strides() << endl
+        << endl;
 }
 
 void print_opt(torch::Device device, torch::Dtype dtype) {
@@ -19,3 +21,4 @@ void print_opt(torch::Device device, torch::Dtype dtype) {
         << "Dtype: " << optd.dtype() << endl << endl;
 
 }
+

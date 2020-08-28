@@ -10,7 +10,7 @@ using namespace std;
 
 template <typename DataLoader>
 float test_batch(Net MODEL, DataLoader& DATA_LOADER, size_t SIZE) {
-    printf("Testing... ");
+    //printf("Testing... ");
 
     MODEL->eval();
     int64_t correct = 0;
@@ -26,7 +26,7 @@ float test_batch(Net MODEL, DataLoader& DATA_LOADER, size_t SIZE) {
 
 template <typename DataLoader>
 void train_batch(size_t EPOCH, Net MODEL, DataLoader& DATA_LOADER, torch::optim::Optimizer& optimizer, size_t SIZE) {
-    printf("Trainning... ");
+    //printf("Trainning... ");
 
     MODEL->train();
     size_t batch_idx = 0;
@@ -39,7 +39,7 @@ void train_batch(size_t EPOCH, Net MODEL, DataLoader& DATA_LOADER, torch::optim:
         loss.backward();
         optimizer.step();
 
-        printf("\rTrain Epoch: %ld [%zd/%zd] Loss: %.4f ", EPOCH, batch_idx++ * m_batch_size, SIZE, loss.template item<float>());
+        //printf("\rTrain Epoch: %ld [%zd/%zd] Loss: %.4f ", EPOCH, batch_idx++ * m_batch_size, SIZE, loss.template item<float>());
     }
     printf("\r\n");
 };
@@ -52,7 +52,7 @@ int main(int argc, char* argv[]) {
 
 try {
     // Opciones de línea de comando
-    // --input=E:\data\CementCrack\5y9wdsg2zt-1 --prefix=32x32(0.50) --epoch=1 --model=model.pt --verbose
+    // --input=C:/Users/User/Proyectos/data/CementCrack/5y9wdsg2zt-1-c20  --prefix=64 --epoch=1 --model=model.pt --verbose
     cmdlineopt::CmdLineOpt opt(argc, argv);
     opt.Parse();
 
@@ -87,7 +87,7 @@ try {
     //------------------------------------------------------------------------------------------------
     // Si existe un entrenamiento previo arranca desde ahi, sino empieza desde cero/
     try {
-        torch::load(net, modelfn);
+        // torch::load(net, modelfn); CUIDADO!!!! Si carga un modelo de otras características sobreescribe lo que se crea en el código.
         if (globals::verbose_mode) cout << "Archivo '" << modelfn << "'!" << endl;
     }
     catch (...) { 
@@ -148,26 +148,26 @@ try {
     float m_best_accuracy = 0.0f;
 
     for (size_t epoch = 0; epoch < N_EPOCH_TO_TRAIN; epoch++) {
-        if (!globals::quiet_mode) cout << endl << "Epoch: " << epoch << "/" << N_EPOCH_TO_TRAIN << ":" << endl;
+        // if (!globals::quiet_mode) cout << endl << "Epoch: " << epoch << "/" << N_EPOCH_TO_TRAIN << ":" << endl;
         // Testea las imagenes de entrenamiento
         size_t m_train = m_data_set_train.size().value();
-        if (!globals::quiet_mode) cout << "Try " << float(m_train / 1000) << "k train data: ";
+        // if (!globals::quiet_mode) cout << "Try " << float(m_train / 1000) << "k train data: ";
         test_batch(net, *m_data_loader_train, m_train);
 
         //Ahora testeo con imagenes con la cuales no entrena y nunca vio, si la red aprendio la graba a disco.
         size_t m_test = m_data_set_test.size().value();
-        if (!globals::quiet_mode) cout << "Try " << float(m_test / 1000) << "k test data: ";
+        // if (!globals::quiet_mode) cout << "Try " << float(m_test / 1000) << "k test data: ";
         float m_accuracy = test_batch(net, *m_data_loader_test, m_test);
 
         if (m_accuracy > m_best_accuracy) {
             m_best_accuracy = m_accuracy;
-            if (globals::verbose_mode) cout << "Guardando '" << modelfn << "' ";
+            // if (globals::verbose_mode) cout << "Guardando '" << modelfn << "' ";
             torch::save(net, modelfn);
-            if (globals::verbose_mode) cout << "Listo!" << endl;
+            // if (globals::verbose_mode) cout << "Listo!" << endl;
         }
 
         //Haciendo una pasada por todas las imagenes para entrenar.
-        if (globals::verbose_mode) cout << "Entrenando:" << endl;
+        // if (globals::verbose_mode) cout << "Entrenando:" << endl;
         train_batch(epoch, net, *m_data_loader_train, optimizer, m_train);
     };
 

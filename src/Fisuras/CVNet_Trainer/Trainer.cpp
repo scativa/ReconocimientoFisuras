@@ -60,6 +60,8 @@ void Trainer::Train(const uint32_t& EPOCH, torch::optim::Optimizer& OPT, torch::
 
 	for (uint32_t idx = 0; idx < IMAGE.size(); idx++){
 		OPT.zero_grad();
+		auto im_idx = IMAGE[idx];
+		auto im_idx_fst = im_idx[0];
 			auto prediction = NET->forward(IMAGE[idx].to(at::kFloat).div_(255));
 			auto loss = torch::nll_loss(prediction, TARGET[idx].to(at::kLong));
 			loss.backward();    

@@ -2,6 +2,12 @@
 #include "Dataset.h"
 #include "cmdlineopt.h"
 
+constexpr auto DSEP = "/";
+#define IMG_FNAME(ROOT_FOLDER,PREFIX_FN) ROOT_FOLDER + DSEP + PREFIX_FN + "IMAGES.tensor"
+#define TRG_FNAME(ROOT_FOLDER,PREFIX_FN) ROOT_FOLDER + DSEP + PREFIX_FN + "TARGET.tensor"
+// ^-- Concernientes a la implementación, no a la declaración. No va en el .h
+
+
 auto Dataset::get_file_or_directory_structure(
     const size_t& TYPE,
     const std::string& PATH,
@@ -57,7 +63,9 @@ Dataset::Pair Dataset::proccesing_data(
     std::vector<torch::Tensor> IMG;
     std::vector<torch::Tensor> TRG;
 
+    if (CmdLineOpt::verbose) std::cout << "Procesando Estructura de: " << PATH << std::endl;
     auto DIR = get_file_or_directory_structure(FILE_ATTRIBUTE_DIRECTORY, PATH);
+    assert(DIR.size() > 0);
 
     if (CmdLineOpt::verbose) std::cout << "Procesando Directorios." << std::endl;
     int count = 0;
