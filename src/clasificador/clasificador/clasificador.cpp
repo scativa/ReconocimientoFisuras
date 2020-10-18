@@ -16,14 +16,15 @@ using namespace std;
 #define CUADSIZE 200
 
 // Define la cantidad mínima de píxeles que un cuadro tiene que intersecar la máscara para que sea considerado como positivo (con falla) en función de CUADSIZE
-#define TH_MASK_PIXELS (CUADSIZE * 0.0125)
+// #define TH_MASK_PIXELS (CUADSIZE * 0.0125)
+#define TH_MASK_PIXELS 0.0
 
 // Define la cantidad de sub pasos en los que avanza los cuadros. En un número mayor a uno los cuadros se superponen
 #define CUADSUBSTEP 3
 
 int main()
 {
-	char filename_buffer[FILENAME_MAX];
+	// char filename_buffer[FILENAME_MAX];
 
 
 	// class Mat https://docs.opencv.org/2.4/modules/core/doc/basic_structures.html?highlight=class%20rect#mat
@@ -32,17 +33,19 @@ int main()
 	Mat image_original, image_marcada;
 
 	// Lectura de las imagenes original y mascara de la carpeta ./input/
-	sprintf_s(filename_buffer, FILENAME_MAX, ".\\input\\%s.jpg", "original");
-	image_original = imread(filename_buffer, 1 /* CV_LOAD_IMAGE_COLOR*/);   // Read the file
+	string filename = "./input/original.jpg";
+	// sprintf_s(filename_buffer, FILENAME_MAX, "./input/%s.jpg", "original");
+	image_original = imread(filename, 1 /* CV_LOAD_IMAGE_COLOR*/);   // Read the file
 	if (!image_original.data) {                             // Check for invalid input
-		cout << "Could not open or find the image "<< filename_buffer << std::endl;
+		cout << "Could not open or find the image "<< filename << std::endl;
 		return -1;
 	}
 
-	sprintf_s(filename_buffer, FILENAME_MAX, ".\\input\\%s.jpg", "marcada");
-	image_marcada = imread(filename_buffer, 1 /* CV_LOAD_IMAGE_COLOR*/);   // Read the file
+	filename = "./input/marcada.jpg";
+	// sprintf_s(filename_buffer, FILENAME_MAX, "./input/%s.jpg", "marcada");
+	image_marcada = imread(filename, 1 /* CV_LOAD_IMAGE_COLOR*/);   // Read the file
 	if (!image_marcada.data) {                             // Check for invalid input
-		cout << "Could not open or find the image " << filename_buffer << std::endl;
+		cout << "Could not open or find the image " << filename << std::endl;
 		return -1;
 	}
 
@@ -67,6 +70,7 @@ int main()
 			// Se toman las submatrices a partir del rectángulo R de tamaño CUADSIZE * CUADSIZE 
 			Rect R(i, j, CUADSIZE, CUADSIZE); // Submatrix: https://stackoverflow.com/questions/27835439/opencv-submatrix-access-copy-or-reference
 			Mat cuad_original = image_original(R).clone();
+			Mat cuad_marcada = image_marcada(R).clone();
 			Mat cuad_mascara_grey = mascara_grey(R).clone();
 
 			// Calculo de cuántos píxeles de la máscara intersecan el cuadro. Con esto se define el nombre del archivo con el prefijo "pos" o "neg". Luego se completa el nombre con los límites del cuadro
@@ -74,11 +78,26 @@ int main()
 			double intersec = (suma[0] / 256);
 			//cout << (suma[0] / 256) << endl;
 			// sprintf_s: https://docs.microsoft.com/en-us/cpp/c-runtime-library/reference/sprintf-s-sprintf-s-l-swprintf-s-swprintf-s-l?view=vs-2019
-			sprintf_s(filename_buffer, FILENAME_MAX, ".\\output\\%s_%i-%i_%i-%i.jpg", (intersec > TH_MASK_PIXELS) ? "pos":"neg", i, j, i + CUADSIZE, j + CUADSIZE);
 
+			// sprintf_s(filename_buffer, FILENAME_MAX, "./output/%s_%i-%i_%i-%i.jpg", (intersec > TH_MASK_PIXELS) ? "pos":"neg", i, j, i + CUADSIZE, j + CUADSIZE);
+			filename = "./output/orig_" + to_string(i) + "_" + to_string(j) + "-" + to_string(i + CUADSIZE) + "_" + to_string(j + CUADSIZE) + ".jpg";
 			// Se escribe en cuadrado en la carpeta ./output/
-			cout << count++ << ")" << filename_buffer << endl;
-			imwrite(filename_buffer, cuad_original);
+			cout << count << ")" << filename << endl;
+			imwrite(filename, cuad_original);
+
+			// sprintf_s(filename_buffer, FILENAME_MAX, "./output/%s_%i-%i_%i-%i.jpg", (intersec > TH_MASK_PIXELS) ? "pos":"neg", i, j, i + CUADSIZE, j + CUADSIZE);
+			filename = "./output/marc_" + to_string(i) + "_" + to_string(j) + "-" + to_string(i + CUADSIZE) + "_" + to_string(j + CUADSIZE) + ".jpg";
+			// Se escribe en cuadrado en la carpeta ./output/
+			// cout << count << ")" << filename << endl;
+			imwrite(filename, cuad_marcada);
+
+			// sprintf_s(filename_buffer, FILENAME_MAX, "./output/%s_%i-%i_%i-%i.jpg", (intersec > TH_MASK_PIXELS) ? "pos":"neg", i, j, i + CUADSIZE, j + CUADSIZE);
+			filename = "./output/mask_" + to_string(i) + "_" + to_string(j) + "-" + to_string(i + CUADSIZE) + "_" + to_string(j + CUADSIZE) + ".jpg";
+			// Se escribe en cuadrado en la carpeta ./output/
+			// cout << count << ")" << filename << endl;
+			imwrite(filename, cuad_mascara_grey);
+
+			count++;
 
 			//namedWindow("Display window", WINDOW_NORMAL); // Create a window for display.
 			//imshow("Display window", cuad_original);        // Show our image inside it.
